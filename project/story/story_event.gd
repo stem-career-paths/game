@@ -9,10 +9,14 @@ func get_intro_text(_world:World)->String:
 func get_options(_world:World)->Array[StoryOption]:
 	var option1 := StoryOption.new()
 	option1.text = "Bird Banding"
-	option1.result = StoryResult.new("You see a cardinal. Neat.")
+	option1.result = StoryResult.new("You see a cardinal. Neat.", 
+		{"science": 1, "engagement":1}
+	)
 	var option2 := StoryOption.new()
 	option2.text = "Video Games"
-	option2.result = StoryResult.new("You scream like Sam Kinnison until your throat is raw.")
+	option2.result = StoryResult.new("You scream like Sam Kinnison until your throat is raw.",
+		{"technology": 1, "engagement": -1}
+	)
 	return [
 		option1,
 		option2

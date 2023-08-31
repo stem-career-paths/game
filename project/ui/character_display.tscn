@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://scwnvnkr08fy"]
+
+[ext_resource type="Script" path="res://ui/character_display.gd" id="1_34qhi"]
+
+[node name="CharacterDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_34qhi")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="ScienceLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Science"
+
+[node name="ScienceValue" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TechnologyLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Technology"
+
+[node name="TechnologyValue" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EngineeringLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Engineering
+"
+
+[node name="EngineeringValue" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MathematicsLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Mathematics
+"
+
+[node name="MathematicsValue" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EngagementLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Engagement"
+
+[node name="EngagementValue" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ResliienceLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Resilience"
+
+[node name="ResilienceValue" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CuriosityLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Curiosity"
+
+[node name="CuriosityValue" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
