@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd4negk3o335n"]
+
+[ext_resource type="Script" path="res://ui/story_result_display.gd" id="1_ensc3"]
+
+[node name="StoryResultDisplay" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ensc3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+autowrap_mode = 2
+
+[node name="OkButton" type="Button" parent="."]
+layout_mode = 2
+text = "OK"
+
+[connection signal="pressed" from="OkButton" to="." method="_on_ok_button_pressed"]

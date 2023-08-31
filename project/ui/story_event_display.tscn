@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ssyidvh4mgw"]
+
+[ext_resource type="Script" path="res://ui/story_event_display.gd" id="1_njheb"]
+
+[node name="StoryEventDisplay" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_njheb")
+
+[node name="StoryText" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Story Text"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="OptionsBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
