@@ -1,0 +1,9 @@
+{
+	"godot_tools.gdscript_lsp_server_port": 6005,
+	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "file",
+	"editor.renderWhitespace": "all",
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.tabSize": 4
+}
