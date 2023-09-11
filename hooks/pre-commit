@@ -1,0 +1,10 @@
+#!/bin/sh
+if godot -d -s --path project addons/gut/gut_cmdln.gd -gdir=res://test/ -ginclude_subdirs=true -gprefix="" -gsuffix="_test.gd" -gexit
+then
+    echo "Tests passed"
+else
+    cat <<\EOF
+Unit tests failed. Commit aborted.
+EOF
+    exit 1
+fi
