@@ -7,23 +7,21 @@
 ### Configuration
 
 Run the `install_hooks.sh` script after cloning the project to install
-the pre-commit hooks. This will run the automated tests in the `test`
-folder before completing your commit.
+the pre-commit hooks. 
+You can run this script from the command line by going to the directory
+containing the project and issuing this command:
+```bash
+sh install_hooks.sh
+```
 
-In order for this to work,
-you will need to set up a shell command `godot`. One Linux-friendly option is
-to have Godot Engine in an apps directory on your path. Windows and Mac users
-may prefer to set up an alias. To do this, add something like the following to
-the end of the `.bashrc` file in your home directory:
-```
-alias godot='path-to-godot'
-```
-For example, on Windows, this might be:
-```
-alias godot='/c/Users/pvg/Desktop/Godot-v4.1.1-stable_windows.exe'
-```
-Remember that you will need to either restart your shell or `source` your
-configuration file before that alias takes effect.
+Having set up that hook will ensure that all the automated tests are run prior to each commit. For this to work, you need to be able to run Godot Engine from the command line as `godot`. Here is a recommended approach for Windows and Git Bash users:
+1. Download [Godot Engine](https://godotengine.org/) and extract the executable (`.exe` file) from the archive.
+1. Rename that executable to `godot.exe`.
+1. Move that file to the `bin` folder of your home directory. (Your home directory is something like `c:\Users\username`.)
+
+That executable is now on your default path, so you can now run `godot` from the command line and the automated tests will work.
+You can still create a shortcut to that executable on your Desktop for ease of mouse access, though there's real value to just opening the project you want from the command line.
+
 
 ### Per-Developer Project Settings Override
 
