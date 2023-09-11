@@ -2,26 +2,44 @@ extends Control
 
 var world := World.new()
 
+signal _option_selected(option:String)
+
 func _ready():
 	%CharacterDisplay.character = world.character
-
-	world.card_changed.connect(func(card):
-		_show_card(card)
-	)
-	
-	var first_card := world.deck.draw()
-	world.card = first_card
+	var story := preload("res://story/meta_story.gd").new()
+	await story.run(self)
+	print("Story is done")
 
 
-func _show_card(card:StoryCard)->void:
-	_clear(%StoryArea)
-	
-	var story_event_display := preload("res://ui/story_card_display.tscn").instantiate()
-	story_event_display.card = card
-	story_event_display.world = world
-	%StoryArea.add_child(story_event_display)
+## PRESENTER METHODS ------------------------------------
+
+func show_confirmation(text:="OK")->void:
+	var button := Button.new()
+	button.text = text
+	%StoryArea.add_child(button)
+	await button.pressed
 
 
-func _clear(container:Control)->void:
-	while container.get_child_count() > 0:
-		container.remove_child(container.get_child(0))
+func show_effects(effects:Dictionary)->void:
+	for attribute in effects.keys():
+		world.character[attribute] += effects[attribute]
+
+
+func show_options(options:Array)->String:
+	for option in options:
+		var button := Button.new()
+		button.text = option
+		button.pressed.connect(func():
+			_option_selected.emit(option)
+		)
+		%StoryArea.add_child(button)
+
+	var selection = await _option_selected
+	print("Going to return ", selection)
+	return selection
+
+
+func show_text(text:String)->void:
+	var label := Label.new()
+	label.text=text
+	%StoryArea.add_child(label)
