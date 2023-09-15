@@ -2,9 +2,11 @@ class_name SimpleStory extends RefCounted
 
 func run(presenter)->void:
 	assert("text" in self, "This story must have 'text'")
+	assert("image" in self, "This story must have 'image'")
 	assert("options" in self, "This story must have 'options'")
 	
 	presenter.show_text(get("text"))
+	presenter.show_image(get("image"))
 	
 	var options_dict = get("options")
 	var option_keys = options_dict.keys()

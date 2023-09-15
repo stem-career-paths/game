@@ -14,6 +14,7 @@ func run(presenter):
 			options.append(file_path)
 
 	while true:
+		presenter.show_image("blank")
 		await presenter.show_text("What's next?")
 		var selection = await presenter.show_options(options)
 		var object = load(_STORY_PATH + selection).new()

@@ -2,6 +2,8 @@ extends SimpleStory
 
 var text := "You can go BB or VG."
 
+var image := "blank"
+
 var options := {
 	"Bird Banding":
 	{

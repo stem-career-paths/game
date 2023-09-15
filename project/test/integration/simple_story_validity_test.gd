@@ -14,6 +14,7 @@ func test_simple_stories_have_expected_structure():
 func _test_structure_of(story:Object)->void:
 	assert_true("text" in story, "Story must have a 'text' field")
 	assert_false(story.text.strip_edges().is_empty(), "The 'text' field must have content")
+	assert_true("image" in story, "Story must have an 'image' field")
 	assert_true("options" in story, "Story must have an 'options' field")
 	assert_true(typeof(story.options) == TYPE_DICTIONARY, "The 'options' field must be a dictionary")
 	for key in story.options.keys():

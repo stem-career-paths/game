@@ -51,3 +51,7 @@ func show_options(options: Array) -> String:
 
 func show_text(text: String) -> void:
 	%Text.text = "[center]%s" % text
+
+
+func show_image(image: String) -> void:
+	%Image.texture = load("res://images/%s.png" % image)
