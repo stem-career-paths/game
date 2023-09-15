@@ -4,8 +4,13 @@
 class_name Character extends RefCounted
 
 const ATTRIBUTE_NAMES := [
-	"science", "technology", "engineering", "mathematics",
-	"engagement", "resilience", "curiosity"
+	"science",
+	"technology",
+	"engineering",
+	"mathematics",
+	"engagement",
+	"resilience",
+	"curiosity",
 ]
 
 var science := 0
