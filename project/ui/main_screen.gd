@@ -1,5 +1,7 @@
 extends Control
 
+const _STARTING_STORY_PATH := "res://story/starting_stories/"
+
 signal _option_selected(option: String)
 
 enum _EntranceType { FIXED, ANIMATED }
@@ -13,12 +15,17 @@ var _max_x := 750
 var _current_card : Node
 
 func _ready():
-	assert(initial_story!=null)
-	var story = load(initial_story).new()
-	await _show_card(story, _EntranceType.FIXED)
+	var file_paths := DirAccess.get_files_at(_STARTING_STORY_PATH)
+	for file_path in file_paths:
+		world.available_stories.append(_STARTING_STORY_PATH + file_path)
+	world.available_stories.shuffle()
 	
-	var next = load("res://story/steven_dnd.gd").new()
-	await _show_card(next, _EntranceType.ANIMATED)
+	while not world.available_stories.is_empty():
+		var story_path : String = world.available_stories.pop_front()
+		var story = load(story_path).new()
+		await _show_card(story, _EntranceType.FIXED if _current_card==null else _EntranceType.ANIMATED)
+		
+	print("THERE ARE NO MORE STORIES")
 
 
 func _show_card(story : Object, entrance : _EntranceType) -> void:
