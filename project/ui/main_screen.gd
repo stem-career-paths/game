@@ -8,6 +8,7 @@ enum _EntranceType { FIXED, ANIMATED }
 
 @export_file("*.gd") var initial_story 
 @export var slide_in_duration := 0.35
+@export var bottom_card_modulate_duration := 0.15
 
 var world := World.new()
 var _max_x := 750
@@ -29,6 +30,9 @@ func _ready():
 
 
 func _show_card(story : Object, entrance : _EntranceType) -> void:
+	if _current_card!=null:
+		create_tween().tween_property(_current_card, "modulate", Color.GRAY, bottom_card_modulate_duration)	
+	
 	var presenter := preload("res://card/story_card.tscn").instantiate()
 	presenter.world = world
 	
