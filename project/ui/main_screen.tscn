@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://byai3be16a35w"]
+[gd_scene load_steps=2 format=3 uid="uid://byai3be16a35w"]
 
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_0trh8"]
-[ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://ui/main_theme.tres" id="1_veehc"]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -10,7 +9,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_veehc")
 script = ExtResource("1_0trh8")
 initial_story = "res://story/bird_banding.gd"
 

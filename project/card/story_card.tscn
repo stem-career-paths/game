@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://card/story_card.gd" id="1_185so"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="1_cgl2b"]
-[ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://ui/main_theme.tres" id="1_wop3j"]
+[ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://card/theme.tres" id="2_qli37"]
 
 [node name="StoryCard" type="Control"]
 layout_mode = 3
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_wop3j")
+theme = ExtResource("2_qli37")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 custom_minimum_size = Vector2(0, 192)
