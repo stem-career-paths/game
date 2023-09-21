@@ -8,8 +8,10 @@ var world : World:
 signal _option_selected(option: String)
 
 
+@onready var _anim_player := $AnimationPlayer
 @onready var _button_area := %ButtonArea
-@onready var _main_image :TextureRect = %MainImage
+@onready var _effect_label : Label = %EffectLabel
+@onready var _main_image : TextureRect = %MainImage
 
 func _ready():
 	assert(world!=null)
@@ -28,8 +30,13 @@ func show_confirmation(text := "OK") -> void:
 
 
 func show_effects(effects: Dictionary) -> void:
+	var effect_text := ""
 	for attribute in effects.keys():
 		world.character[attribute] += effects[attribute]
+		effect_text += "%+d %s\n" % [effects[attribute], attribute]
+	_effect_label.text = effect_text
+	_anim_player.play("show_effect")
+	await _anim_player.animation_finished
 
 
 func show_npc(npc:Npc) -> void:
