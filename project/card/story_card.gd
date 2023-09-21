@@ -32,6 +32,10 @@ func show_effects(effects: Dictionary) -> void:
 		world.character[attribute] += effects[attribute]
 
 
+func show_npc(npc:Npc) -> void:
+	%MainImage.texture = npc.image
+
+
 func show_options(options: Array) -> String:
 	var buttons : Array[Button] = []
 	for option in options:

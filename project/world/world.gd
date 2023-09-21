@@ -8,3 +8,6 @@ var character := Character.new()
 ##
 ## The values are resource paths.
 var available_stories : Array[String] = []
+
+## The cast of characters as a map from name to npc object
+var cast := Cast.new()

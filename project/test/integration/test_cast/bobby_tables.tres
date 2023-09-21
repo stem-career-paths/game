@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NpcDefinition" load_steps=2 format=3 uid="uid://ce2n1dmwbh38"]
+
+[ext_resource type="Script" path="res://cast/npc_definition.gd" id="1_jvstt"]
+
+[resource]
+script = ExtResource("1_jvstt")
+name = "Bobby Tables"

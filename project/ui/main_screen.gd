@@ -17,7 +17,7 @@ enum _EntranceType { FIXED, ANIMATED }
 ## Forces the application to start with a particular story.
 @export_file("*.gd") var starting_story
 
-var world := World.new()
+var world : World
 
 ## A reference to the current top card.
 ##
@@ -30,6 +30,10 @@ var _current_card : Node
 
 
 func _ready():
+	# Initialize the world
+	world = World.new()
+	world.cast.load_cast("res://cast/")
+	
 	## Load and randomize all the stories in _STARTING_STORY_PATH
 	var file_paths := DirAccess.get_files_at(_STARTING_STORY_PATH)
 	for file_path in file_paths:

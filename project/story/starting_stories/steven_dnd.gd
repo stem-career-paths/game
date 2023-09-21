@@ -1,8 +1,8 @@
 extends SimpleStory
 
-var text := "Steven invites you to play Dungeons & Dragons, what do you do?"
+var text := "Do you want to play Dungeons & Dragons with me?!"
 
-var image := "ui_test_image"
+var npc_name := "Steven"
 
 var options := {
 	"I'll make a Rogue!": {
