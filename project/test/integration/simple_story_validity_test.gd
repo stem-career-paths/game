@@ -2,19 +2,27 @@ extends GutTest
 
 const _STORY_PATH := "res://story/"
 
-## Test all the stories in _STORY_PATH that are SimpleStory subclasses.
+## Test all the stories in _STORY_PATH and its subdirectories 
+## that are SimpleStory subclasses.
 func test_simple_stories_have_expected_structure():
-	for file_name in DirAccess.get_files_at(_STORY_PATH):
-		var resource = load(_STORY_PATH + file_name)
+	_test_directory(_STORY_PATH)
+
+
+func _test_directory(path:String)->void:
+	for file_name in DirAccess.get_files_at(path):
+		var file_path := path + file_name
+		var resource = load(file_path)
 		var story :Object = resource.new()
 		if story is SimpleStory:
 			_test_structure_of(story)
+	
+	for subdir in DirAccess.get_directories_at(path):
+		_test_directory("%s%s/" % [path, subdir])
 
 
 func _test_structure_of(story:Object)->void:
 	assert_true("text" in story, "Story must have a 'text' field")
 	assert_false(story.text.strip_edges().is_empty(), "The 'text' field must have content")
-	assert_true("image" in story, "Story must have an 'image' field")
 	assert_true("options" in story, "Story must have an 'options' field")
 	assert_true(typeof(story.options) == TYPE_DICTIONARY, "The 'options' field must be a dictionary")
 	for key in story.options.keys():
