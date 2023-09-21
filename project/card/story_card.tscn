@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4sbdx84mhnmi"]
+[gd_scene load_steps=9 format=3 uid="uid://b4sbdx84mhnmi"]
 
 [ext_resource type="Script" path="res://card/story_card.gd" id="1_185so"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="1_cgl2b"]
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://card/theme.tres" id="2_qli37"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvws2"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wbm1l"]
 font_size = 64
@@ -27,7 +30,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MainImage:modulate")
+tracks/1/path = NodePath("Control/ImagePanel/CenterContainer/MainImage:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -78,7 +81,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MainImage:modulate")
+tracks/1/path = NodePath("Control/ImagePanel/CenterContainer/MainImage:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -148,11 +151,18 @@ text = "Text goes here"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="MainImage" type="TextureRect" parent="Control"]
+[node name="ImagePanel" type="PanelContainer" parent="Control"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvws2")
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ImagePanel"]
+layout_mode = 2
+
+[node name="MainImage" type="TextureRect" parent="Control/ImagePanel/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-expand_mode = 5
 
 [node name="InfoContainer" type="PanelContainer" parent="Control"]
 layout_mode = 2
@@ -173,6 +183,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 32
 alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control"]
+layout_mode = 2
 
 [node name="EffectLabel" type="Label" parent="."]
 unique_name_in_owner = true
