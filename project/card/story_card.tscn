@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4sbdx84mhnmi"]
+[gd_scene load_steps=11 format=3 uid="uid://b4sbdx84mhnmi"]
 
 [ext_resource type="Script" path="res://card/story_card.gd" id="1_185so"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="1_cgl2b"]
@@ -6,6 +6,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvws2"]
 bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kruy4"]
+font_size = 36
+outline_size = 6
+outline_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wbm1l"]
 font_size = 64
@@ -114,10 +119,63 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/ImagePanel/TapAnywhereLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/ImagePanel/TapAnywhereLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xcdxi"]
+resource_name = "show_advance_instructions"
+length = 4.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ImagePanel/TapAnywhereLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/ImagePanel/TapAnywhereLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.1, 4.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bru2w"]
 _data = {
 "RESET": SubResource("Animation_4raud"),
+"show_advance_instructions": SubResource("Animation_xcdxi"),
 "show_effect": SubResource("Animation_0gyb6")
 }
 
@@ -163,6 +221,13 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="TapAnywhereLabel" type="Label" parent="Control/ImagePanel"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Tap anywhere to continue"
+label_settings = SubResource("LabelSettings_kruy4")
+horizontal_alignment = 1
 
 [node name="InfoContainer" type="PanelContainer" parent="Control"]
 layout_mode = 2

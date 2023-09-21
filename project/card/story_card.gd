@@ -6,6 +6,7 @@ var world : World:
 		%CharacterDisplay.character = world.character
 
 signal _option_selected(option: String)
+signal _tapped_anywhere
 
 
 @onready var _anim_player := $AnimationPlayer
@@ -15,18 +16,17 @@ signal _option_selected(option: String)
 
 func _ready():
 	assert(world!=null)
-	
+	_anim_player.play("RESET")
 
-func show_confirmation(text := "OK") -> void:
-	# Remove any leftover buttons from the screen before showing the 
-	# confirmation button
-	_clear(_button_area)
-	
-	var button := Button.new()
-	button.text = text
-	_button_area.add_child(button)
-	await button.pressed
-	button.disabled = true
+
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed():
+		_tapped_anywhere.emit()
+
+
+func show_confirmation() -> void:
+	_anim_player.play("show_advance_instructions")
+	await _tapped_anywhere
 
 
 func show_effects(effects: Dictionary) -> void:
