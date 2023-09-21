@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0trh8")
+starting_story = "res://story/starting_stories/bird_banding.gd"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

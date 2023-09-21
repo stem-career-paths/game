@@ -13,6 +13,10 @@ enum _EntranceType { FIXED, ANIMATED }
 ## slides in on top of it.
 @export var bottom_card_modulate_duration := 0.15
 
+@export_category("Manual Testing")
+## Forces the application to start with a particular story.
+@export_file("*.gd") var starting_story
+
 var world := World.new()
 
 ## A reference to the current top card.
@@ -33,7 +37,19 @@ func _ready():
 	world.available_stories.shuffle()
 	
 	while not world.available_stories.is_empty():
-		var story_path : String = world.available_stories.pop_front()
+		var story_path : String
+		
+		# Determine the next story based on whether we are forcing one or not.
+		if starting_story == null:
+			story_path = world.available_stories.pop_front()
+		# If we are testing a particular story, go get that one, and remove
+		# it from the collection if it had been there to prevent repeats.
+		else:
+			print("Forcing starting story: ", starting_story)
+			story_path = starting_story
+			world.available_stories.erase(starting_story)
+			starting_story = null
+		
 		var story = load(story_path).new()
 		await _show_card(story, _EntranceType.FIXED if _current_card==null else _EntranceType.ANIMATED)
 	
