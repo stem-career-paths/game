@@ -1,10 +1,9 @@
 extends Control
 
 const _STARTING_STORY_PATH := "res://story/starting_stories/"
+const _CAST_PATH := "res://cast/"
 
 signal _option_selected(option: String)
-
-enum _EntranceType { FIXED, ANIMATED }
 
 ## The number of stories that, when complete, the game is over
 @export var max_stories := 4
@@ -41,7 +40,7 @@ var _stories_complete := 0
 func _ready():
 	# Initialize the world
 	world = World.new()
-	world.cast.load_cast("res://cast/")
+	world.cast.load_cast(_CAST_PATH)
 	
 	## Load and randomize all the stories in _STARTING_STORY_PATH
 	var file_paths := DirAccess.get_files_at(_STARTING_STORY_PATH)
@@ -51,6 +50,11 @@ func _ready():
 	
 	while _stories_complete < max_stories:
 		if world.available_stories.is_empty():
+			# This would happen if there are no available stories to run.
+			# We should design the game so that this can't happen.
+			# Hence, we push an error in this case, since we have done
+			# something wrong... and should probably write automated tests
+			# to ensure it doesn't happen again.
 			push_error("Ran out of stories!")
 			break
 		else:
@@ -59,9 +63,8 @@ func _ready():
 	
 	var game_over_card := preload("res://ui/game_over_card.tscn").instantiate()
 	game_over_card.world = world
-	remove_child(_current_card)
-	add_child(game_over_card)
-	
+	_show_card(game_over_card)
+
 
 func _run_next_story() -> void:
 	var story_path : String
@@ -80,27 +83,26 @@ func _run_next_story() -> void:
 	
 	## Load the story and start it
 	var story = load(story_path).new()
-	await _show_card(story, _EntranceType.FIXED if _current_card==null else _EntranceType.ANIMATED)
+	var card := preload("res://card/story_card.tscn").instantiate()
+	card.world = world
+	_show_card(card)
+	await story.run(card)
 
 
 ## Show a given card as the new top card.
-func _show_card(story : Object, entrance : _EntranceType) -> void:
-	# Fade out the old card if there is one
+func _show_card(card : Node) -> void:
+	# If there already is a card, fade it out and start the new card offscreen.
 	if _current_card!=null:
 		create_tween().tween_property(_current_card, "modulate", Color.GRAY, bottom_card_modulate_duration)	
+		card.position.x = _max_x
 	
-	var presenter := preload("res://card/story_card.tscn").instantiate()
-	presenter.world = world
+	add_child(card)
 	
-	if entrance == _EntranceType.ANIMATED:
-		presenter.position.x = _max_x
-	
-	add_child(presenter)
-	
-	if entrance == _EntranceType.ANIMATED:
+	# If there was a card, slide the new one over it.
+	if _current_card != null:
 		var tween := get_tree().create_tween()
 		var previous_card = _current_card
-		tween.tween_property(presenter, "position", Vector2.ZERO, slide_in_duration)\
+		tween.tween_property(card, "position", Vector2.ZERO, slide_in_duration)\
 			.set_ease(Tween.EASE_IN)
 		# Remove the card in the background once it is covered up
 		tween.tween_callback(func(): 
@@ -108,5 +110,4 @@ func _show_card(story : Object, entrance : _EntranceType) -> void:
 				remove_child(previous_card)
 		)
 
-	_current_card = presenter
-	await story.run(presenter)
+	_current_card = card
