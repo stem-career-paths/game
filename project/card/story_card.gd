@@ -48,7 +48,7 @@ func show_npc(npc:Npc) -> void:
 func show_options(options: Array) -> String:
 	var buttons : Array[Button] = []
 	for option in options:
-		var button := Button.new()
+		var button := preload("res://ui/audible_button.tscn").instantiate()
 		button.text = option
 		button.pressed.connect(func(): _option_selected.emit(option))
 		_button_area.add_child(button)
