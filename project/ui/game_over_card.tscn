@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://byj3hnnl7lst4"]
+
+[ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_mo8d3"]
+[ext_resource type="Script" path="res://ui/game_over_card.gd" id="1_x3g3n"]
+[ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="2_yi0wo"]
+
+[node name="GameOverCard" type="Node2D"]
+script = ExtResource("1_x3g3n")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mo8d3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "The game is over.
+This is a placeholder, obviously."
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayAgainButton" type="Button" parent="Control/VBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Restart"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterDisplay" parent="Control/VBoxContainer/PanelContainer2" instance=ExtResource("2_yi0wo")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="Control/VBoxContainer/CenterContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]

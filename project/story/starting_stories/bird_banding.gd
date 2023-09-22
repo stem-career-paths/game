@@ -1,18 +1,20 @@
 extends SimpleStory
 
-var text := "You can go BB or VG."
+var text := '"Do you want to go bird banding with me, or should we play some video games?"'
+
+var npc_name := "Hilda"
 
 var options := {
 	"Bird Banding":
 	{
-		"text": "You find a cardinal",
+		"text": '"I can\'t believe we found a cardinal! That was fun."',
 		"effects": {
 			"engagement": +1,
 			"science": +1
 		}
 	},
 	"Video Games": {
-		"text": "You buy the DLC.",
+		"text": '"That was fun. I\'d love to be able to make my own video games someday."',
 		"effects": {
 			"technology": +1
 		}

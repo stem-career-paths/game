@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NpcDefinition" load_steps=3 format=3 uid="uid://c07t1ygo5x0pw"]
+
+[ext_resource type="Texture2D" uid="uid://o83odi0q8pwn" path="res://cast/mary.png" id="1_lv083"]
+[ext_resource type="Script" path="res://cast/npc_definition.gd" id="1_risdg"]
+
+[resource]
+script = ExtResource("1_risdg")
+name = "Mary"
+image = ExtResource("1_lv083")
