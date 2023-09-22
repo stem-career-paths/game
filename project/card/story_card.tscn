@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4sbdx84mhnmi"]
+[gd_scene load_steps=12 format=3 uid="uid://b4sbdx84mhnmi"]
 
 [ext_resource type="Script" path="res://card/story_card.gd" id="1_185so"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="1_cgl2b"]
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="2_rv5ff"]
+[ext_resource type="FontFile" uid="uid://cmmwhbpdcxfio" path="res://common/Poppins-Regular.ttf" id="4_3lplo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvws2"]
 bg_color = Color(0.25098, 0.25098, 0.25098, 1)
@@ -13,6 +14,7 @@ outline_size = 6
 outline_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wbm1l"]
+font = ExtResource("4_3lplo")
 font_size = 64
 font_color = Color(0.823529, 0.45098, 0.223529, 1)
 outline_size = 8

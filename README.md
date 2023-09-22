@@ -35,3 +35,8 @@ game at 360x640.
 display/window/size/window_width_override=360
 display/window/size/window_height_override=640
 ```
+
+## Third-Party Assets
+
+- [ArchitectsDaughter font](https://fonts.google.com/specimen/Architects+Daughter) licensed under [OFL](project/common/ArchitectsDaughter-Regular_license.txt)
+- [Poppins font](https://fonts.google.com/specimen/Poppins) licensed under [OFL](project/common/Poppins-Regular_license.txt)
