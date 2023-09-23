@@ -198,6 +198,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_rv5ff")
+theme_override_constants/separation = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 custom_minimum_size = Vector2(0, 192)
