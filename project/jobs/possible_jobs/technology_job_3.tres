@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Job" load_steps=4 format=3 uid="uid://una71x1hweuj"]
+
+[ext_resource type="Script" path="res://jobs/job_requirement.gd" id="1_glvm8"]
+[ext_resource type="Script" path="res://jobs/job.gd" id="2_n5bjf"]
+
+[sub_resource type="Resource" id="Resource_snd34"]
+script = ExtResource("1_glvm8")
+attribute_name = "technology"
+attribute_value = 0
+requirement_type = 4
+
+[resource]
+script = ExtResource("2_n5bjf")
+title = "Technology Job 3"
+major = "Computer and Information Technology"
+requirements = Array[ExtResource("1_glvm8")]([SubResource("Resource_snd34")])
