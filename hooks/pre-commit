@@ -1,5 +1,5 @@
 #!/bin/sh
-if godot -d -s --path project addons/gut/gut_cmdln.gd -gdir=res://test/ -ginclude_subdirs=true -gprefix="" -gsuffix="_test.gd" -gexit
+if godot --headless -d -s --path project addons/gut/gut_cmdln.gd -gdir=res://test/ -ginclude_subdirs=true -gprefix="" -gsuffix="_test.gd" -gexit
 then
     echo "Tests passed"
 else
