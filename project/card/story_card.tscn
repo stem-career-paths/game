@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4sbdx84mhnmi"]
+[gd_scene load_steps=13 format=3 uid="uid://b4sbdx84mhnmi"]
 
 [ext_resource type="Script" path="res://card/story_card.gd" id="1_185so"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="1_cgl2b"]
@@ -12,6 +12,11 @@ bg_color = Color(0.25098, 0.25098, 0.25098, 1)
 font_size = 36
 outline_size = 6
 outline_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0dgv"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 10.0
+expand_margin_right = 10.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_wbm1l"]
 font = ExtResource("4_3lplo")
@@ -36,7 +41,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/ImagePanel/CenterContainer/MainImage:modulate")
+tracks/1/path = NodePath("Control/ImagePanel/MainImage:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -140,7 +145,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/ImagePanel/CenterContainer/MainImage:modulate")
+tracks/1/path = NodePath("Control/ImagePanel/MainImage:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -217,13 +222,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_mvws2")
 
-[node name="CenterContainer" type="CenterContainer" parent="Control/ImagePanel"]
-layout_mode = 2
-
-[node name="MainImage" type="TextureRect" parent="Control/ImagePanel/CenterContainer"]
+[node name="MainImage" type="TextureRect" parent="Control/ImagePanel"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+stretch_mode = 5
 
 [node name="TapAnywhereLabel" type="Label" parent="Control/ImagePanel"]
 visible = false
@@ -236,16 +239,37 @@ horizontal_alignment = 1
 [node name="InfoContainer" type="PanelContainer" parent="Control"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/InfoContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/InfoContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/InfoContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/InfoContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="CharacterName" type="Label" parent="Control/InfoContainer/VBoxContainer/CenterContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.211765, 0.309804, 0.627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_q0dgv")
+text = "NAME"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/InfoContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/InfoContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="CharacterDisplay" parent="Control/InfoContainer/HBoxContainer" instance=ExtResource("1_cgl2b")]
+[node name="CharacterDisplay" parent="Control/InfoContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_cgl2b")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ButtonArea" type="VBoxContainer" parent="Control/InfoContainer/HBoxContainer"]
+[node name="ButtonArea" type="VBoxContainer" parent="Control/InfoContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

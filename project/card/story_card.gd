@@ -13,6 +13,7 @@ signal _tapped_anywhere
 @onready var _button_area := %ButtonArea
 @onready var _effect_label : Label = %EffectLabel
 @onready var _main_image : TextureRect = %MainImage
+@onready var _character_name_label: Label = %CharacterName
 
 func _ready():
 	assert(world!=null)
@@ -40,6 +41,7 @@ func show_effects(effects: Dictionary) -> void:
 
 
 func show_npc(npc:Npc) -> void:
+	_character_name_label.text = npc.name
 	%MainImage.texture = npc.image
 
 
@@ -51,12 +53,12 @@ func show_options(options: Array) -> String:
 		button.pressed.connect(func(): _option_selected.emit(option))
 		_button_area.add_child(button)
 		buttons.append(button)
-	
+
 	var selection = await _option_selected
-	
+
 	for button in buttons:
 		button.disabled = true
-	
+
 	return selection
 
 

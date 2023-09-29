@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://scwnvnkr08fy"]
+[gd_scene load_steps=3 format=3 uid="uid://scwnvnkr08fy"]
 
 [ext_resource type="Script" path="res://ui/character_display.gd" id="1_34qhi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldvvn"]
+line_spacing = 0.0
+font_size = 20
 
 [node name="CharacterDisplay" type="GridContainer"]
 anchors_preset = 15
@@ -8,64 +12,77 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 32
 columns = 2
 script = ExtResource("1_34qhi")
 
 [node name="ScienceLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Science"
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="ScienceValue" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="TechnologyLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Technology"
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="TechnologyValue" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="EngineeringLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Engineering
 "
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="EngineeringValue" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="MathematicsLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Mathematics
 "
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="MathematicsValue" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="EngagementLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Engagement"
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="EngagementValue" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="ResliienceLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Resilience"
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="ResilienceValue" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="CuriosityLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Curiosity"
+label_settings = SubResource("LabelSettings_ldvvn")
 
 [node name="CuriosityValue" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+label_settings = SubResource("LabelSettings_ldvvn")
