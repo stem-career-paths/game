@@ -5,10 +5,16 @@ const _STORY_PATH := "res://story/"
 ## Test all the stories in _STORY_PATH and its subdirectories 
 ## that are SimpleStory subclasses.
 func test_simple_stories_have_expected_structure():
-	_test_directory(_STORY_PATH)
+	var tested_directories := _test_directory(_STORY_PATH)
+	assert_true(tested_directories > 0, 
+		"The test properly processed more than zero directories.")
 
 
-func _test_directory(path:String)->void:
+## Returns the number of directories processed.
+func _test_directory(path:String, accumulator:=0) -> int:
+	var dir := DirAccess.open(path)
+	assert_not_null(dir, "Directory exists: %s" % path)
+	
 	for file_name in DirAccess.get_files_at(path):
 		var file_path := path + file_name
 		var resource = load(file_path)
@@ -16,8 +22,11 @@ func _test_directory(path:String)->void:
 		if story is SimpleStory:
 			_test_structure_of(story)
 	
+	var directories := 1
 	for subdir in DirAccess.get_directories_at(path):
-		_test_directory("%s%s/" % [path, subdir])
+		directories += _test_directory("%s%s/" % [path, subdir])
+	
+	return directories + accumulator
 
 
 func _test_structure_of(story:Object)->void:
