@@ -42,11 +42,10 @@ func _ready():
 	world = World.new()
 	world.cast.load_cast(_CAST_PATH)
 	
-	## Load and randomize all the stories in _STARTING_STORY_PATH
+	## Load all the stories in _STARTING_STORY_PATH
 	var file_paths := DirAccess.get_files_at(_STARTING_STORY_PATH)
 	for file_path in file_paths:
 		world.available_stories.append(_STARTING_STORY_PATH + file_path)
-	world.available_stories.shuffle()
 	
 	while _stories_complete < max_stories:
 		if world.available_stories.is_empty():
@@ -66,12 +65,13 @@ func _ready():
 	_show_card(game_over_card)
 
 
+# Draw a random story and run it.
 func _run_next_story() -> void:
 	var story_path : String
 	
 	# Determine the next story based on whether we are forcing one or not.
 	if starting_story == null:
-		story_path = world.available_stories.pop_front()
+		story_path = _draw_random_story()
 	
 	# If we are testing a particular story, go get that one, and remove
 	# it from the collection if it had been there to prevent repeats.
@@ -87,6 +87,12 @@ func _run_next_story() -> void:
 	card.world = world
 	_show_card(card)
 	await story.run(card)
+
+
+func _draw_random_story() -> String:
+	var story_path : String = world.available_stories.pick_random()
+	world.available_stories.erase(story_path)
+	return story_path
 
 
 ## Show a given card as the new top card.

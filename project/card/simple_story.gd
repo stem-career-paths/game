@@ -1,5 +1,9 @@
 class_name SimpleStory extends RefCounted
 
+## The name of the function that can be called when an option is selected,
+## if it exists.
+const _ON_OPTION_SELECTED_NAME := "on_option_selected"
+
 
 func run(presenter) -> void:
 	assert("text" in self, "This story must have 'text'")
@@ -16,7 +20,14 @@ func run(presenter) -> void:
 	var option_keys = options_dict.keys()
 	var selected = await presenter.show_options(option_keys)
 
-	await _show(presenter, options_dict[selected].text, options_dict[selected].effects)
+	if self.has_method(_ON_OPTION_SELECTED_NAME):
+		call(_ON_OPTION_SELECTED_NAME, selected, presenter.world)
+
+	var result = options_dict[selected]
+	var selected_text : String = result.text
+	var selected_effects = result.effects if "effects" in result else null
+
+	await _show(presenter, selected_text, selected_effects)
 
 	await presenter.finish()
 
