@@ -31,7 +31,7 @@ func test(story_path: String) -> Dictionary:
 	return _effects
 
 
-func show_confirmation(_text := "OK") -> void:
+func finish(_text := "OK") -> void:
 	pass
 
 
@@ -59,8 +59,4 @@ func show_options(options: Array) -> String:
 
 
 func show_text(_text: String) -> void:
-	pass
-
-
-func show_image(_image: String) -> void:
 	pass

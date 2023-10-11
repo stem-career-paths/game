@@ -1,3 +1,6 @@
+## This is the "presenter" of the architecture.
+## Its public methods are called by the story model in order to display
+## results. Many of the methods are coroutines.
 extends Control
 
 var world : World:
@@ -25,11 +28,22 @@ func _input(event):
 		_tapped_anywhere.emit()
 
 
-func show_confirmation() -> void:
+## Finish an interaction with the presenter. 
+## This gives the player a chance to confirm that they are done with the
+## current story.
+##
+## This is a coroutine.
+func finish() -> void:
 	_anim_player.play("show_advance_instructions")
 	await _tapped_anywhere
 
 
+## Show the player the effects of their decision.
+##
+## The parameter is a dictionary that maps character attribute names
+## to numbers representing the change to that attribute (e.g. +1, -2).
+##
+## This is a coroutine that returns when the animationed effects are complete.
 func show_effects(effects: Dictionary) -> void:
 	var effect_text := ""
 	for attribute in effects.keys():
@@ -40,11 +54,14 @@ func show_effects(effects: Dictionary) -> void:
 	await _anim_player.animation_finished
 
 
+## Show the portrait of a particular npc.
 func show_npc(npc:Npc) -> void:
 	_character_name_label.text = npc.name
-	%MainImage.texture = npc.image
+	_main_image.texture = npc.image
 
 
+## Show options to the player and await for them to select one.
+## The selected option is returned.
 func show_options(options: Array) -> String:
 	var buttons : Array[Button] = []
 	for option in options:
@@ -62,15 +79,12 @@ func show_options(options: Array) -> String:
 	return selection
 
 
+## Show text in the main message area.
 func show_text(text: String) -> void:
 	%Text.text = text
 
 
-func show_image(image: String) -> void:
-	if image!=null:
-		_main_image.texture = load("res://images/%s.png" % image)
-
-
+## Remove all the children from the given container.
 func _clear(container:Control) -> void:
 	while container.get_child_count() > 0:
 		container.remove_child(container.get_child(0))

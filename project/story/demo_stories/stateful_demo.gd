@@ -24,4 +24,4 @@ func run(presenter)->void:
 				})
 
 	presenter.show_text("You have chosen enough. Go home.")
-	await presenter.show_confirmation()
+	await presenter.finish()

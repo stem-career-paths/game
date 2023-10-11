@@ -18,7 +18,7 @@ func run(presenter) -> void:
 
 	await _show(presenter, options_dict[selected].text, options_dict[selected].effects)
 
-	await presenter.show_confirmation()
+	await presenter.finish()
 
 
 func _show(presenter, text, effects = null):
@@ -32,5 +32,5 @@ func _show(presenter, text, effects = null):
 
 	if text is Array:
 		for line in text.slice(1):
-			await presenter.show_confirmation()
+			await presenter.finish()
 			presenter.show_text(line)
