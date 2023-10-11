@@ -17,6 +17,7 @@ signal _tapped_anywhere
 @onready var _effect_label : Label = %EffectLabel
 @onready var _main_image : TextureRect = %MainImage
 @onready var _character_name_label: Label = %CharacterName
+@onready var _story_label : Label = %StoryLabel
 
 func _ready():
 	assert(world!=null)
@@ -81,7 +82,7 @@ func show_options(options: Array) -> String:
 
 ## Show text in the main message area.
 func show_text(text: String) -> void:
-	%Text.text = text
+	_story_label.text = text
 
 
 ## Remove all the children from the given container.

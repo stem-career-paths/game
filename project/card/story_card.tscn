@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4sbdx84mhnmi"]
+[gd_scene load_steps=14 format=3 uid="uid://b4sbdx84mhnmi"]
 
 [ext_resource type="Script" path="res://card/story_card.gd" id="1_185so"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="1_cgl2b"]
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="2_rv5ff"]
+[ext_resource type="Script" path="res://ui/animated_label.gd" id="3_si0fx"]
 [ext_resource type="FontFile" uid="uid://cmmwhbpdcxfio" path="res://common/Poppins-Regular.ttf" id="4_3lplo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvws2"]
@@ -210,12 +211,13 @@ custom_minimum_size = Vector2(0, 192)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Text" type="Label" parent="Control/PanelContainer"]
+[node name="StoryLabel" type="Label" parent="Control/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Text goes here"
 horizontal_alignment = 1
 autowrap_mode = 3
+visible_characters_behavior = 1
+script = ExtResource("3_si0fx")
 
 [node name="ImagePanel" type="PanelContainer" parent="Control"]
 layout_mode = 2
