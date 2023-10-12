@@ -24,7 +24,7 @@ func run(presenter, world : World) -> void:
 		call(_ON_OPTION_SELECTED_NAME, selected, presenter.world)
 
 	var result = options_dict[selected]
-	var selected_text : String = result.text
+	var selected_text = result.text
 	var selected_effects = result.effects if "effects" in result else null
 
 	await _show(presenter, selected_text, selected_effects)
@@ -35,18 +35,10 @@ func run(presenter, world : World) -> void:
 
 
 func _show(presenter, text, effects = null):
-	if text is String:
-		presenter.show_text(text)
-	else:
-		presenter.show_text(text[0])
+	await presenter.show_text(text)
 
 	if effects is Dictionary:
 		await presenter.show_effects(effects)
-
-	if text is Array:
-		for line in text.slice(1):
-			await presenter.finish()
-			presenter.show_text(line)
 
 
 func _apply_effects(effects:Dictionary, world:World) -> void:

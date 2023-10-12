@@ -35,8 +35,12 @@ func _input(event):
 ##
 ## This is a coroutine.
 func finish() -> void:
-	_anim_player.play("show_advance_instructions")
-	await _tapped_anywhere
+	_clear(_button_area)
+	
+	var button := preload("res://ui/audible_button.tscn").instantiate()
+	button.text = "OK"
+	_button_area.add_child(button)
+	await button.pressed
 
 
 ## Show the player the effects of their decision.
@@ -82,8 +86,29 @@ func show_options(options: Array) -> String:
 
 
 ## Show text in the main message area.
-func show_text(text: String) -> void:
-	_story_label.text = text
+##
+## The parameter may be a String or an Array[String].
+##
+## This is a coroutine that returns when the text (or the last page of text)
+## has been shown.
+func show_text(story) -> void:
+	if story is String:
+		_story_label.text = story
+		
+	elif story is Array:
+		for i in story.size():
+			var substory : String = story[i]
+			_story_label.text = substory
+			
+			# If this is not the last substory, let the player click through.
+			if i < story.size()-1:
+				_anim_player.play("show_advance_instructions")
+				await _tapped_anywhere
+				_anim_player.stop()
+				_anim_player.play("RESET")
+
+	else:
+		push_error("Unexpected parameter type: " + story.get_class())
 
 
 ## Remove all the children from the given container.
