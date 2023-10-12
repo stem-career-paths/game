@@ -46,7 +46,7 @@ func finish() -> void:
 ##
 ## This function does not change the world state: it only shows an animation.
 ##
-## This is a coroutine that returns when the animationed effects are complete.
+## This is a coroutine that returns when the animated effects are complete.
 func show_effects(effects: Dictionary) -> void:
 	var effect_text := ""
 	for attribute in effects.keys():
