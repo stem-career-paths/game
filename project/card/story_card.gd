@@ -44,11 +44,12 @@ func finish() -> void:
 ## The parameter is a dictionary that maps character attribute names
 ## to numbers representing the change to that attribute (e.g. +1, -2).
 ##
+## This function does not change the world state: it only shows an animation.
+##
 ## This is a coroutine that returns when the animationed effects are complete.
 func show_effects(effects: Dictionary) -> void:
 	var effect_text := ""
 	for attribute in effects.keys():
-		world.character[attribute] += effects[attribute]
 		effect_text += "%+d %s\n" % [effects[attribute], attribute]
 	_effect_label.text = effect_text
 	_anim_player.play("show_effect")

@@ -5,7 +5,7 @@ class_name SimpleStory extends RefCounted
 const _ON_OPTION_SELECTED_NAME := "on_option_selected"
 
 
-func run(presenter) -> void:
+func run(presenter, world : World) -> void:
 	assert("text" in self, "This story must have 'text'")
 	assert(get("text") is String or get("text") is Array, "The 'text' must be a string or an array")
 	assert("options" in self, "This story must have 'options'")
@@ -28,6 +28,8 @@ func run(presenter) -> void:
 	var selected_effects = result.effects if "effects" in result else null
 
 	await _show(presenter, selected_text, selected_effects)
+	if selected_effects is Dictionary:
+		_apply_effects(selected_effects, world)
 
 	await presenter.finish()
 
@@ -45,3 +47,8 @@ func _show(presenter, text, effects = null):
 		for line in text.slice(1):
 			await presenter.finish()
 			presenter.show_text(line)
+
+
+func _apply_effects(effects:Dictionary, world:World) -> void:
+	for attribute_name in effects.keys():
+		world.character[attribute_name] += effects[attribute_name]
