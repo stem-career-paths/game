@@ -1,3 +1,5 @@
+## Tests the structural validity of all of the SimpleStory subclasses
+## that can be found in the story directories.
 extends GutTest
 
 const _STORY_PATH := "res://story/"
