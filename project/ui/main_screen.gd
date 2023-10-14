@@ -86,7 +86,7 @@ func _run_next_story() -> void:
 	var card := preload("res://card/story_card.tscn").instantiate()
 	card.world = world
 	_show_card(card)
-	await story.run(card, world)
+	await story.run(card)
 
 
 func _draw_random_story() -> String:

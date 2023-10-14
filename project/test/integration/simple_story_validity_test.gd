@@ -33,7 +33,7 @@ func _test_directory(path:String, accumulator:=0) -> int:
 
 func _test_structure_of(story:Object)->void:
 	assert_true("text" in story, "Story must have a 'text' field")
-	assert_false(story.text.strip_edges().is_empty(), "The 'text' field must have content")
+	_test_text(story.text)
 	assert_true("options" in story, "Story must have an 'options' field")
 	assert_true(typeof(story.options) == TYPE_DICTIONARY, "The 'options' field must be a dictionary")
 	for key in story.options.keys():
@@ -44,9 +44,20 @@ func _test_structure_of(story:Object)->void:
 
 func _test_options(options:Dictionary):
 	assert_true("text" in options, "Each option needs a 'text' field.")
+	_test_text(options["text"])
 	if "effects" in options:
 		assert_eq(typeof(options["effects"]), TYPE_DICTIONARY)
 		var effects : Dictionary = options["effects"]
 		for key in effects:
 			assert_eq(typeof(key), TYPE_STRING)
 			assert_true(key in Character.ATTRIBUTE_NAMES)
+
+
+func _test_text(text:Variant):
+	if typeof(text) == TYPE_STRING:
+		assert_false(text.strip_edges().is_empty(), "The 'text' field must have content")
+	elif typeof(text) == TYPE_ARRAY:
+		for line in text:
+			assert_false(line.strip_edges().is_empty(), "The 'text' field must have content in each line")
+	else:
+		assert_true(false, "The 'text' field must be an string or an array")
