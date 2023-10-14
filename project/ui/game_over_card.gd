@@ -2,6 +2,7 @@ extends Control
 
 
 const JOBS_DIRECTORY: String = "res://jobs/possible_jobs/"
+const _END_STORY_PATH := "res://end/"
 
 var world: World
 var _jobs: Array[Job] = []
@@ -14,8 +15,19 @@ func _ready():
 	assert(world!=null, "World must be specified")
 	_character_display.character = world.character
 
+	if world.end_stories.size() > 0:
+		_show_end_story()
+		return
+
 	_load_jobs()
 	_show_job()
+
+
+func _show_end_story() -> void:
+	var end_story_name := world.end_stories[randi() % world.end_stories.size()]
+	var end_story = load("%send_%s.gd" % [_END_STORY_PATH, end_story_name]).new()
+
+	_result_label.text = end_story.text
 
 
 func _load_jobs() -> void:

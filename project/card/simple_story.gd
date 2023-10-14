@@ -25,9 +25,12 @@ func run(presenter) -> void:
 
 	var result = options_dict[selected]
 	var selected_text = result.text
+	var selected_end_story = result.end_story if "end_story" in result else null
 	var selected_effects = result.effects if "effects" in result else null
 
 	await _show(presenter, selected_text, selected_effects)
+	if selected_end_story is String:
+		_add_end_story(selected_end_story, presenter.world)
 	if selected_effects is Dictionary:
 		_apply_effects(selected_effects, presenter.world)
 
@@ -39,6 +42,10 @@ func _show(presenter, text, effects = null):
 
 	if effects is Dictionary:
 		await presenter.show_effects(effects)
+
+
+func _add_end_story(end_story: String, world: World) -> void:
+	world.end_stories.append(end_story)
 
 
 func _apply_effects(effects:Dictionary, world:World) -> void:

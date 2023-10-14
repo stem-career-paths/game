@@ -10,10 +10,11 @@ var options := {
 	},
 	"Let's WELD something!": {
 		"text": '"I... guess I could try that? Sure, why not? This is my chance, right?"',
+		"end_story": "robotics",
 		"effects": {
 			"resilience": +1,
 			"engineering": +1,
 			"engagement": +1,
-		}
+		},
 	}
 }

@@ -3,6 +3,7 @@
 extends GutTest
 
 const _STORY_PATH := "res://story/"
+const _END_STORY_PATH := "res://end/"
 
 ## Test all the stories in _STORY_PATH and its subdirectories 
 ## that are SimpleStory subclasses.
@@ -51,6 +52,13 @@ func _test_options(options:Dictionary):
 		for key in effects:
 			assert_eq(typeof(key), TYPE_STRING)
 			assert_true(key in Character.ATTRIBUTE_NAMES)
+	if "end_story" in options:
+		assert_eq(typeof(options["end_story"]), TYPE_STRING)
+
+		# Check that the end_story is a valid path
+		var end_story_path := "%send_%s.gd" % [_END_STORY_PATH, options["end_story"]]
+		var end_story_resource := load(end_story_path)
+		assert_not_null(end_story_resource, "End story exists: %s" % end_story_path)
 
 
 func _test_text(text:Variant):
