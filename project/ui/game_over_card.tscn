@@ -33,8 +33,7 @@ alignment = 1
 [node name="ResultLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "The game is over.
-You worked hard to earn a degree in {major} and became a {job_title}!"
+text = "[Text Goes Here]"
 horizontal_alignment = 1
 autowrap_mode = 3
 
