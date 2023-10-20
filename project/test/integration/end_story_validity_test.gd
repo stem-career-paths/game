@@ -2,6 +2,7 @@ extends GutTest
 
 
 const _END_STORY_PATH := "res://end/"
+const _END_STORY_FILE_PREFIX := "end_"
 
 
 func test_end_stories_have_expected_structure():
@@ -16,10 +17,11 @@ func _test_directory(path: String, accumulator := 0) -> int:
 	assert_not_null(dir, "Directory exists: %s" % path)
 
 	for file_name in DirAccess.get_files_at(path):
-		var file_path := path + file_name
-		var resource = load(file_path)
-		var story: Object = resource.new()
-		_test_structure_of(story)
+		if file_name.begins_with(_END_STORY_FILE_PREFIX):
+			var file_path := path + file_name
+			var resource = load(file_path)
+			var story: Object = resource.new()
+			_test_structure_of(story)
 
 	var directories := 1
 	for subdir in DirAccess.get_directories_at(path):
