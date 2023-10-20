@@ -3,7 +3,7 @@
 ## This holds the information that is needed to run a session of the game.
 class_name Character extends RefCounted
 
-const ATTRIBUTE_NAMES := [
+const ATTRIBUTE_NAMES : Array[String] = [
 	"science",
 	"technology",
 	"engineering",
@@ -23,37 +23,14 @@ var resilience := 0
 var curiosity := 0
 
 
-func highest_attributes() -> Array[String]:
-	var current_highest: Array[String] = [ATTRIBUTE_NAMES[0]]
-	var current_highest_value: int = get(current_highest[0])
-
-	for i in range(1, 4):
-		var attribute: String = ATTRIBUTE_NAMES[i]
-		var value: int = get(attribute)
-
-		if value > current_highest_value:
-			current_highest = [attribute]
-			current_highest_value = value
-
-		elif value == current_highest_value:
-			current_highest.append(attribute)
-
-	return current_highest
-
-
-func lowest_attributes() -> Array[String]:
-	var current_lowest: Array[String] = [ATTRIBUTE_NAMES[0]]
-	var current_lowest_value: int = get(current_lowest[0])
-
-	for i in range(1, 4):
-		var attribute: String = ATTRIBUTE_NAMES[i]
-		var value: int = get(attribute)
-
-		if value < current_lowest_value:
-			current_lowest = [attribute]
-			current_lowest_value = value
-
-		elif value == current_lowest_value:
-			current_lowest.append(attribute)
-
-	return current_lowest
+## Get the names of the highest attributes
+##
+## If a filter is provided, only consider those attributes named in the filter.
+func get_highest_attribute_names(filter : Array[String] = ATTRIBUTE_NAMES) -> Array[String]:
+	var attribute_names := ATTRIBUTE_NAMES.filter(func(name): return filter.has(name))
+	attribute_names.sort_custom(func(a,b): return get(a) > get(b))
+	var maximal_value : int = get(attribute_names[0])
+	var result := attribute_names.filter(func(a): return get(a) == maximal_value)
+	var typed_returnable : Array[String] = []
+	typed_returnable.assign(result)
+	return typed_returnable

@@ -15,85 +15,36 @@ func test_attributes_are_all_zero_by_default():
 		assert_true(character.get(attribute_name) == 0)
 
 
-## Tests that the character's highest attributes are all by default.
-func test_highest_attributes_initially_has_all():
-	var character := Character.new()
-
-	var highest_attributes := character.highest_attributes()
-
-	assert_true(highest_attributes.size() == 4)
-	assert_true(highest_attributes.has("science"))
-	assert_true(highest_attributes.has("technology"))
-	assert_true(highest_attributes.has("engineering"))
-	assert_true(highest_attributes.has("mathematics"))
-
-
-## Tests that the character's highest attributes update when the character's
-## attributes are updated.
-func test_highest_attributes_has_one():
+func test_get_highest_attribute_names__one_is_highest():
 	var attributes := ["science", "technology", "engineering", "mathematics"]
 
 	for attribute in attributes:
 		var character := Character.new()
 		character.set(attribute, 1)
 
-		var highest_attributes := character.highest_attributes()
+		var get_highest_attribute_names := character.get_highest_attribute_names()
 
-		assert_true(highest_attributes.size() == 1)
-		assert_true(highest_attributes.has(attribute))
+		assert_true(get_highest_attribute_names.size() == 1)
+		assert_true(get_highest_attribute_names.has(attribute))
 
 
-## Tests that the character's multiple highest attributes update when the 
-## character's attributes are updated.
-func test_highest_attributes_has_multiple():
+func test_get_highest_attribute_names__multiple_highest():
 	var character := Character.new()
 	character.set("science", 1)
 	character.set("engineering", 1)
 
-	var highest_attributes := character.highest_attributes()
+	var get_highest_attribute_names := character.get_highest_attribute_names()
 
-	assert_true(highest_attributes.size() == 2)
-	assert_true(highest_attributes.has("science"))
-	assert_true(highest_attributes.has("engineering"))
+	assert_eq(get_highest_attribute_names.size(), 2)
+	assert_true(get_highest_attribute_names.has("science"))
+	assert_true(get_highest_attribute_names.has("engineering"))
 
 
-## Tests that the character's lowest attributes are all by default.
-func test_lowest_attributes_initially_has_all():
+func test_get_highest_attribute_names__using_filter_parameter() -> void:
 	var character := Character.new()
-
-	var lowest_attributes := character.lowest_attributes()
-
-	assert_true(lowest_attributes.size() == 4)
-	assert_true(lowest_attributes.has("science"))
-	assert_true(lowest_attributes.has("technology"))
-	assert_true(lowest_attributes.has("engineering"))
-	assert_true(lowest_attributes.has("mathematics"))
-
-
-## Tests that the character's lowest attributes update when the character's
-## attributes are updated.
-func test_lowest_attributes_has_one():
-	var attributes := ["science", "technology", "engineering", "mathematics"]
-
-	for attribute in attributes:
-		var character := Character.new()
-		character.set(attribute, -1)
-
-		var lowest_attributes := character.lowest_attributes()
-
-		assert_true(lowest_attributes.size() == 1)
-		assert_true(lowest_attributes.has(attribute))
-
-
-## Tests that the character's multiple lowest attributes update when the
-## character's attributes are updated.
-func test_lowest_attributes_has_multiple():
-	var character := Character.new()
-	character.set("science", -1)
-	character.set("engineering", -1)
-
-	var lowest_attributes := character.lowest_attributes()
-
-	assert_true(lowest_attributes.size() == 2)
-	assert_true(lowest_attributes.has("science"))
-	assert_true(lowest_attributes.has("engineering"))
+	character.set("science", 1)
+	character.set("engineering", 1)
+	
+	var highest := character.get_highest_attribute_names(["science"])
+	
+	assert_eq(highest, ["science"])
