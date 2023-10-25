@@ -7,6 +7,8 @@ var world : World:
 	set(value):
 		world = value
 		%CharacterDisplay.character = world.character
+		%YearIndicator.world = world
+
 
 signal _option_selected(option: String)
 signal _tapped_anywhere

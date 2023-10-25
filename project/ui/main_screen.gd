@@ -5,9 +5,6 @@ const _CAST_PATH := "res://cast/"
 
 signal _option_selected(option: String)
 
-## The number of stories that, when complete, the game is over
-@export var max_stories := 4
-
 @export_category("Animation")
 
 ## How long it takes a new "card" to slide in on top of the stack.
@@ -47,7 +44,7 @@ func _ready():
 	for file_path in file_paths:
 		world.available_stories.append(_STARTING_STORY_PATH + file_path)
 	
-	while _stories_complete < max_stories:
+	while _stories_complete < world.turns_per_year * 4:
 		if world.available_stories.is_empty():
 			# This would happen if there are no available stories to run.
 			# We should design the game so that this can't happen.
@@ -87,6 +84,7 @@ func _run_next_story() -> void:
 	card.world = world
 	_show_card(card)
 	await story.run(card)
+	world.turns += 1
 
 
 func _draw_random_story() -> String:

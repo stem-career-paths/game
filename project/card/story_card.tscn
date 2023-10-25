@@ -1,23 +1,23 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4sbdx84mhnmi"]
+[gd_scene load_steps=15 format=3 uid="uid://b4sbdx84mhnmi"]
 
 [ext_resource type="Script" path="res://card/story_card.gd" id="1_185so"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="1_cgl2b"]
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="2_rv5ff"]
+[ext_resource type="PackedScene" uid="uid://cn7vhi2yphyq2" path="res://ui/year_indicator.tscn" id="3_im0jd"]
 [ext_resource type="Script" path="res://ui/animated_label.gd" id="3_si0fx"]
 [ext_resource type="FontFile" uid="uid://cmmwhbpdcxfio" path="res://common/Poppins-Regular.ttf" id="4_3lplo"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvws2"]
-bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+[ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="4_vhivx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kruy4"]
 font_size = 36
 outline_size = 6
 outline_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0dgv"]
-bg_color = Color(1, 1, 1, 1)
-expand_margin_left = 10.0
-expand_margin_right = 10.0
+[sub_resource type="LabelSettings" id="LabelSettings_5m7xw"]
+font = ExtResource("4_vhivx")
+font_size = 48
+font_color = Color(0.556863, 0.643137, 0.803922, 1)
+shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_wbm1l"]
 font = ExtResource("4_3lplo")
@@ -206,37 +206,62 @@ grow_vertical = 2
 theme = ExtResource("2_rv5ff")
 theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
-custom_minimum_size = Vector2(0, 192)
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="StoryLabel" type="Label" parent="Control/PanelContainer"]
+[node name="YearIndicator" parent="Control" instance=ExtResource("3_im0jd")]
 unique_name_in_owner = true
 layout_mode = 2
-horizontal_alignment = 1
-autowrap_mode = 3
-visible_characters_behavior = 1
-script = ExtResource("3_si0fx")
 
-[node name="ImagePanel" type="PanelContainer" parent="Control"]
+[node name="ImagePanel" type="Control" parent="Control"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_mvws2")
+size_flags_stretch_ratio = 3.0
 
 [node name="MainImage" type="TextureRect" parent="Control/ImagePanel"]
 unique_name_in_owner = true
 layout_mode = 2
+offset_right = 720.0
+offset_bottom = 450.0
 size_flags_vertical = 3
 stretch_mode = 5
 
 [node name="TapAnywhereLabel" type="Label" parent="Control/ImagePanel"]
 visible = false
 layout_mode = 2
+offset_top = 691.0
+offset_right = 720.0
+offset_bottom = 745.0
 size_flags_vertical = 8
 text = "Tap anywhere to continue"
 label_settings = SubResource("LabelSettings_kruy4")
 horizontal_alignment = 1
+
+[node name="CharacterName" type="Label" parent="Control/ImagePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -720.0
+offset_bottom = 48.0
+grow_horizontal = 0
+text = "NAME"
+label_settings = SubResource("LabelSettings_5m7xw")
+horizontal_alignment = 2
+uppercase = true
+
+[node name="StoryContainer" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="StoryLabel" type="Label" parent="Control/StoryContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Story text goes here."
+horizontal_alignment = 1
+autowrap_mode = 3
+visible_characters_behavior = 1
+script = ExtResource("3_si0fx")
 
 [node name="InfoContainer" type="PanelContainer" parent="Control"]
 layout_mode = 2
@@ -249,15 +274,6 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/InfoContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
-
-[node name="CharacterName" type="Label" parent="Control/InfoContainer/VBoxContainer/CenterContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.211765, 0.309804, 0.627451, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_q0dgv")
-text = "NAME"
-horizontal_alignment = 1
-uppercase = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/InfoContainer/VBoxContainer"]
 layout_mode = 2
@@ -288,8 +304,8 @@ visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 618.0
-offset_bottom = 23.0
+offset_top = 342.0
+offset_bottom = 436.0
 grow_horizontal = 2
 text = "[EFFECT TEXT]"
 label_settings = SubResource("LabelSettings_wbm1l")
