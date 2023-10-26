@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://byai3be16a35w"]
+[gd_scene load_steps=3 format=3 uid="uid://byai3be16a35w"]
 
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_0trh8"]
+[ext_resource type="PackedScene" uid="uid://b4sbdx84mhnmi" path="res://ui/story_control.tscn" id="2_ilkbe"]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -19,3 +20,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.431373, 0, 0.447059, 1)
+
+[node name="StoryControl" parent="." instance=ExtResource("2_ilkbe")]
+layout_mode = 1

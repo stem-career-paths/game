@@ -4,19 +4,17 @@ extends VBoxContainer
 
 var world : World:
 	set(value):
+		if world != null:
+			if world != value:
+				world.turns_changed.disconnect(_on_turns_changed)
+		
 		world = value
-		world.turns_changed.connect(func(turns):
-			_target_ratio = float(turns) / (world.turns_per_year * 4)
-		)
+		value.turns_changed.connect(_on_turns_changed)
+
 
 @onready var _progress_bar := $ProgressBar
 
 var _target_ratio := 0.0
-
-
-func _ready():
-	if world == null:
-		push_warning("World not specified in year indicator")
 
 
 func _process(_delta):
@@ -33,3 +31,7 @@ func _lookup_year_name(percent_complete : float) -> String:
 		return "Junior"
 	else:
 		return "Senior"
+
+
+func _on_turns_changed(turns:int) -> void:
+	_target_ratio = float(turns) / (world.turns_per_year * 4)

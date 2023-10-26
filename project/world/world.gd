@@ -17,7 +17,7 @@ var end_stories : Array[String] = []
 ## The cast of characters as a map from name to npc object
 var cast := Cast.new()
 
-var turns_per_year := 2
+var turns_per_year := 1
 
 ## The number of turns the player has taken.
 ##

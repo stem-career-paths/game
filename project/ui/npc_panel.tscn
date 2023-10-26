@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://y4televussti"]
+
+[ext_resource type="Script" path="res://ui/npc_panel.gd" id="1_iqk25"]
+[ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="1_ja7ud"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kruy4"]
+font_size = 36
+outline_size = 6
+outline_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5m7xw"]
+font = ExtResource("1_ja7ud")
+font_size = 48
+font_color = Color(0.556863, 0.643137, 0.803922, 1)
+shadow_size = 0
+
+[node name="NpcPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+script = ExtResource("1_iqk25")
+
+[node name="MainImage" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 720.0
+offset_bottom = 450.0
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="TapAnywhereLabel" type="Label" parent="."]
+visible = false
+layout_mode = 2
+offset_top = 691.0
+offset_right = 720.0
+offset_bottom = 745.0
+size_flags_vertical = 8
+text = "Tap anywhere to continue"
+label_settings = SubResource("LabelSettings_kruy4")
+horizontal_alignment = 1
+
+[node name="CharacterName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -720.0
+offset_bottom = 71.0
+grow_horizontal = 0
+text = "NAME"
+label_settings = SubResource("LabelSettings_5m7xw")
+horizontal_alignment = 2
+uppercase = true
