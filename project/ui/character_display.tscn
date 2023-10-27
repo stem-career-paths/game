@@ -14,34 +14,27 @@ script = ExtResource("1_34qhi")
 [node name="Science" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Science"
-animation_speed = null
 
 [node name="Technology" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Technology"
-animation_speed = null
 
 [node name="Engineering" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Engineering"
-animation_speed = null
 
 [node name="Mathematics" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Math"
-animation_speed = null
 
 [node name="Engagement" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Engagement"
-animation_speed = null
 
 [node name="Resilience" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Resilience"
-animation_speed = null
 
 [node name="Curiosity" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Curiosity"
-animation_speed = null

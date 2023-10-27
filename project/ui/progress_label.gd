@@ -21,4 +21,8 @@ func _process(_delta):
 	else:
 		%ProgressBar.ratio += (ratio - %ProgressBar.ratio) * animation_speed
 	
+	# If we're at basically 100%, show the star
+	if %ProgressBar.ratio >= 0.99: 
+		%StarLabel.visible = true
+	
 	
