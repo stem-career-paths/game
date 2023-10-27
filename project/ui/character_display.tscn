@@ -1,88 +1,47 @@
 [gd_scene load_steps=3 format=3 uid="uid://scwnvnkr08fy"]
 
 [ext_resource type="Script" path="res://ui/character_display.gd" id="1_34qhi"]
+[ext_resource type="PackedScene" uid="uid://dvl0dbu4n2v8n" path="res://ui/progress_label.tscn" id="2_0li2g"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ldvvn"]
-line_spacing = 0.0
-font_size = 20
-
-[node name="CharacterDisplay" type="GridContainer"]
+[node name="CharacterDisplay" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 2
 script = ExtResource("1_34qhi")
 
-[node name="ScienceLabel" type="Label" parent="."]
+[node name="Science" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Science"
-label_settings = SubResource("LabelSettings_ldvvn")
+animation_speed = null
 
-[node name="ScienceValue" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-label_settings = SubResource("LabelSettings_ldvvn")
-
-[node name="TechnologyLabel" type="Label" parent="."]
+[node name="Technology" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Technology"
-label_settings = SubResource("LabelSettings_ldvvn")
+animation_speed = null
 
-[node name="TechnologyValue" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="Engineering" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
-label_settings = SubResource("LabelSettings_ldvvn")
+text = "Engineering"
+animation_speed = null
 
-[node name="EngineeringLabel" type="Label" parent="."]
+[node name="Mathematics" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
-text = "Engineering
-"
-label_settings = SubResource("LabelSettings_ldvvn")
+text = "Math"
+animation_speed = null
 
-[node name="EngineeringValue" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-label_settings = SubResource("LabelSettings_ldvvn")
-
-[node name="MathematicsLabel" type="Label" parent="."]
-layout_mode = 2
-text = "Mathematics
-"
-label_settings = SubResource("LabelSettings_ldvvn")
-
-[node name="MathematicsValue" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-label_settings = SubResource("LabelSettings_ldvvn")
-
-[node name="EngagementLabel" type="Label" parent="."]
+[node name="Engagement" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Engagement"
-label_settings = SubResource("LabelSettings_ldvvn")
+animation_speed = null
 
-[node name="EngagementValue" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-label_settings = SubResource("LabelSettings_ldvvn")
-
-[node name="ResliienceLabel" type="Label" parent="."]
+[node name="Resilience" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Resilience"
-label_settings = SubResource("LabelSettings_ldvvn")
+animation_speed = null
 
-[node name="ResilienceValue" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-label_settings = SubResource("LabelSettings_ldvvn")
-
-[node name="CuriosityLabel" type="Label" parent="."]
+[node name="Curiosity" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2
 text = "Curiosity"
-label_settings = SubResource("LabelSettings_ldvvn")
-
-[node name="CuriosityValue" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-label_settings = SubResource("LabelSettings_ldvvn")
+animation_speed = null

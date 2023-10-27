@@ -1,20 +1,11 @@
 extends Control
 
-const _ATTRIBUTES := [
-	"Science",
-	"Technology",
-	"Engineering",
-	"Mathematics",
-	"Engagement",
-	"Resilience",
-	"Curiosity"
-]
-
+@export var max_value := 4
 var character : Character
 
 func _process(_delta):
 	assert(character!=null, "character must be set before the game begins")
-	for attribute in _ATTRIBUTES:
-		var value = character.get(attribute.to_lower())
-		var node_name = attribute + "Value"
-		find_child(node_name).text = str(value)
+	for attribute in Character.ATTRIBUTE_NAMES:
+		var node := find_child(attribute.to_pascal_case())
+		var value = character[attribute]
+		node.ratio = min(float(value) / max_value, 1)
