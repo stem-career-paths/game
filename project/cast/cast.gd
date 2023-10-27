@@ -20,5 +20,9 @@ func load_cast(path:String) -> void:
 				_dictionary[npc.name] = npc
 
 
+func pick_random() -> Npc:
+	return _dictionary.values().pick_random()
+
+
 func size() -> int:
 	return _dictionary.size()
