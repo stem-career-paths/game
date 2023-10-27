@@ -13,14 +13,14 @@ const ATTRIBUTE_NAMES : Array[String] = [
 	"curiosity",
 ]
 
-var science := 0
-var technology := 0
-var engineering := 0
-var mathematics := 0
+var science := Attribute.new()
+var technology := Attribute.new()
+var engineering := Attribute.new()
+var mathematics := Attribute.new()
 
-var engagement := 0
-var resilience := 0
-var curiosity := 0
+var engagement := Attribute.new()
+var resilience := Attribute.new()
+var curiosity := Attribute.new()
 
 
 ## Get the names of the highest attributes
@@ -28,9 +28,9 @@ var curiosity := 0
 ## If a filter is provided, only consider those attributes named in the filter.
 func get_highest_attribute_names(filter : Array[String] = ATTRIBUTE_NAMES) -> Array[String]:
 	var attribute_names := ATTRIBUTE_NAMES.filter(func(name): return filter.has(name))
-	attribute_names.sort_custom(func(a,b): return get(a) > get(b))
-	var maximal_value : int = get(attribute_names[0])
-	var result := attribute_names.filter(func(a): return get(a) == maximal_value)
+	attribute_names.sort_custom(func(a,b): return get(a).value > get(b).value)
+	var maximal_value : int = get(attribute_names[0]).value
+	var result := attribute_names.filter(func(a): return get(a).value == maximal_value)
 	var typed_returnable : Array[String] = []
 	typed_returnable.assign(result)
 	return typed_returnable

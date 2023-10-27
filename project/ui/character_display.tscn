@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://scwnvnkr08fy"]
 
 [ext_resource type="Script" path="res://ui/character_display.gd" id="1_34qhi"]
-[ext_resource type="PackedScene" uid="uid://dvl0dbu4n2v8n" path="res://ui/progress_label.tscn" id="2_0li2g"]
+[ext_resource type="PackedScene" uid="uid://dvl0dbu4n2v8n" path="res://ui/attribute_label.tscn" id="2_0li2g"]
 
 [node name="CharacterDisplay" type="VBoxContainer"]
 anchors_preset = 15

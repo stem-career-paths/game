@@ -1,14 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvl0dbu4n2v8n"]
 
-[ext_resource type="Script" path="res://ui/progress_label.gd" id="1_fn60u"]
+[ext_resource type="Script" path="res://ui/attribute_label.gd" id="1_0rhff"]
 
-[node name="ProgressLabel" type="Control"]
+[node name="AttributeLabel" type="Control"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-script = ExtResource("1_fn60u")
+script = ExtResource("1_0rhff")
+animation_duration = null
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -33,7 +34,5 @@ layout_mode = 2
 
 [node name="StarLabel" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 10
-text = "★"

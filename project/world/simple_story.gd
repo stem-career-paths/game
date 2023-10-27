@@ -50,4 +50,4 @@ func _add_end_story(end_story: String, world: World) -> void:
 
 func _apply_effects(effects:Dictionary, world:World) -> void:
 	for attribute_name in effects.keys():
-		world.character[attribute_name] += effects[attribute_name]
+		world.character[attribute_name].value += effects[attribute_name]
