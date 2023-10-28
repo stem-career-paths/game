@@ -9,7 +9,7 @@ var text := [
 ]
 
 var options := {
-	"The Only Option": {
+	"The Only Option which is long and has an awful lot of text": {
 		"text": [
 			"This is the first of two lines of option results.",
 			"This is the second of two lines of option results."

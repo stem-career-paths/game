@@ -127,7 +127,7 @@ func show_npc(npc:Npc) -> void:
 ## Show options to the player and await for them to select one.
 ## The selected option is returned.
 func show_options(options: Array) -> String:
-	var buttons : Array[Button] = []
+	var buttons : Array[Control] = []
 	for option in options:
 		var button := preload("res://ui/audible_button.tscn").instantiate()
 		button.text = option

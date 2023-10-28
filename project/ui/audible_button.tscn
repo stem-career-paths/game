@@ -2,7 +2,21 @@
 
 [ext_resource type="Script" path="res://ui/audible_button.gd" id="1_7jofx"]
 
-[node name="AudibleButton" type="Button"]
+[node name="AudibleButton" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 script = ExtResource("1_7jofx")
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_pressed"]
