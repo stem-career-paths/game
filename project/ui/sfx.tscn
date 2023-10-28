@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsujwl3i5n33o"]
+
+[ext_resource type="Script" path="res://ui/sfx.gd" id="1_2itf6"]
+[ext_resource type="AudioStream" uid="uid://chvt42ccjl1jw" path="res://ui/click_sound.wav" id="2_iwdva"]
+
+[node name="Sfx" type="Node"]
+script = ExtResource("1_2itf6")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iwdva")
+bus = &"Sfx"
