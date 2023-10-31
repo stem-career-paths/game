@@ -142,7 +142,7 @@ grow_vertical = 2
 theme = ExtResource("2_qjjgn")
 theme_override_constants/separation = 0
 
-[node name="TopBoxContainer" type="Control" parent="VBox"]
+[node name="TopBoxContainer" type="VBoxContainer" parent="VBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -151,8 +151,6 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 editor_description = "This box gets replaced by the ending text at the conclusion of the game"
 layout_mode = 2
-offset_right = 720.0
-offset_bottom = 985.0
 size_flags_vertical = 3
 
 [node name="YearIndicator" parent="VBox/TopBoxContainer/TopBox" instance=ExtResource("3_lycj3")]
@@ -163,6 +161,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(720, 538)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="AdvanceInstructions" type="Control" parent="VBox/TopBoxContainer/TopBox/NpcPanelContainer"]
 modulate = Color(1, 1, 1, 0)
@@ -203,8 +202,8 @@ libraries = {
 }
 
 [node name="StoryContainer" type="PanelContainer" parent="VBox/TopBoxContainer/TopBox"]
+custom_minimum_size = Vector2(0, 192)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="StoryLabel" type="Label" parent="VBox/TopBoxContainer/TopBox/StoryContainer"]
 unique_name_in_owner = true
@@ -245,7 +244,6 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 32
 alignment = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBox"]
