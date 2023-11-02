@@ -2,6 +2,8 @@ extends SimpleStory
 
 const _DRAMA_CLUB := "Drama Club"
 const _ROBOTICS_CLUB := "Robotics Club"
+const _DRAMA_DIR := "res://story/drama_club/"
+const _ROBOTICS_DIR := "res://story/robotics_club/"
 
 var npc_name := "Aubrey"
 
@@ -30,8 +32,8 @@ var options := {
 func on_option_selected(option: String, world : World) -> void:
 	match option:
 		_DRAMA_CLUB:
-			var continuation := "res://story/drama_club/cast_or_crew.gd"
-			world.available_stories.append(continuation)
+			var dir := DirAccess.open(_DRAMA_DIR)
+			world.add_stories(dir)
 		_ROBOTICS_CLUB:
-			var continuation := "res://story/robotics_club/intimidated.gd"
-			world.available_stories.append(continuation)
+			var dir := DirAccess.open(_ROBOTICS_DIR)
+			world.add_stories(dir)

@@ -27,3 +27,19 @@ var turns := 0:
 	set(value):
 		turns = value
 		turns_changed.emit(turns)
+
+
+## Add all the stories in the given directory to the list
+## of available stories
+##
+## Returns an array of the stories (resource paths) that were added
+func add_stories(dir:DirAccess) -> Array[String]:
+	var results : Array[String] = []
+	for file_name in dir.get_files():
+		var file_path := dir.get_current_dir() + "/" + file_name
+		if FileAccess.file_exists(file_path):
+			results.append(file_path)
+			available_stories.append(file_path)
+		else:
+			push_error("Tried to append non-existing story path: %s" % file_path)
+	return results
