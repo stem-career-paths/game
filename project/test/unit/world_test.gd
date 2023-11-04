@@ -1,14 +1,31 @@
 extends GutTest
 
-const _NUMBER_OF_TEST_STORIES := 2
+
+const TEST_STORY_DIR := "res://test/unit/test_stories"
+const NUMBER_OF_TEST_STORIES := 2
+
+var world: World
+
+
+func before_each() -> void:
+	world = autofree(World.new())
+
 
 func test_add_stories() -> void:
-	var world := World.new()
 	var initial_story_count := world.available_stories.size()
-	var dir := DirAccess.open("res://test/unit/test_stories")
+	var dir := DirAccess.open(TEST_STORY_DIR)
 	var added_paths := world.add_stories(dir)
-	var expected := initial_story_count + _NUMBER_OF_TEST_STORIES
+	var expected := initial_story_count + NUMBER_OF_TEST_STORIES
 	assert_eq(world.available_stories.size(), expected)
-	assert_eq(added_paths.size(), _NUMBER_OF_TEST_STORIES)
-	assert_eq(added_paths[0], "res://test/unit/test_stories/test_story_1.gd")
-	
+	assert_eq(added_paths.size(), NUMBER_OF_TEST_STORIES)
+	assert_eq(added_paths[0], "%s/test_story_1.gd" % TEST_STORY_DIR)
+
+
+func test_remove_stories() -> void:
+	var initial_story_count := world.available_stories.size()
+	var dir := DirAccess.open(TEST_STORY_DIR)
+	world.add_stories(dir)
+	var removed_paths := world.remove_stories(dir)
+	assert_eq(world.available_stories.size(), initial_story_count)
+	assert_eq(removed_paths.size(), NUMBER_OF_TEST_STORIES)
+	assert_eq(removed_paths[0], "%s/test_story_1.gd" % TEST_STORY_DIR)
