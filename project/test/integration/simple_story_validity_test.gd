@@ -51,7 +51,7 @@ func _test_options(options:Dictionary):
 		var effects : Dictionary = options["effects"]
 		for key in effects:
 			assert_eq(typeof(key), TYPE_STRING)
-			assert_true(key in Character.ATTRIBUTE_NAMES)
+			assert_true(key in Character.ATTRIBUTE_NAMES, "Expected key to be an attribute but it is \"%s\"" % key) 
 	if "end_story" in options:
 		assert_eq(typeof(options["end_story"]), TYPE_STRING)
 
