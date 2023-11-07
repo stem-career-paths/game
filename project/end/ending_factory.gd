@@ -30,7 +30,9 @@ const MAJORS_BY_ATTRIBUTE := {
 		"psychology",
 	],
 	"technology": [
+		"computer networking",
 		"cybersecurity",
+		"information systems",
 		"information technology",
 	],
 	"engineering": [
