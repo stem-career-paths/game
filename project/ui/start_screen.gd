@@ -16,6 +16,7 @@ func _ready() -> void:
 	for image in _image_parent.get_children():
 		image.texture = _get_image()
 
+
 func _process(delta) -> void:
 	_image_scroll_container.scroll_horizontal += delta * _scroll_speed
 
@@ -31,6 +32,7 @@ func _get_image() -> Texture:
 		_index = 0
 
 	return image
+
 
 func _swap_children_images() -> void:
 	var first_child = _image_parent.get_child(0)
