@@ -70,8 +70,8 @@ func _generate_random_ending(world: World) -> String:
 
 	if randf() <= COMMUNITY_COLLEGE_PROBABILITY:
 		result += "You go to community college %s " % [
-			"and earn an associate's degree. Then, you go ",
-			"to complete some core courses like writing and global studies. Then, you transfer "
+			"and earn an associate's degree. Then, you go",
+			"to complete some core courses like writing and global studies. Then, you transfer"
 		].pick_random()
 		result += "to %s"
 	else:
