@@ -1,18 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlmfnrpaq3eo1"]
+[gd_scene load_steps=5 format=3 uid="uid://dlmfnrpaq3eo1"]
 
 [ext_resource type="Script" path="res://ui/game_over_control.gd" id="1_alb5l"]
+[ext_resource type="Texture2D" uid="uid://0np2j7grfox2" path="res://ui/cap_and_diploma.png" id="2_ifhab"]
 
-[node name="GameOverControl" type="PanelContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_me4yr"]
+content_margin_top = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.415686, 0.470588, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_82vqt"]
+font_size = 64
+
+[node name="GameOverControl" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 script = ExtResource("1_alb5l")
 
-[node name="Label" type="Label" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_me4yr")
+
+[node name="Major" type="Label" parent="PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "[MAJOR]"
+label_settings = SubResource("LabelSettings_82vqt")
+horizontal_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer3"]
+modulate = Color(0.498039, 0.498039, 0.498039, 0.184314)
+layout_mode = 2
+texture = ExtResource("2_ifhab")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="Label" type="Label" parent="PanelContainer3/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "[STORY]"
 horizontal_alignment = 1
 autowrap_mode = 3

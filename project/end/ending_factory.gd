@@ -48,21 +48,26 @@ const MAJORS_BY_ATTRIBUTE := {
 }
 
 
-func make_ending_story(world: World) -> String:
+func make_ending_story(world: World) -> Dictionary:
 	if not world.end_stories.is_empty():
 		return _pick_random_canned_end_story(world)
 
 	return _generate_random_ending(world)
 
 
-func _pick_random_canned_end_story(world: World) -> String:
+func _pick_random_canned_end_story(world: World) -> Dictionary:
 	assert(not world.end_stories.is_empty())
 	var end_story_name := world.end_stories[randi() % world.end_stories.size()]
 	var end_story = load("%send_%s.gd" % [END_STORY_PATH, end_story_name]).new()
-	return end_story.text
+
+	return {
+		"major": end_story.major,
+		"text": end_story.text,
+	}
 
 
-func _generate_random_ending(world: World) -> String:
+func _generate_random_ending(world: World) -> Dictionary:
+	var major := _pick_major(world.character).capitalize()
 	var result := ""
 
 	if randf() > HIGHER_ED_PROBABILITY:
@@ -78,9 +83,12 @@ func _generate_random_ending(world: World) -> String:
 		result += "You attend %s"
 
 	result = result % _generate_college_text()
-	result += " and major in %s." % _pick_major(world.character).capitalize()
+	result += " and major in %s." % major
 
-	return result
+	return {
+		"major": major,
+		"text": result,
+	}
 
 
 func _generate_college_text() -> String:

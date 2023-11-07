@@ -63,8 +63,9 @@ func finish_game() -> void:
 	
 	var ending_control := preload("res://ui/game_over_control.tscn").instantiate()
 	var ending_factory := preload("res://end/ending_factory.gd").new()
-	var ending_text := ending_factory.make_ending_story(world)
-	ending_control.text = ending_text
+	var ending := ending_factory.make_ending_story(world)
+	ending_control.major = ending.major
+	ending_control.text = ending.text
 	ending_control.position = Vector2(_max_x, 0)
 	_top_box_container.add_child(ending_control)
 	
