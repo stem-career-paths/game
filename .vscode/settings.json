@@ -1,6 +1,6 @@
 {
 	"godot_tools.gdscript_lsp_server_port": 6005,
-	"editor.formatOnSave": true,
+	"editor.formatOnSave": false,
 	"editor.formatOnSaveMode": "file",
 	"editor.renderWhitespace": "all",
 	"editor.insertSpaces": false,
