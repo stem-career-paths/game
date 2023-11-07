@@ -77,7 +77,7 @@ func finish_game() -> void:
 	# Right now, there's only one option, so when it's chosen, move on.
 	# This will have to be more robust later.
 	await show_options(["Play Again"])
-	get_tree().change_scene_to_file("res://ui/main_screen.tscn")
+	get_tree().change_scene_to_file("res://ui/start_screen.tscn")
 	
 
 
