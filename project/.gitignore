@@ -3,7 +3,9 @@
 
 # Ignore overrides so that each developer can have per-workstation settings
 # for things like display size. See the README for details.
-override.cfg
+# A wildcard is used here to prevent files like override.cfg.bak from
+# being added.
+override.cfg*
 
 # Gut editor config thrashes since it stores which test is selected.
 # The proper configuration settings are specified in .gutconfig.json.

@@ -10,9 +10,9 @@ var text := [
 var npc_name := "Steven"
 
 var options := {
-	"Forget about it": {
-		"text": '"Um... You are sure this won\'t happen again? I don\'t know."',
-	},
+#	"Forget about it": {
+#		"text": '"Um... You are sure this won\'t happen again? I don\'t know."',
+#	},
 	"I will apologize": {
 		"text": '"Thanks. I am sure Alex will be happy to clear it up."',
 		"effects": {
