@@ -115,9 +115,10 @@ func show_npc(npc:Npc) -> void:
 	_npc_panel.npc = npc
 	_npc_panel.position.x = _max_x
 	_npc_panel_container.add_child(_npc_panel)
-	# Be careful to put the new child _beneath_ the advance instructions control.
+	# Be careful to put the new child _beneath_ the advance instructions control
+	# and above the background.
 	# This makes sure the "tap to advance" instruction shows over it.
-	_npc_panel_container.move_child(_npc_panel, 0)
+	_npc_panel_container.move_child(_npc_panel, 1)
 	
 	var tween_in := create_tween().set_ease(slide_animation_ease)
 	tween_in.tween_property(_npc_panel, "position", Vector2.ZERO, slide_animation_duration)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4sbdx84mhnmi"]
+[gd_scene load_steps=15 format=3 uid="uid://b4sbdx84mhnmi"]
 
 [ext_resource type="Script" path="res://ui/story_control.gd" id="1_n2lx3"]
+[ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://ui/hallway.png" id="2_0x4yx"]
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="2_qjjgn"]
 [ext_resource type="PackedScene" uid="uid://cn7vhi2yphyq2" path="res://ui/year_indicator.tscn" id="3_lycj3"]
 [ext_resource type="Script" path="res://ui/animated_label.gd" id="4_v553h"]
@@ -146,14 +147,19 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [node name="TopBox" type="VBoxContainer" parent="VBox/TopBoxContainer"]
 unique_name_in_owner = true
 editor_description = "This box gets replaced by the ending text at the conclusion of the game"
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
-[node name="YearIndicator" parent="VBox/TopBoxContainer/TopBox" instance=ExtResource("3_lycj3")]
+[node name="PanelContainer" type="PanelContainer" parent="VBox/TopBoxContainer/TopBox"]
+layout_mode = 2
+
+[node name="YearIndicator" parent="VBox/TopBoxContainer/TopBox/PanelContainer" instance=ExtResource("3_lycj3")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -163,10 +169,20 @@ custom_minimum_size = Vector2(720, 538)
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="TextureRect" type="TextureRect" parent="VBox/TopBoxContainer/TopBox/NpcPanelContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0x4yx")
+stretch_mode = 6
+
 [node name="AdvanceInstructions" type="Control" parent="VBox/TopBoxContainer/TopBox/NpcPanelContainer"]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 12
+layout_mode = 2
+anchors_preset = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
