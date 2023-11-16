@@ -11,7 +11,7 @@ var options := {
 			"resilience": +1
 		}
 	},
-	"You could get a scholarship": {
+	"Try to get a scholarship": {
 		"text": '"Yeah! I am hoping to get a scholarship so I can afford college. It is expensive."',
 	},
 	"Do you want to be a professional athlete?": {
