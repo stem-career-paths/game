@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ui/attribute_label.gd" id="1_0rhff"]
 
 [node name="AttributeLabel" type="Control"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0

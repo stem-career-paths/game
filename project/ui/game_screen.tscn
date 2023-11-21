@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=3 uid="uid://cu8dk0qnr77qs"]
+
+[ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_iwqch"]
+[ext_resource type="Script" path="res://ui/game_screen.gd" id="2_kqcir"]
+[ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="2_qajtq"]
+[ext_resource type="PackedScene" uid="uid://cn7vhi2yphyq2" path="res://ui/year_indicator.tscn" id="2_qr7fv"]
+[ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="3_ueeqd"]
+[ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://ui/hallway.png" id="4_rlc3j"]
+[ext_resource type="Script" path="res://ui/option_area.gd" id="6_hfcqp"]
+
+[sub_resource type="Animation" id="Animation_6m6et"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdvanceInstructions:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vybcr"]
+resource_name = "show_advance_instructions"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdvanceInstructions:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 3),
+"transitions": PackedFloat32Array(1, 2.07053, 2.07053),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsm27"]
+_data = {
+"RESET": SubResource("Animation_6m6et"),
+"show_advance_instructions": SubResource("Animation_vybcr")
+}
+
+[node name="GameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iwqch")
+script = ExtResource("2_kqcir")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TopContainer" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="TopPanelContainer" type="PanelContainer" parent="VBoxContainer/TopContainer"]
+layout_mode = 2
+
+[node name="YearIndicator" parent="VBoxContainer/TopContainer/TopPanelContainer" instance=ExtResource("2_qr7fv")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NpcPanelContainer" type="Control" parent="VBoxContainer/TopContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(720, 538)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TopContainer/NpcPanelContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rlc3j")
+stretch_mode = 6
+
+[node name="AdvanceInstructions" type="Control" parent="VBoxContainer/TopContainer/NpcPanelContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/TopContainer/NpcPanelContainer/AdvanceInstructions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.239216, 0.239216, 0.239216, 0.494118)
+
+[node name="AdvanceLabel" type="Label" parent="VBoxContainer/TopContainer/NpcPanelContainer/AdvanceInstructions"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Tap anywhere to continue"
+horizontal_alignment = 1
+
+[node name="AdvanceInstructionsAnimator" type="AnimationPlayer" parent="VBoxContainer/TopContainer/NpcPanelContainer"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_bsm27")
+}
+
+[node name="StoryContainer" type="PanelContainer" parent="VBoxContainer/TopContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StoryLabel" type="Label" parent="VBoxContainer/TopContainer/StoryContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio ut enim blandit volutpat maecenas volutpat blandit."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BottomContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottomContainer"]
+layout_mode = 2
+
+[node name="CharacterDisplay" parent="VBoxContainer/BottomContainer/HBoxContainer" instance=ExtResource("2_qajtq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="OptionArea" type="VBoxContainer" parent="VBoxContainer/BottomContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("6_hfcqp")
+
+[node name="AudibleButton" parent="VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
+layout_mode = 2
+text = "Lorem ipsum"
+
+[node name="AudibleButton2" parent="VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
+layout_mode = 2
+text = "dolor sit amet"
+
+[node name="AudibleButton3" parent="VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
+layout_mode = 2
+text = "consectetur adipiscing elit"
+
+[node name="AudibleButton4" parent="VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
+layout_mode = 2
+text = "sed do eiusmod tempor"

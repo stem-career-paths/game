@@ -1,24 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2m2pbepn6rip"]
+[gd_scene load_steps=8 format=3 uid="uid://d2m2pbepn6rip"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_gluso"]
 [ext_resource type="Script" path="res://ui/start_screen.gd" id="2_eoqqi"]
 [ext_resource type="Texture2D" uid="uid://b7srskjmxkvei" path="res://cast/steven.png" id="3_xvfeo"]
 [ext_resource type="Texture2D" uid="uid://8feisb4hegcw" path="res://cast/mary.png" id="4_3jef5"]
+[ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="5_sj70n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rthby"]
 font_size = 64
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfmk5"]
 bg_color = Color(0.25098, 0.25098, 0.25098, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_biyt8"]
-bg_color = Color(0.188235, 0.305882, 0.65098, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdemm"]
-bg_color = Color(0.188235, 0.305882, 0.65098, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a74y"]
-bg_color = Color(0.188235, 0.305882, 0.65098, 1)
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -112,11 +104,8 @@ text = "Pre-Alpha Build for the Symposium on Games"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="AudibleButton" parent="VBoxContainer" instance=ExtResource("5_sj70n")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_biyt8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qdemm")
-theme_override_styles/focus = SubResource("StyleBoxFlat_7a74y")
 text = "Begin"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AudibleButton" to="." method="_on_start_button_pressed"]

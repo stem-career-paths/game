@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byai3be16a35w"]
 
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_0trh8"]
-[ext_resource type="PackedScene" uid="uid://b4sbdx84mhnmi" path="res://ui/story_control.tscn" id="2_ilkbe"]
+[ext_resource type="PackedScene" uid="uid://cu8dk0qnr77qs" path="res://ui/game_screen.tscn" id="2_jqbb3"]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -12,5 +12,5 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0trh8")
 
-[node name="StoryControl" parent="." instance=ExtResource("2_ilkbe")]
+[node name="StoryControl" parent="." instance=ExtResource("2_jqbb3")]
 layout_mode = 1

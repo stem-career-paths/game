@@ -1,28 +1,22 @@
-extends VBoxContainer
+extends HBoxContainer
 
-@export var fill_rate_per_frame := 0.3
+@export var marker := "*"
 
-var world : World:
+var world: World:
 	set(value):
 		if world != null:
 			if world != value:
-				world.turns_changed.disconnect(_on_turns_changed)
+				world.turns_changed.disconnect(_update_display)
 		
 		world = value
-		value.turns_changed.connect(_on_turns_changed)
+		value.turns_changed.connect(_update_display)
+		_update_display(value.turns)
+
+@onready var _year_name: Label = %YearName
+@onready var _year_progress: Label = %YearProgress
 
 
-@onready var _progress_bar := $ProgressBar
-
-var _target_ratio := 0.0
-
-
-func _process(_delta):
-	_progress_bar.ratio += (_target_ratio - _progress_bar.ratio) * fill_rate_per_frame
-	$YearName.text = _lookup_year_name(_target_ratio)
-
-
-func _lookup_year_name(percent_complete : float) -> String:
+func _lookup_year_name(percent_complete: float) -> String:
 	if percent_complete < 0.25:
 		return "Freshman"
 	elif percent_complete < 0.5:
@@ -33,5 +27,17 @@ func _lookup_year_name(percent_complete : float) -> String:
 		return "Senior"
 
 
-func _on_turns_changed(turns:int) -> void:
-	_target_ratio = float(turns) / (world.turns_per_year * 4)
+func _lookup_year_progress(turn: int, turns_per_year: int) -> String:
+	var year_progress := turn % turns_per_year
+	var markers := []
+
+	for i in range(year_progress + 1):
+		markers.append(marker)
+
+	return " ".join(markers)
+
+
+func _update_display(turns: int) -> void:
+	var percent_complete: float = turns / (world.turns_per_year * 4.0)
+	_year_name.text = _lookup_year_name(percent_complete)
+	_year_progress.text = _lookup_year_progress(turns, world.turns_per_year)
