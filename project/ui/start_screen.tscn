@@ -100,7 +100,7 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="VBoxContainer/ImagePanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-text = "Pre-Alpha Build for the Symposium on Games"
+text = "Pre-Alpha Build"
 horizontal_alignment = 1
 vertical_alignment = 1
 
