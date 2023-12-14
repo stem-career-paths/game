@@ -45,4 +45,5 @@ func _swap_children_images() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://ui/main_screen.tscn")
+	var new_scene := preload("res://ui/main_scene.tscn").instantiate()
+	owner.change_scene(new_scene)

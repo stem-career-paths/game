@@ -49,7 +49,9 @@ func _ready():
 			await _run_next_story()
 			_stories_complete += 1
 	
-	$StoryControl.finish_game()
+	await $StoryControl.finish_game()
+	var start_scene := preload("res://ui/start_scene.tscn").instantiate()
+	owner.change_scene(start_scene)
 
 
 # Draw a random story and run it.
