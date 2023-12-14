@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://byai3be16a35w"]
+[gd_scene load_steps=5 format=3 uid="uid://byai3be16a35w"]
 
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_0trh8"]
 [ext_resource type="PackedScene" uid="uid://cu8dk0qnr77qs" path="res://ui/game_screen.tscn" id="2_jqbb3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1im5l"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p15m0"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_1im5l")
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -12,5 +19,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0trh8")
 
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+editor_description = "This texture rect will expand to fit the size of the window. This allows it to provide the letterboxing around the fixed-size StoryControl."
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_p15m0")
+stretch_mode = 1
+
 [node name="StoryControl" parent="." instance=ExtResource("2_jqbb3")]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.0
+offset_right = 360.0
+offset_bottom = 640.0
