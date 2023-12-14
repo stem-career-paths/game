@@ -33,5 +33,4 @@ func on_option_selected(option:String, world: World) -> void:
 	if POSITIVE.values().has(option):
 		var dir := DirAccess.open("res://story/rpg")
 		var result := world.add_stories(dir)
-		print(result)
 		
