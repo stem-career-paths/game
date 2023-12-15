@@ -101,6 +101,7 @@ func show_options(options: Array) -> String:
 		buttons.append(button)
 
 	var selection = await _option_selected
+	GameLog.made_choice(selection)
 
 	for button in buttons:
 		button.disabled = true

@@ -26,6 +26,9 @@ var _stories_complete := 0
 
 
 func _ready():
+	# Log the start of the game
+	GameLog.start_game()
+	
 	# Initialize the world
 	world = World.new()
 	world.cast.load_cast(_CAST_PATH)
