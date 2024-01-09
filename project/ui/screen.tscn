@@ -1,13 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc2a0qctejatm"]
+[gd_scene load_steps=3 format=3 uid="uid://bc2a0qctejatm"]
 
 [ext_resource type="Script" path="res://ui/screen.gd" id="1_d4di5"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ifoph"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1pr4a"]
-width = 128
-height = 128
-noise = SubResource("FastNoiseLite_ifoph")
+[ext_resource type="Texture2D" uid="uid://bh8w33ctdmcmy" path="res://ui/border_tile.png" id="2_pxlb0"]
 
 [node name="Screen" type="Control"]
 layout_mode = 3
@@ -27,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("NoiseTexture2D_1pr4a")
+texture = ExtResource("2_pxlb0")
 stretch_mode = 1
 
 [node name="Content" type="Control" parent="."]
