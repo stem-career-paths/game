@@ -1,15 +1,7 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bqnq26iud8rn3"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bqnq26iud8rn3"]
 
 [ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="1_77rkk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf77d"]
-bg_color = Color(0.188235, 0.305882, 0.65098, 1)
 
 [resource]
 default_font = ExtResource("1_77rkk")
 default_font_size = 32
-MarginContainer/constants/margin_bottom = 16
-MarginContainer/constants/margin_left = 16
-MarginContainer/constants/margin_right = 16
-MarginContainer/constants/margin_top = 16
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_xf77d")

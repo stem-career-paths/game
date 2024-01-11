@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8q1tdpaxtldy"]
+[gd_scene load_steps=5 format=3 uid="uid://b8q1tdpaxtldy"]
 
 [ext_resource type="Script" path="res://ui/audible_button.gd" id="1_7jofx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_for0d"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7of2p"]
+bg_color = Color(0.670588, 0.745098, 0.886275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bftog"]
+bg_color = Color(0.403106, 0.512134, 0.725106, 1)
 
 [node name="AudibleButton" type="MarginContainer"]
 anchors_preset = 15
@@ -14,6 +23,9 @@ script = ExtResource("1_7jofx")
 [node name="Button" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_for0d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7of2p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bftog")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -26,6 +38,7 @@ theme_override_constants/margin_bottom = 0
 [node name="Label" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.305882, 0.65098, 1)
 text = "PLACEHOLDER"
 horizontal_alignment = 1
 autowrap_mode = 2

@@ -21,6 +21,7 @@ var world : World:
 @onready var _option_area := %OptionArea
 @onready var _story_label : Label = %StoryLabel
 @onready var _npc_panel_container := %NpcPanelContainer
+@onready var _year_indicator := %YearIndicator
 
 var _npc_panel : Control
 
@@ -54,6 +55,10 @@ func finish_game() -> void:
 	ending_control.major = ending.major
 	ending_control.text = ending.text
 	_clear(_top_container)
+	# Simply hiding the year indicator is not a great UI. Animating
+	# between states might be better, but as of this writing, we don't
+	# have a clear design for how it should go away.
+	_year_indicator.visible = false
 	_top_container.add_child(ending_control)
 	
 	# Right now, there's only one option, so when it's chosen, move on.
