@@ -1,7 +1,5 @@
 extends HBoxContainer
 
-@export var marker := "*"
-
 var world: World:
 	set(value):
 		if world != null:
