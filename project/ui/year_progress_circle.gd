@@ -12,6 +12,6 @@ var year_passed : bool:
 
 
 func _draw() -> void:
-	draw_circle(Vector2.ZERO, outer_circle_radius, Color("#b1badb"))
+	draw_circle(Vector2.ZERO, outer_circle_radius, Palette.LIGHT_BLUE)
 	if year_passed:
-		draw_circle(Vector2.ZERO, outer_circle_radius-inner_border, Color("#434b97"))
+		draw_circle(Vector2.ZERO, outer_circle_radius-inner_border, Palette.BLUE)

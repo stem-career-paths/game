@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Sfx="*res://ui/sfx.tscn"
 GameLog="*res://common/log.gd"
+Palette="*res://ui/palette.gd"
 
 [display]
 
