@@ -3,7 +3,7 @@ extends SimpleStory
 var text := '"Can I tell you something? I feel like I have a hard time making friends."'
 
 var options := {
-	"Try being more engaged":
+	"Try being more engaged!":
 	{
 		"text": '"You mean, like, join a club or a team or something. I bet that\'s a good way to meet people."',
 		"effects": {
@@ -12,7 +12,11 @@ var options := {
 	},
 	"Don\'t feel bad.":
 	{
-		"text": '"What do you mean? It\'s just how I feel."',
+		"text": '"It\'s hard not to feel bad when I don\'t feel good."',
+	},
+	"Talk to your classmates!":
+	{
+		"text": '"Talking to people can be so hard! But I guess I can\'t be friends if I can\'t say hello..."'
 	},
 	"Whatever.":
 	{

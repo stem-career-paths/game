@@ -10,7 +10,7 @@ var options := {
 		},
 	},
 	"I would have given up.": {
-		"text": '"Really? I guess that\'s an option. Wouldn\'t it be better to keep trying though?"',
+		"text": '"But the cool thing is how the goalie didn\'t! I think it\'s worth it to see how it\'ll all end."',
 	},
 	"I missed it. I had to walk my dog.": {
 		"text": '"Ha, whatever dude. You don\'t even have a dog."',

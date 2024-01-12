@@ -16,6 +16,6 @@ var options := {
 		],
 	},
 	"Sell your shoes and learn to play the flute": {
-		"text": "I... never thought of that.",
+		"text": "I... never thought of that. Thanks?",
 	},
 }

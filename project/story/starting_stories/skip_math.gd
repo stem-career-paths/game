@@ -22,5 +22,11 @@ var options := {
 		"effects": {
 			"science": +1,
 		}
+	},
+	"Math is stupid. Don\'t take it.": {
+		"text": [
+			'"Hey! Not taking it doesn\'t mean I don\'t like it!"',
+			'"I think I\'ll take my math class out of spite."'
+			]
 	}
 }

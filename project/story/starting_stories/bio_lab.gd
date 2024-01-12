@@ -7,7 +7,10 @@ var npc_name := "Mary"
 var options := {
 	"Cut the frog":
 	{	
-		"text": "Gross! But awesome!!",
+		"text": [
+			"Cutting open the frog is a lot harder than you thought! Some parts are squishy and some are solid. There are organs everywhere!",
+			"All of it smells bad though."
+		],
 		"effects": {
 			"science": +1,
 			"engagement": +1
@@ -15,7 +18,7 @@ var options := {
 	},
 	"Write measurements": 
 	{
-		"text": "That's a big frog",
+		"text": "You measure the frog. When you ask the other students what they got, you find your frog is the second biggest!",
 		"effects": {
 			"mathematics": +1
 		}
