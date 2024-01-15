@@ -1,8 +1,8 @@
 extends SimpleStory
 
 var text := [
-	'"I have been thinking about college. My dad is an engineer. He designs electronics systems for factories."',
-	'"I have always thought that sounded good, but I also like creative writing. What should I look for in a major?"',
+	'"I\'ve been thinking about college. My dad\'s an engineer. He designs electronics systems for factories."',
+	'"I always thought that sounded good, but I also like creative writing. What should I look for in a major?"',
 ]
 
 var npc_name := "Aubrey"

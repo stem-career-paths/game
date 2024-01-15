@@ -4,7 +4,7 @@ var npc_name := "Hilda"
 
 var text := [
 	'"Oh man oh man oh man. There is a show this weekend, and I have math and English exams coming up."',
-	'"I am royally stressed."'
+	'"I\'m ROYALLY stressed."'
 ]
 
 var options := {
@@ -18,7 +18,9 @@ var options := {
 		"text": '"Yes, I NEED to do well... but I also need to pass these tests. UGH."',
 	},
 	"Do both": {
-		"text": '"Yeah, I have responsibilities to both. I will need to make a schedule for sure."',
+		"text": ['"I wanna do both! But it\'s really really stressful!"',
+				'"Maybe that\'s why my mom keeps telling me to use my planner..."'
+			],
 		"effects": {
 			"resilience": +2,
 		}

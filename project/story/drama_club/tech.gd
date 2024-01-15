@@ -19,7 +19,7 @@ var options := {
 		},
 	},
 	_SWITCH: {
-		"text": '"Oh, no! Well, I am sure you will have a good time. See you around!"',
+		"text": '"Oh, no! Well, I\'m sure you will have a good time. See you around!"',
 	},
 }
 

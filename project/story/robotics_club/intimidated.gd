@@ -1,15 +1,15 @@
 extends SimpleStory
 
-var text := '"I didn\'t know that you liked robotics! I am so glad you are here. I... don\'t know much about any of this, though. Maybe I should just be on the media team."'
+var text := '"I didn\'t know that you liked robotics! I\'m so glad you are here. I... don\'t know much about any of this, truth be told. Maybe I aughta stick to soccer..."'
 
 var npc_name := "Mary"
 
 var options := {
 	"If that\'s what you want." : {
-		"text": '"I hope I am good at it."',
+		"text": '"I already know I\'m good at soccer. Maybe another club is too much."',
 	},
 	"Let's WELD something!": {
-		"text": '"I... guess I could try that? Sure, why not? This is my chance, right?"',
+		"text": '"Wait wait wait- I get to WELD in robotics? Pass me the fire stick!!"',
 		"end_story": "robotics",
 		"effects": {
 			"resilience": +1,
