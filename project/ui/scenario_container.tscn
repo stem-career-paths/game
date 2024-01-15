@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://ui/scenario_container.gd" id="1_odpkb"]
 
 [node name="ScenarioContainer" type="Control"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 603.0

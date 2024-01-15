@@ -84,7 +84,6 @@ func show_npc(npc:Npc) -> void:
 	var scenario := preload("res://ui/scenario_view.tscn").instantiate()
 	scenario.npc = npc
 	await _scenario_container.show_control(scenario)
-	
 
 
 ## Show options to the player and await for them to select one.

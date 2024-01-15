@@ -43,42 +43,36 @@ theme = ExtResource("1_iwqch")
 theme_override_styles/panel = SubResource("StyleBoxFlat_vsh8h")
 script = ExtResource("2_kqcir")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ScenarioContainer" parent="CanvasLayer" node_paths=PackedStringArray("ui_placeholder") instance=ExtResource("3_ieeti")]
-unique_name_in_owner = true
-anchors_preset = -1
-offset_left = 60.0
-offset_top = 78.0
-offset_right = 663.0
-offset_bottom = 535.0
-ui_placeholder = NodePath("../../MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/ScenarioPlaceholder")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="SingularChild" type="Control" parent="."]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SingularChild"]
+layout_mode = 2
+offset_right = 720.0
+offset_bottom = 1280.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="WhiteBackground" type="PanelContainer" parent="MarginContainer"]
+[node name="WhiteBackground" type="PanelContainer" parent="SingularChild/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rqxn1")
 
-[node name="MainUI" type="VBoxContainer" parent="MarginContainer/WhiteBackground"]
+[node name="MainUI" type="VBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground"]
 layout_mode = 2
 
-[node name="YearIndicator" parent="MarginContainer/WhiteBackground/MainUI" instance=ExtResource("2_qr7fv")]
+[node name="YearIndicator" parent="SingularChild/MarginContainer/WhiteBackground/MainUI" instance=ExtResource("2_qr7fv")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="InnerBluePanel" type="PanelContainer" parent="MarginContainer/WhiteBackground/MainUI"]
+[node name="InnerBluePanel" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7llhc")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
@@ -86,18 +80,22 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="TopContainer" type="VBoxContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer"]
+[node name="TopContainer" type="VBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="ScenarioPlaceholder" type="ColorRect" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
+[node name="ScenarioCliipBoundsPlaceholder" type="HBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ScenarioPlaceholder" type="ColorRect" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/ScenarioCliipBoundsPlaceholder"]
 editor_description = "This placeholder is the size and shape of the scenario view. It holds a place for those, which are on a separate canvas layer. This node makes itself invisible at runtime."
 custom_minimum_size = Vector2(603, 457)
 layout_mode = 2
@@ -106,12 +104,12 @@ size_flags_vertical = 0
 color = Color(0.670588, 0.745098, 0.886275, 1)
 script = ExtResource("5_vhgyq")
 
-[node name="StoryContainer" type="PanelContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
+[node name="StoryContainer" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_gmiha")
 
-[node name="StoryLabel" type="Label" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/StoryContainer"]
+[node name="StoryLabel" type="Label" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/StoryContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -120,21 +118,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="BottomContainer" type="PanelContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer"]
+[node name="BottomContainer" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3b0j5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="CharacterDisplay" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer" instance=ExtResource("2_qajtq")]
+[node name="CharacterDisplay" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer" instance=ExtResource("2_qajtq")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="OptionArea" type="VBoxContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer"]
+[node name="OptionArea" type="VBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -143,18 +141,30 @@ theme_override_constants/separation = 5
 alignment = 1
 script = ExtResource("6_hfcqp")
 
-[node name="AudibleButton" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
+[node name="AudibleButton" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
 layout_mode = 2
 text = "Lorem ipsum"
 
-[node name="AudibleButton2" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
+[node name="AudibleButton2" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
 layout_mode = 2
 text = "dolor sit amet"
 
-[node name="AudibleButton3" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
+[node name="AudibleButton3" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
 layout_mode = 2
 text = "consectetur adipiscing elit"
 
-[node name="AudibleButton4" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
+[node name="AudibleButton4" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/OptionArea" instance=ExtResource("3_ueeqd")]
 layout_mode = 2
 text = "sed do eiusmod tempor"
+
+[node name="ScenarioContainer" parent="SingularChild" instance=ExtResource("3_ieeti")]
+unique_name_in_owner = true
+editor_description = "This is an \"overlay\" so that its children can be animated around."
+custom_minimum_size = Vector2(603, 457)
+layout_mode = 2
+offset_left = 59.0
+offset_top = 79.0
+offset_right = 662.0
+offset_bottom = 536.0
+grow_horizontal = 2
+grow_vertical = 2

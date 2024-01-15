@@ -1,24 +1,7 @@
 extends Control
 
-@export var ui_placeholder : Control
-
 @export var duration := 0.5
 
-func _ready():
-	if ui_placeholder==null:
-		push_warning("No placeholder connected. Cannot determine size of scenario view.")
-	else:
-		# Set the size to whatever the placeholder is, which has to be laid out
-		# before we can get its laid-out size.
-		ui_placeholder.item_rect_changed.connect(_update_scenario_position)
-		
-		# Update position when the viewport changes (e.g. window resized)
-		get_viewport().size_changed.connect(_update_scenario_position)
-
-
-func _update_scenario_position() -> void:
-	var destination := ui_placeholder.get_global_rect().position
-	global_position = destination
 
 ## Remove the content from this container.
 ##
