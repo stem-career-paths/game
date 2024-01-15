@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cu8dk0qnr77qs"]
+[gd_scene load_steps=16 format=3 uid="uid://cu8dk0qnr77qs"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_iwqch"]
 [ext_resource type="Script" path="res://ui/game_screen.gd" id="2_kqcir"]
@@ -33,6 +33,14 @@ bg_color = Color(0.133333, 0.305882, 0.65098, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3b0j5"]
 bg_color = Color(0.133333, 0.305882, 0.65098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0iwfu"]
+bg_color = Color(0.964706, 0.945098, 0.862745, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.964706, 0.945098, 0.862745, 1)
 
 [node name="GameScreen" type="PanelContainer"]
 anchors_preset = 15
@@ -125,7 +133,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3b0j5")
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="CharacterDisplay" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer" instance=ExtResource("2_qajtq")]
+[node name="PanelContainer" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0iwfu")
+
+[node name="CharacterDisplay" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/BottomContainer/HBoxContainer/PanelContainer" instance=ExtResource("2_qajtq")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

@@ -7,13 +7,13 @@ border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
+border_color = Color(0.921569, 0.678431, 0.407843, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87q0f"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.921569, 0.678431, 0.407843, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dslt8"]
-bg_color = Color(0.670588, 0.745098, 0.886275, 1)
+bg_color = Color(0.964706, 0.945098, 0.862745, 1)
 
 [node name="AttributeLabel" type="PanelContainer"]
 anchors_preset = 10
