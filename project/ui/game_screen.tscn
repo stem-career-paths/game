@@ -45,13 +45,14 @@ script = ExtResource("2_kqcir")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScenarioContainer" parent="CanvasLayer" instance=ExtResource("3_ieeti")]
+[node name="ScenarioContainer" parent="CanvasLayer" node_paths=PackedStringArray("ui_placeholder") instance=ExtResource("3_ieeti")]
 unique_name_in_owner = true
 anchors_preset = -1
 offset_left = 60.0
 offset_top = 78.0
 offset_right = 663.0
 offset_bottom = 535.0
+ui_placeholder = NodePath("../../MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/ScenarioPlaceholder")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
