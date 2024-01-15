@@ -11,21 +11,37 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_34qhi")
 
-[node name="Science" parent="." instance=ExtResource("2_0li2g")]
+[node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
-text = "Science"
+columns = 2
 
-[node name="Technology" parent="." instance=ExtResource("2_0li2g")]
+[node name="Science" parent="GridContainer" instance=ExtResource("2_0li2g")]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "Technology"
+size_flags_horizontal = 3
+text = "S"
+style = 1
 
-[node name="Engineering" parent="." instance=ExtResource("2_0li2g")]
+[node name="Technology" parent="GridContainer" instance=ExtResource("2_0li2g")]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "Engineering"
+size_flags_horizontal = 3
+text = "T"
+style = 1
 
-[node name="Mathematics" parent="." instance=ExtResource("2_0li2g")]
+[node name="Engineering" parent="GridContainer" instance=ExtResource("2_0li2g")]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "Math"
+size_flags_horizontal = 3
+text = "E"
+style = 1
+
+[node name="Mathematics" parent="GridContainer" instance=ExtResource("2_0li2g")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "M"
+style = 1
 
 [node name="Engagement" parent="." instance=ExtResource("2_0li2g")]
 layout_mode = 2

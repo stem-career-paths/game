@@ -1,6 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvl0dbu4n2v8n"]
+[gd_scene load_steps=5 format=3 uid="uid://dvl0dbu4n2v8n"]
 
 [ext_resource type="Script" path="res://ui/attribute_label.gd" id="1_0rhff"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xx1b"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87q0f"]
 bg_color = Color(1, 1, 1, 1)
@@ -8,16 +15,19 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dslt8"]
 bg_color = Color(0.670588, 0.745098, 0.886275, 1)
 
-[node name="AttributeLabel" type="Control"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 3
+[node name="AttributeLabel" type="PanelContainer"]
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xx1b")
 script = ExtResource("1_0rhff")
-animation_duration = null
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -29,20 +39,15 @@ theme_override_styles/background = SubResource("StyleBoxFlat_87q0f")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dslt8")
 show_percentage = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 26.0
-grow_horizontal = 2
-
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="Control"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.133333, 0.305882, 0.65098, 1)
 text = "Attribute"
-
-[node name="StarLabel" type="Label" parent="HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 10
+vertical_alignment = 1
