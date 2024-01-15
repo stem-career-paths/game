@@ -1,11 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://cu8dk0qnr77qs"]
+[gd_scene load_steps=14 format=3 uid="uid://cu8dk0qnr77qs"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_iwqch"]
 [ext_resource type="Script" path="res://ui/game_screen.gd" id="2_kqcir"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="2_qajtq"]
 [ext_resource type="PackedScene" uid="uid://cn7vhi2yphyq2" path="res://ui/year_indicator.tscn" id="2_qr7fv"]
+[ext_resource type="PackedScene" uid="uid://c878div1yocyl" path="res://ui/scenario_container.tscn" id="3_ieeti"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="3_ueeqd"]
-[ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://ui/hallway.png" id="4_rlc3j"]
+[ext_resource type="Script" path="res://ui/hide_on_run.gd" id="5_vhgyq"]
 [ext_resource type="Script" path="res://ui/option_area.gd" id="6_hfcqp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsh8h"]
@@ -26,53 +27,6 @@ corner_radius_bottom_left = 30
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7llhc"]
 bg_color = Color(0.133333, 0.305882, 0.65098, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va8tt"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6pxy"]
-bg_color = Color(0.239216, 0.239216, 0.239216, 0.494118)
-
-[sub_resource type="Animation" id="Animation_6m6et"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AdvanceInstructions:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_vybcr"]
-resource_name = "show_advance_instructions"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AdvanceInstructions:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 3),
-"transitions": PackedFloat32Array(1, 2.07053, 2.07053),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsm27"]
-_data = {
-"RESET": SubResource("Animation_6m6et"),
-"show_advance_instructions": SubResource("Animation_vybcr")
-}
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmiha"]
 bg_color = Color(0.133333, 0.305882, 0.65098, 1)
 
@@ -88,6 +42,16 @@ grow_vertical = 2
 theme = ExtResource("1_iwqch")
 theme_override_styles/panel = SubResource("StyleBoxFlat_vsh8h")
 script = ExtResource("2_kqcir")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScenarioContainer" parent="CanvasLayer" instance=ExtResource("3_ieeti")]
+unique_name_in_owner = true
+anchors_preset = -1
+offset_left = 60.0
+offset_top = 78.0
+offset_right = 663.0
+offset_bottom = 535.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -132,40 +96,14 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="NpcPanelContainer" type="PanelContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
-unique_name_in_owner = true
+[node name="ScenarioPlaceholder" type="ColorRect" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
+editor_description = "This placeholder is the size and shape of the scenario view. It holds a place for those, which are on a separate canvas layer. This node makes itself invisible at runtime."
+custom_minimum_size = Vector2(603, 457)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_va8tt")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/NpcPanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/NpcPanelContainer/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("4_rlc3j")
-expand_mode = 1
-
-[node name="AdvanceInstructions" type="PanelContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/NpcPanelContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_j6pxy")
-
-[node name="AdvanceLabel" type="Label" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/NpcPanelContainer/AdvanceInstructions"]
-layout_mode = 2
-text = "Tap anywhere to continue"
-horizontal_alignment = 1
-
-[node name="AdvanceInstructionsAnimator" type="AnimationPlayer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/NpcPanelContainer"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_bsm27")
-}
+size_flags_horizontal = 4
+size_flags_vertical = 0
+color = Color(0.670588, 0.745098, 0.886275, 1)
+script = ExtResource("5_vhgyq")
 
 [node name="StoryContainer" type="PanelContainer" parent="MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
 layout_mode = 2

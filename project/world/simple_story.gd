@@ -10,13 +10,16 @@ func run(presenter) -> void:
 	assert(get("text") is String or get("text") is Array, "The 'text' must be a string or an array")
 	assert("options" in self, "This story must have 'options'")
 
+	# Clear any old text from the screen first
+	presenter.show_text("")
+
 	# If the npc is specified, load it, and if not, pick one at random.
 	var npc : Npc
 	if "npc_name" in self:
 		npc = presenter.world.cast.get_by_name(get("npc_name"))
 	else:
 		npc = presenter.world.cast.pick_random()
-	presenter.show_npc(npc)
+	await presenter.show_npc(npc)
 
 	await _show(presenter, get("text"), get("effects"))
 

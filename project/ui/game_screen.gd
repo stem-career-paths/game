@@ -12,19 +12,14 @@ var world : World:
 		%CharacterDisplay.character = world.character
 		%YearIndicator.world = world
 
-@onready var _advance_anim_player := %AdvanceInstructionsAnimator
-
 ## This box holds the whole top interaction area. It is the container
 ## whose content is swapped out by the ending screen at the end of
 ## the game, which allows the bottom to stay in place.
 @onready var _top_container := %TopContainer
 @onready var _option_area := %OptionArea
 @onready var _story_label : Label = %StoryLabel
-@onready var _npc_panel_container := %NpcPanelContainer
 @onready var _year_indicator := %YearIndicator
-
-var _npc_panel : Control
-
+@onready var _scenario_container := %ScenarioContainer
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
@@ -54,6 +49,9 @@ func finish_game() -> void:
 	var ending := ending_factory.make_ending_story(world)
 	ending_control.major = ending.major
 	ending_control.text = ending.text
+	
+	await _scenario_container.clear()
+	
 	_clear(_top_container)
 	# Simply hiding the year indicator is not a great UI. Animating
 	# between states might be better, but as of this writing, we don't
@@ -83,15 +81,10 @@ func show_effects(_effects: Dictionary) -> void:
 ##
 ## This is a coroutine that ends with the animation's completion.
 func show_npc(npc:Npc) -> void:
-	if _npc_panel != null:
-		_npc_panel.queue_free()
-	_npc_panel = preload("res://ui/npc_panel.tscn").instantiate()
-	_npc_panel.npc = npc
-	_npc_panel_container.add_child(_npc_panel)
-	# Be careful to put the new child _beneath_ the advance instructions control
-	# and above the background.
-	# This makes sure the "tap to advance" instruction shows over it.
-	_npc_panel_container.move_child(_npc_panel, 1)
+	var scenario := preload("res://ui/scenario_view.tscn").instantiate()
+	scenario.npc = npc
+	await _scenario_container.show_control(scenario)
+	
 
 
 ## Show options to the player and await for them to select one.
@@ -131,10 +124,10 @@ func show_text(story) -> void:
 			
 			# If this is not the last substory, let the player click through.
 			if i < story.size()-1:
-				_advance_anim_player.play("show_advance_instructions")
-				await _tapped_anywhere
-				_advance_anim_player.stop()
-				_advance_anim_player.play("RESET")
+				_clear(_option_area)
+				await show_options(["Continue"])
+				_clear(_option_area)
+				
 
 	else:
 		push_error("Unexpected parameter type: " + story.get_class())
