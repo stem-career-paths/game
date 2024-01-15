@@ -40,6 +40,7 @@ size_flags_vertical = 3
 modulate = Color(0.498039, 0.498039, 0.498039, 0.184314)
 layout_mode = 2
 texture = ExtResource("2_ifhab")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer3"]
