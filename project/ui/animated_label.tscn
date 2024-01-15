@@ -3,5 +3,6 @@
 [ext_resource type="Script" path="res://ui/animated_label.gd" id="1_1pi1p"]
 
 [node name="AnimatedLabel" type="Label"]
+autowrap_mode = 2
 visible_characters_behavior = 1
 script = ExtResource("1_1pi1p")
