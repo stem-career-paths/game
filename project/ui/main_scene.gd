@@ -24,6 +24,8 @@ var world : World
 ## The number of stories completed so far
 var _stories_complete := 0
 
+@onready var _game_screen := $GameScreen
+
 
 func _ready():
 	# Log the start of the game
@@ -32,7 +34,7 @@ func _ready():
 	# Initialize the world
 	world = World.new()
 	world.cast.load_cast(_CAST_PATH)
-	$StoryControl.world = world
+	_game_screen.world = world
 	
 	## Load all the stories in _STARTING_STORY_PATH
 	var file_paths := DirAccess.get_files_at(_STARTING_STORY_PATH)
@@ -52,7 +54,7 @@ func _ready():
 			await _run_next_story()
 			_stories_complete += 1
 	
-	await $StoryControl.finish_game()
+	await _game_screen.finish_game()
 	var start_scene := preload("res://ui/start_scene.tscn").instantiate()
 	owner.change_scene(start_scene)
 
@@ -75,7 +77,7 @@ func _run_next_story() -> void:
 	
 	## Load the story and start it
 	var story = load(story_path).new()
-	await story.run($StoryControl)
+	await story.run(_game_screen)
 	world.turns += 1
 
 

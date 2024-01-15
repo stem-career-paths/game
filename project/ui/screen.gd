@@ -1,16 +1,11 @@
 extends Control
 
-@export var content_scene := preload("res://ui/start_scene.tscn")
-
 @onready var _content := $Content
 
 func _ready():
-	if content_scene == null:
-		push_warning('No content given to app screen. Nothing will be shown.')
-	else:
-		var scene := content_scene.instantiate()
-		$Content.add_child(scene)
-		scene.owner = self
+	var scene := preload("res://ui/start_scene.tscn").instantiate()
+	$Content.add_child(scene)
+	scene.owner = self
 	
 func change_scene(new_scene: Control) -> void:
 	assert(new_scene != null)

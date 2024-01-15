@@ -25,6 +25,7 @@ texture = ExtResource("2_pxlb0")
 stretch_mode = 1
 
 [node name="Content" type="Control" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,25 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://byai3be16a35w"]
+[gd_scene load_steps=3 format=3 uid="uid://s4kdj5qeftij"]
 
-[ext_resource type="Script" path="res://ui/main_scene.gd" id="1_2iavq"]
-[ext_resource type="PackedScene" uid="uid://cu8dk0qnr77qs" path="res://ui/game_screen.tscn" id="1_g5cm6"]
+[ext_resource type="Script" path="res://ui/main_scene.gd" id="1_dccup"]
+[ext_resource type="PackedScene" uid="uid://cu8dk0qnr77qs" path="res://ui/game_screen.tscn" id="2_15d48"]
 
 [node name="MainScene" type="Control"]
+custom_minimum_size = Vector2(720, 1280)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2iavq")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_dccup")
 
-[node name="StoryControl" parent="." instance=ExtResource("1_g5cm6")]
+[node name="GameScreen" parent="." instance=ExtResource("2_15d48")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -640.0
-offset_right = 360.0
-offset_bottom = 640.0
