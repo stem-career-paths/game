@@ -91,11 +91,7 @@ func show_npc(npc:Npc) -> void:
 func show_options(options: Array) -> String:
 	var buttons : Array[Control] = []
 	for option in options:
-		var button := preload("res://ui/audible_button.tscn").instantiate()
-		button.text = option
-		button.pressed.connect(func(): _option_selected.emit(option))
-		_option_area.add_child(button)
-		buttons.append(button)
+		buttons.append(create_option_button(option))
 
 	var selection = await _option_selected
 	GameLog.made_choice(selection)
@@ -104,6 +100,15 @@ func show_options(options: Array) -> String:
 		button.disabled = true
 
 	return selection
+
+
+func create_option_button(option: String) -> Node:
+	var button := preload("res://ui/audible_button.tscn").instantiate()
+	button.text = option
+	button.pressed.connect(func(): _option_selected.emit(option))
+	_option_area.add_child(button)
+	
+	return button
 
 
 ## Show text in the main message area.
