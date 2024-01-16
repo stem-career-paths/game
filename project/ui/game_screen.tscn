@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cu8dk0qnr77qs"]
+[gd_scene load_steps=21 format=3 uid="uid://cu8dk0qnr77qs"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_iwqch"]
 [ext_resource type="Script" path="res://ui/game_screen.gd" id="2_kqcir"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cqsvt2ysd353x" path="res://ui/animated_label.tscn" id="5_mqyhs"]
 [ext_resource type="Script" path="res://ui/hide_on_run.gd" id="5_vhgyq"]
 [ext_resource type="Script" path="res://ui/option_area.gd" id="6_hfcqp"]
+[ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="10_0sf5b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsh8h"]
 bg_color = Color(0.133333, 0.305882, 0.65098, 1)
@@ -41,6 +42,47 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.964706, 0.945098, 0.862745, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_6shnv"]
+base_font = ExtResource("10_0sf5b")
+variation_embolden = 0.5
+
+[sub_resource type="Animation" id="Animation_adfcd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationOverlay/AttributeChangeLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_14ive"]
+resource_name = "attribute_change"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationOverlay/AttributeChangeLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.6, 2),
+"transitions": PackedFloat32Array(2, 0.482968, 0.482968, 0.482968),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_icxf3"]
+_data = {
+"RESET": SubResource("Animation_adfcd"),
+"attribute_change": SubResource("Animation_14ive")
+}
 
 [node name="GameScreen" type="PanelContainer"]
 anchors_preset = 15
@@ -181,3 +223,29 @@ offset_right = 662.0
 offset_bottom = 536.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AnimationOverlay" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="AttributeChangeLabel" type="Label" parent="AnimationOverlay"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 625.0
+offset_right = 720.0
+offset_bottom = 715.0
+pivot_offset = Vector2(360, 90)
+theme_override_colors/font_color = Color(0.815686, 0.372549, 0.0627451, 1)
+theme_override_colors/font_outline_color = Color(0.964706, 0.945098, 0.862745, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = SubResource("FontVariation_6shnv")
+theme_override_font_sizes/font_size = 64
+text = "Attribute +0"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_icxf3")
+}

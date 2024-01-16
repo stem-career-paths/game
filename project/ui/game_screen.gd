@@ -20,6 +20,8 @@ var world : World:
 @onready var _story_label : Label = %StoryLabel
 @onready var _year_indicator := %YearIndicator
 @onready var _scenario_container := %ScenarioContainer
+@onready var _animation_player := $AnimationPlayer
+@onready var _attribute_change_label := %AttributeChangeLabel
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
@@ -73,8 +75,15 @@ func finish_game() -> void:
 ##
 ## This is a coroutine that returns when the animated effects are complete.
 func show_effects(_effects: Dictionary) -> void:
-	# Remember that the animations were cut out while we revise the UI.
-	pass
+	# Assemble the text
+	var text := ""
+	for attribute_name in _effects.keys():
+		text += "%s +%d\n" % [attribute_name.to_pascal_case(), _effects[attribute_name]]
+	_attribute_change_label.text = text
+	
+	# Play the animation
+	_animation_player.play("attribute_change")
+	await _animation_player.animation_finished
 
 
 ## Show the portrait of a particular npc.
@@ -111,6 +120,15 @@ func create_option_button(option: String) -> Node:
 	return button
 
 
+## Show the "continue" message to the player and wait for them to press it.
+##
+## This is a coroutine that waits until the button has been pressed.
+func show_continue() -> void:
+	_clear(_option_area)
+	await show_options(["Continue"])
+	_clear(_option_area)
+
+
 ## Show text in the main message area.
 ##
 ## The parameter may be a String or an Array[String].
@@ -129,7 +147,7 @@ func show_text(story) -> void:
 			# If this is not the last substory, let the player click through.
 			if i < story.size()-1:
 				_clear(_option_area)
-				await show_options(["Continue"])
+				await show_continue()
 				_clear(_option_area)
 				
 

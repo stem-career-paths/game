@@ -21,38 +21,43 @@ func run(presenter) -> void:
 		npc = presenter.world.cast.pick_random()
 	await presenter.show_npc(npc)
 
-	await _show(presenter, get("text"), get("effects"))
+	# Show the introductory text
+	var intro_text = get("text") # Can be String or Array[String].
+	await presenter.show_text(intro_text)
 
+	# Show the player their options and wait for them to select one.
 	var options_dict = get("options")
 	var option_keys = options_dict.keys()
 	var selected = await presenter.show_options(option_keys)
 
+	# Use the subclass' callback method if it has one.
 	if self.has_method(_ON_OPTION_SELECTED_NAME):
 		call(_ON_OPTION_SELECTED_NAME, selected, presenter.world)
 
+	# Extract the parts of the result.
 	var result = options_dict[selected]
-	var selected_text = result.text
-	var selected_end_story = result.end_story if "end_story" in result else null
-	var selected_effects = result.effects if "effects" in result else null
+	var conclusion = result.text
+	var effects = result.effects if "effects" in result else null
 
-	await _show(presenter, selected_text, selected_effects)
-	if selected_end_story is String:
-		_add_end_story(selected_end_story, presenter.world)
-	if selected_effects is Dictionary:
-		_apply_effects(selected_effects, presenter.world)
-
-	await presenter.finish()
-
-
-func _show(presenter, text, effects = null):
-	await presenter.show_text(text)
-
+	# Show the conclusion of this vignette
+	await presenter.show_text(conclusion)
+	await presenter.show_continue()
+	
+	# Clear the text before showing the effect animation
+	presenter.show_text("")
+	
+	# Show and then apply the attribute changes if there are any
 	if effects is Dictionary:
 		await presenter.show_effects(effects)
+		_apply_effects(effects, presenter.world)
 
+	# Wait for the player to wrap up the interaction (e.g. click "OK")
+	await presenter.finish()
 
-func _add_end_story(end_story: String, world: World) -> void:
-	world.end_stories.append(end_story)
+	# If this interaction resulted in a new end story, track it in the world.
+	if "end_story" in result:
+		var new_ending_possibility :String = result.end_story
+		presenter.world.end_stories.append(new_ending_possibility)
 
 
 func _apply_effects(effects:Dictionary, world:World) -> void:
