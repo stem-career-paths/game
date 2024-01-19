@@ -3,7 +3,7 @@ extends SimpleStory
 var npc_name := "Hilda"
 
 var text := [
-	'"Oh man oh man oh man. There is a show this weekend, and I have math and English exams coming up."',
+	'"Oh man oh man oh man. There is a show this weekend, and I have math and English tests coming up."',
 	'"I\'m ROYALLY stressed."'
 ]
 

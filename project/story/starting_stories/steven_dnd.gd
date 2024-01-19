@@ -2,7 +2,8 @@ extends SimpleStory
 
 const POSITIVE := {
 	"Rogue": "I'll make a Rogue!",
-	"DM": "I can be the DM!"
+	"DM": "I can be the DM!",
+	"Curious": "I don\'t know much about it, but I\'d like to!"
 }
 
 var text := '"Do you want to play Dungeons & Dragons with me?!"'
@@ -23,6 +24,12 @@ var options := {
 			"engineering": 1,
 			"curiosity": 1,
 		},
+	},
+	POSITIVE["Curious"]: {
+		"text": '"That\'s okay! I can teach you! It\'s so fun, I promise!"',
+		"effects": {
+			"curiosity": 1,
+		}
 	},
 	"Er... No thanks.": {
 		"text": "\"Oh, Okay.\" \nSteven walks away dejectedly.",

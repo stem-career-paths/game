@@ -14,6 +14,9 @@ var options := {
 			'"COLLEGE, duh. A college with 40,000 students must be different than one with 2,000."',
 			'"My parents want me to go visit some colleges, so I guess I can learn more about it then."',
 		],
+		"effects":{
+			"curiosity": 1
+		}
 	},
 	"Sell your shoes and learn to play the flute": {
 		"text": "I... never thought of that. Thanks?",

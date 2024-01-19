@@ -19,6 +19,9 @@ var options := {
 			"curiosity": +1
 		},
 	},
+	"Keep trying": {
+		"text": '"I\'ve been trying! It feels like I\'m banging my head up against a wall..."'
+	},
 	"Give up": {
 		"text": "I don't need help. I’ll just fail, it doesn't matter.",
 	}

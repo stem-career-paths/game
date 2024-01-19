@@ -12,9 +12,9 @@ var options := {
 		}
 	},
 	"Try to get a scholarship": {
-		"text": '"Yeah! I am hoping to get a scholarship so I can afford college. It is expensive."',
+		"text": '"Yeah! I am hoping to get a scholarship so I can afford college. It\'s expensive."',
 	},
 	"Do you want to be a professional athlete?": {
-		"text": "No, I love sports and want to keep playing though. I think I\'d like to be a coach."
+		"text": "Nah, I love sports and want to keep playing, though. I think I\'d like to be a coach."
 	}
 }
