@@ -41,13 +41,12 @@ func run(presenter) -> void:
 
 	# Show the conclusion of this vignette
 	await presenter.show_text(conclusion)
-	await presenter.show_continue()
-	
-	# Clear the text before showing the effect animation
-	presenter.show_text("")
-	
+
 	# Show and then apply the attribute changes if there are any
 	if effects is Dictionary:
+		await presenter.show_continue()
+		# Clear the text before showing the effect animation
+		presenter.show_text("")
 		await presenter.show_effects(effects)
 		_apply_effects(effects, presenter.world)
 
