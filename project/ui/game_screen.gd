@@ -4,7 +4,7 @@
 extends Control
 
 signal _option_selected(option: String)
-signal _tapped_anywhere
+signal tapped_anywhere
 
 var world : World:
 	set(value):
@@ -25,7 +25,7 @@ var world : World:
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
-		_tapped_anywhere.emit()
+		tapped_anywhere.emit()
 
 
 ## Finish an interaction with the presenter. 

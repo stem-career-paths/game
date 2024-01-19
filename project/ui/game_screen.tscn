@@ -249,3 +249,5 @@ horizontal_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_icxf3")
 }
+
+[connection signal="tapped_anywhere" from="." to="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/StoryContainer/StoryLabel" method="_on_game_screen_tapped_anywhere"]
