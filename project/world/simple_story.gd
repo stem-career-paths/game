@@ -42,16 +42,27 @@ func run(presenter) -> void:
 	# Show the conclusion of this vignette
 	await presenter.show_text(conclusion)
 
-	# Show and then apply the attribute changes if there are any
+	# Make the change to the model
+	_apply_effects(effects, presenter.world)
+
+	# If there are attribute changes, visualize them
+	var handle : AnimationHandle
 	if effects is Dictionary:
 		await presenter.show_continue()
 		# Clear the text before showing the effect animation
 		presenter.show_text("")
-		await presenter.show_effects(effects)
-		_apply_effects(effects, presenter.world)
+		
+		# Don't actually wait for the effects to finish.
+		# This would stop the player from being able to skip through it.
+		handle = presenter.show_effects(effects)
 
 	# Wait for the player to wrap up the interaction (e.g. click "OK")
 	await presenter.finish()
+	
+	# If there was an animation running, stop it.
+	if handle != null:
+		handle.stop_animation()
+
 
 	# If this interaction resulted in a new end story, track it in the world.
 	if "end_story" in result:
@@ -62,3 +73,4 @@ func run(presenter) -> void:
 func _apply_effects(effects:Dictionary, world:World) -> void:
 	for attribute_name in effects.keys():
 		world.character[attribute_name].value += effects[attribute_name]
+

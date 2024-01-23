@@ -73,8 +73,8 @@ func finish_game() -> void:
 ##
 ## This function does not change the world state: it only shows an animation.
 ##
-## This is a coroutine that returns when the animated effects are complete.
-func show_effects(_effects: Dictionary) -> void:
+## This is not a coroutine. It returns an animation handle.
+func show_effects(_effects: Dictionary) -> AnimationHandle:
 	# Assemble the text
 	var text := ""
 	for attribute_name in _effects.keys():
@@ -83,7 +83,12 @@ func show_effects(_effects: Dictionary) -> void:
 	
 	# Play the animation
 	_animation_player.play("attribute_change")
-	await _animation_player.animation_finished
+	var handle := AnimationHandle.new(_animation_player)
+	# If someone stops the animation, make sure the character display is still updated.
+	handle.stopped.connect(func():
+		%CharacterDisplay.update_instantly()
+	)
+	return handle
 
 
 ## Show the portrait of a particular npc.

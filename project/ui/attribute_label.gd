@@ -19,11 +19,6 @@ var attribute : Attribute:
 		assert(value!=null, "Attribute may not be null")
 		assert(attribute==null, "Attribute may only be specified once")
 		attribute = value
-		attribute.value_changed.connect(func(_old_value, _new_value):
-			create_tween()\
-				.tween_property(%ProgressBar, "ratio", attribute.get_ratio(), animation_duration)\
-				.set_ease(Tween.EASE_IN)
-		)
 
 
 func _ready():
@@ -32,3 +27,13 @@ func _ready():
 		label.set("theme_override_font_sizes/font_size", 64) 
 		label.set("theme_override_fonts/font", preload("res://ui/attribute_large_font_style.tres"))
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+
+func update_smoothly() -> void:
+		create_tween()\
+			.tween_property(%ProgressBar, "ratio", attribute.get_ratio(), animation_duration)\
+			.set_ease(Tween.EASE_IN)
+
+
+func update_instantly() -> void:
+	%ProgressBar.ratio = attribute.get_ratio()
