@@ -31,11 +31,13 @@ script = ExtResource("1_c4g8r")
 layout_mode = 2
 texture = ExtResource("1_iepqt")
 expand_mode = 1
+stretch_mode = 6
 
 [node name="Npc" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 1
+stretch_mode = 5
 
 [node name="NameContainer" type="PanelContainer" parent="."]
 layout_mode = 2
