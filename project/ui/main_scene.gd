@@ -55,7 +55,7 @@ func _ready():
 			_stories_complete += 1
 	
 	await _game_screen.finish_game()
-	var start_scene := preload("res://ui/start_scene.tscn").instantiate()
+	var start_scene :Control = load("res://ui/start_scene.tscn").instantiate()
 	owner.change_scene(start_scene)
 
 

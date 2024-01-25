@@ -3,7 +3,7 @@ extends Control
 @onready var _content := $Content
 
 func _ready():
-	var scene := preload("res://ui/start_scene.tscn").instantiate()
+	var scene :Control = load("res://ui/start_scene.tscn").instantiate()
 	$Content.add_child(scene)
 	scene.owner = self
 	

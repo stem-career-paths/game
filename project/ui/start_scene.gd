@@ -45,5 +45,5 @@ func _swap_children_images() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	var new_scene := preload("res://ui/main_scene.tscn").instantiate()
+	var new_scene :Control = load("res://ui/main_scene.tscn").instantiate()
 	owner.change_scene(new_scene)
