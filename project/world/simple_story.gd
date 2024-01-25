@@ -43,7 +43,8 @@ func run(presenter) -> void:
 	await presenter.show_text(conclusion)
 
 	# Make the change to the model
-	_apply_effects(effects, presenter.world)
+	if effects != null:
+		_apply_effects(effects, presenter.world)
 
 	# If there are attribute changes, visualize them
 	var handle : AnimationHandle
