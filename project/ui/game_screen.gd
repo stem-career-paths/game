@@ -17,7 +17,7 @@ var world : World:
 ## the game, which allows the bottom to stay in place.
 @onready var _top_container := %TopContainer
 @onready var _option_area := %OptionArea
-@onready var _story_label : Label = %StoryLabel
+@onready var _story_label : AnimatedLabel = %StoryLabel
 @onready var _year_indicator := %YearIndicator
 @onready var _scenario_container := %ScenarioContainer
 @onready var _animation_player := $AnimationPlayer

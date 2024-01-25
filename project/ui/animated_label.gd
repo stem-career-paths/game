@@ -1,4 +1,4 @@
-class_name AnimatedLabel extends Label
+class_name AnimatedLabel extends RichTextLabel
 
 @export var characters_per_second := 50.0
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _set(property, value) -> bool:
 	if property=="text":
-		text = value
+		text = "[center]%s[/center]" % value
 		_restart_animation()
 		return true
 	else:
