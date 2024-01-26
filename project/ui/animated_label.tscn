@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqsvt2ysd353x"]
 
 [ext_resource type="Script" path="res://ui/animated_label.gd" id="1_1pi1p"]
-[ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="1_upg30"]
+[ext_resource type="FontFile" uid="uid://1pig17qkchw" path="res://common/ShantellSans-Regular.ttf" id="1_k2hka"]
 
 [sub_resource type="FontVariation" id="FontVariation_uylus"]
-base_font = ExtResource("1_upg30")
+base_font = ExtResource("1_k2hka")
 variation_embolden = 0.5
 
 [sub_resource type="FontVariation" id="FontVariation_a0j2d"]
-base_font = ExtResource("1_upg30")
+base_font = ExtResource("1_k2hka")
 variation_embolden = 0.5
 
 [node name="AnimatedLabel" type="RichTextLabel"]
 size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("1_upg30")
+theme_override_fonts/normal_font = ExtResource("1_k2hka")
 theme_override_fonts/bold_font = SubResource("FontVariation_uylus")
 theme_override_fonts/bold_italics_font = SubResource("FontVariation_a0j2d")
 bbcode_enabled = true

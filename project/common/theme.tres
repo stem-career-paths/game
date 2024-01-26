@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bqnq26iud8rn3"]
 
-[ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="1_77rkk"]
+[ext_resource type="FontFile" uid="uid://1pig17qkchw" path="res://common/ShantellSans-Regular.ttf" id="1_1pg7v"]
 
 [resource]
-default_font = ExtResource("1_77rkk")
+default_font = ExtResource("1_1pg7v")
 default_font_size = 32
