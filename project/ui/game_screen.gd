@@ -94,9 +94,10 @@ func show_effects(_effects: Dictionary) -> AnimationHandle:
 ## Show the portrait of a particular npc.
 ##
 ## This is a coroutine that ends with the animation's completion.
-func show_npc(npc:Npc) -> void:
+func show_npc(npc:Npc, location:Texture) -> void:
 	var scenario := preload("res://ui/scenario_view.tscn").instantiate()
 	scenario.npc = npc
+	scenario.location = location
 	await _scenario_container.show_control(scenario)
 
 

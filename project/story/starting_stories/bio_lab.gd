@@ -4,6 +4,8 @@ var text := "You and your lab partner have to cut open a frog. Will you cut the 
 
 var npc_name := "Mary" 
 
+var location := "classroom"
+
 var options := {
 	"Cut the frog":
 	{	

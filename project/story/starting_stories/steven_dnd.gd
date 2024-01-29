@@ -10,6 +10,8 @@ var text := '"Do you want to play Dungeons & Dragons with me?!"'
 
 var npc_name := "Steven"
 
+var location := "hallway"
+
 var options := {
 	POSITIVE["Rogue"]: {
 		"text": '"Awesome! Sneaking around the dungeons is gonna be fun."',

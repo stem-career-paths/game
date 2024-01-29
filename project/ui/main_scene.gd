@@ -2,6 +2,7 @@ extends Control
 
 const _STARTING_STORY_PATH := "res://story/starting_stories/"
 const _CAST_PATH := "res://cast/"
+const _LOCATIONS_PATH := "res://locations/"
 
 signal _option_selected(option: String)
 
@@ -34,6 +35,7 @@ func _ready():
 	# Initialize the world
 	world = World.new()
 	world.cast.load_cast(_CAST_PATH)
+	world.game_map.load(_LOCATIONS_PATH)
 	_game_screen.world = world
 	
 	## Load all the stories in _STARTING_STORY_PATH

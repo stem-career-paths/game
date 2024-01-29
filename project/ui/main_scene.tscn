@@ -14,6 +14,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_dccup")
+starting_story = "res://story/starting_stories/engineering_types.gd"
 
 [node name="GameScreen" parent="." instance=ExtResource("2_15d48")]
 layout_mode = 1

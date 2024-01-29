@@ -17,6 +17,9 @@ var end_stories : Array[String] = []
 ## The cast of characters as a map from name to npc object
 var cast := Cast.new()
 
+## All the locations
+var game_map := GameMap.new()
+
 var turns_per_year := 1
 
 ## The number of turns the player has taken.

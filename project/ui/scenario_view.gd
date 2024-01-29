@@ -6,3 +6,9 @@ var npc : Npc:
 		if npc!=null:
 			%Npc.texture = npc.image
 			%NameLabel.text = npc.name + " " # Extra whitespace at the end
+
+
+var location : Texture:
+	set(value):
+		location = value
+		%Location.texture = location

@@ -155,6 +155,24 @@ func test_all_story_options_end_story_exists():
 				assert_not_null(end_story_resource, "Story %s option %s end_story exists" % [story_path, option])
 
 
+func test_locations():
+	var game_map := GameMap.new()
+	game_map.load("res://locations/")
+	for story_path in story_paths:
+		var story := _load_simple_story(story_path)
+		if "location" in story:
+			var location :String = story["location"]
+			
+			assert_eq(location.to_lower(), location, "Location %s in story %s is not lowercase" % [location, story_path])
+			assert_true(game_map.has_location(location))
+		
+		# If no stories have locations, then GUT throws a warning about how
+		# this test included no asserts.
+		# This kludge prevents that warning.
+		else:
+			assert_true(true)
+
+
 func _get_story_paths_in_directory(path: String) -> Array[String]:
 	var paths: Array[String] = []
 

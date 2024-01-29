@@ -19,7 +19,12 @@ func run(presenter) -> void:
 		npc = presenter.world.cast.get_by_name(get("npc_name"))
 	else:
 		npc = presenter.world.cast.pick_random()
-	await presenter.show_npc(npc)
+	var location : Texture
+	if "location" in self:
+		location = presenter.world.game_map.get_by_name(get("location"))
+	else:
+		location = presenter.world.game_map.pick_random()
+	await presenter.show_npc(npc, location)
 
 	# Show the introductory text
 	var intro_text = get("text") # Can be String or Array[String].
