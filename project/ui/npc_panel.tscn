@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ulvku5eiy62b"]
 
-[ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="1_ja7ud"]
+[ext_resource type="FontFile" uid="uid://1pig17qkchw" path="res://common/ShantellSans-Regular.ttf" id="1_4ukb3"]
 
 [sub_resource type="GDScript" id="GDScript_jjlqr"]
 script/source = "extends Control
@@ -14,12 +14,13 @@ var npc : Npc :
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_kruy4"]
+font = ExtResource("1_4ukb3")
 font_size = 36
 outline_size = 6
 outline_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5m7xw"]
-font = ExtResource("1_ja7ud")
+font = ExtResource("1_4ukb3")
 font_size = 48
 font_color = Color(0.556863, 0.643137, 0.803922, 1)
 shadow_size = 0

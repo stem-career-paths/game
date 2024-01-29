@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cqsvt2ysd353x" path="res://ui/animated_label.tscn" id="5_mqyhs"]
 [ext_resource type="Script" path="res://ui/hide_on_run.gd" id="5_vhgyq"]
 [ext_resource type="Script" path="res://ui/option_area.gd" id="6_hfcqp"]
-[ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="10_0sf5b"]
+[ext_resource type="FontFile" uid="uid://1pig17qkchw" path="res://common/ShantellSans-Regular.ttf" id="10_51lxb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsh8h"]
 bg_color = Color(0.133333, 0.305882, 0.65098, 1)
@@ -44,7 +44,7 @@ border_width_bottom = 4
 border_color = Color(0.964706, 0.945098, 0.862745, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_6shnv"]
-base_font = ExtResource("10_0sf5b")
+base_font = ExtResource("10_51lxb")
 variation_embolden = 0.5
 
 [sub_resource type="Animation" id="Animation_adfcd"]

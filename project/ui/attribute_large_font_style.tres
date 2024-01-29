@@ -1,7 +1,7 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://v1vyvog82uky"]
 
-[ext_resource type="FontFile" uid="uid://ojhbj7lpa87y" path="res://common/ArchitectsDaughter-Regular.ttf" id="1_abwbf"]
+[ext_resource type="FontFile" uid="uid://1pig17qkchw" path="res://common/ShantellSans-Regular.ttf" id="1_opfe0"]
 
 [resource]
-base_font = ExtResource("1_abwbf")
+base_font = ExtResource("1_opfe0")
 variation_embolden = 0.75
