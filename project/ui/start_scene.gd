@@ -8,6 +8,7 @@ var _index = 0
 @onready var _image_scroll_container: ScrollContainer = %ImageScrollContainer
 @onready var _image_parent: Container = %ImageScrollContainer.get_child(0)
 @onready var _cast: Cast = Cast.new()
+@onready var _main_scene := preload("res://ui/main_scene.tscn")
 
 
 func _ready() -> void:
@@ -15,6 +16,10 @@ func _ready() -> void:
 
 	for image in _image_parent.get_children():
 		image.texture = _get_image()
+
+	# Add debug options if running from the editor
+	if OS.has_feature("editor"):
+		_add_debug_start_options()
 
 
 func _process(delta) -> void:
@@ -44,6 +49,25 @@ func _swap_children_images() -> void:
 	_image_scroll_container.scroll_horizontal = 0
 
 
+func _add_debug_start_options() -> void:
+	_add_turns_per_year_buttons()
+
+
+func _add_turns_per_year_buttons() -> void:
+	for i in range(1, World.MAX_TURNS_PER_YEAR + 1):
+		var button: Control = preload("res://ui/audible_button.tscn").instantiate()
+		button.text = str(i)
+		button.pressed.connect(_on_turns_per_year_button_pressed.bind(i))
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		%DebugOptions.add_child(button)
+
+
+func _on_turns_per_year_button_pressed(turns_per_year: int) -> void:
+	var new_scene: Control = _main_scene.instantiate()
+	new_scene.call_deferred("set_turns_per_year", turns_per_year)
+	owner.change_scene(new_scene)
+
+
 func _on_start_button_pressed() -> void:
-	var new_scene :Control = load("res://ui/main_scene.tscn").instantiate()
+	var new_scene: Control = _main_scene.instantiate()
 	owner.change_scene(new_scene)

@@ -88,3 +88,6 @@ func _draw_random_story() -> String:
 	world.available_stories.erase(story_path)
 	return story_path
 
+
+func set_turns_per_year(turns: int) -> void:
+	world.turns_per_year = turns

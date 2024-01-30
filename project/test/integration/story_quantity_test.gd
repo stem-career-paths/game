@@ -14,6 +14,6 @@ func test_there_are_stories_enough_to_fill_a_playthrough() -> void:
 	var needed_stories := world.turns_per_year * 4
 	
 	assert_true(count >= needed_stories, "Not enough stories. We need at least %d but there are %d." % [
-		world.turns_per_year,
-		needed_stories
+		needed_stories,
+		count
 	])

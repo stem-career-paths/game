@@ -3,6 +3,9 @@ class_name World extends RefCounted
 
 signal turns_changed(new_turn : int)
 
+## The maximum number of turns that can be taken in a year
+const MAX_TURNS_PER_YEAR = 3
+
 ## The current character whose story is being played
 var character := Character.new()
 
@@ -20,7 +23,7 @@ var cast := Cast.new()
 ## All the locations
 var game_map := GameMap.new()
 
-var turns_per_year := 1
+var turns_per_year := MAX_TURNS_PER_YEAR
 
 ## The number of turns the player has taken.
 ##
