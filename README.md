@@ -38,6 +38,5 @@ display/window/size/window_height_override=640
 
 ## Third-Party Assets
 
-- [ArchitectsDaughter font](https://fonts.google.com/specimen/Architects+Daughter) licensed under [OFL](project/common/ArchitectsDaughter-Regular_license.txt)
-- [Poppins font](https://fonts.google.com/specimen/Poppins) licensed under [OFL](project/common/Poppins-Regular_license.txt)
+- [Shantell Sans font](https://fonts.google.com/specimen/Shantell+Sans) licensed under [OFL](project/common/ShantellSans-Regular_license.txt)
 - Button click sound is a modification of [Mouse Button Clicks](https://freesound.org/people/aphom000/sounds/687105/) licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
