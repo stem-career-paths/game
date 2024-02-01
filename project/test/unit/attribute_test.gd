@@ -9,7 +9,7 @@ func before_each():
 	
 
 func test_get_ratio__zero():
-	assert_eq(_attribute.get_ratio(), 0, "Initial ratio should be zero")
+	assert_eq(_attribute.get_ratio(), 0.0, "Initial ratio should be zero")
 
 
 func test_get_ratio__half():
