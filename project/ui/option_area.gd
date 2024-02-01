@@ -7,4 +7,6 @@ extends VBoxContainer
 ## starting the game.
 func _ready():
 	while get_child_count() > 0:
-		remove_child(get_child(0))
+		var placeholder_button := get_child(0)
+		remove_child(placeholder_button)
+		placeholder_button.free()

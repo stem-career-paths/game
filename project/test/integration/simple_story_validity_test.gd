@@ -196,7 +196,7 @@ func _get_story_paths_in_directory(path: String) -> Array[String]:
 
 func _load_simple_story(file_path: String) -> SimpleStory:
 	var resource := load(file_path)
-	var story: Object = resource.new()
+	var story: Object = autofree(resource.new())
 
 	return story
 
@@ -214,7 +214,7 @@ func _test_text_content(text, story_path: String):
 
 
 func _get_option_line_lengths(story: SimpleStory) -> Array[int]:
-	var game_screen: Node = add_child_autoqfree(preload("res://ui/game_screen.tscn").instantiate())
+	var game_screen: Node = add_child_autofree(preload("res://ui/game_screen.tscn").instantiate())
 
 	for option in story.options:
 		game_screen.create_option_button(option)
