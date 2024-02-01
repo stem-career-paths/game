@@ -22,6 +22,20 @@ Having set up that hook will ensure that all the automated tests are run prior t
 That executable is now on your default path, so you can now run `godot` from the command line and the automated tests will work.
 You can still create a shortcut to that executable on your Desktop for ease of mouse access, though there's real value to just opening the project you want from the command line.
 
+### Locally testing the HTML build
+
+[The Godot documentation](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html#serving-the-files) describes the approach that we can use
+to locally test a web build. This requires using the [`serve.py`](build/web/serve.py)
+Python script, which comes from the [Godot Engine repository](https://raw.githubusercontent.com/godotengine/godot/master/platform/web/serve.py) and is copied locally into
+the [`build/web`](build/web) folder.
+
+First, export the project as an HTML5 Web build as normal.
+Then, from the [build/web](build/web) directory, run:
+```bash
+python serve.py --root .
+```
+
+It should bring up a browser that loads the web build from the build folder.
 
 ### Per-Developer Project Settings Override
 
