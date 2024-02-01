@@ -18,6 +18,10 @@ signal pressed
 			%Label.add_theme_color_override("font_color", text_color)
 
 
+func get_visible_line_count() -> int:
+	return %Label.get_visible_line_count()
+
+
 func _on_pressed():
 	Sfx.play_click_sound()
 	pressed.emit()

@@ -28,6 +28,17 @@ func _input(event):
 		tapped_anywhere.emit()
 
 
+## Return the respective line count of each option button text.
+##
+## This is used for integration testing and is not intended to be
+## part of the presenter layer.
+func get_visible_line_counts_in_options() -> Array[int]:
+	var result : Array[int] = []
+	for button in _option_area.get_children():
+		result.append(button.get_visible_line_count())
+	return result
+
+
 ## Finish an interaction with the presenter. 
 ## This gives the player a chance to confirm that they are done with the
 ## current story.
@@ -106,7 +117,7 @@ func show_npc(npc:Npc, location:Texture) -> void:
 func show_options(options: Array) -> String:
 	var buttons : Array[Control] = []
 	for option in options:
-		buttons.append(create_option_button(option))
+		buttons.append(_create_option_button(option))
 
 	var selection = await _option_selected
 	GameLog.made_choice(selection)
@@ -117,7 +128,7 @@ func show_options(options: Array) -> String:
 	return selection
 
 
-func create_option_button(option: String) -> Node:
+func _create_option_button(option: String) -> Node:
 	var button := preload("res://ui/audible_button.tscn").instantiate()
 	button.text = option
 	button.pressed.connect(func(): _option_selected.emit(option))

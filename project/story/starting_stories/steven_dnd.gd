@@ -33,7 +33,7 @@ var options := {
 			"curiosity": 1,
 		}
 	},
-	"Er... No thanks.": {
+	"Er... No thanks. ": {
 		"text": "\"Oh, Okay.\" \nSteven walks away dejectedly.",
 	},
 }

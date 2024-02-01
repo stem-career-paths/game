@@ -216,20 +216,12 @@ func _test_text_content(text, story_path: String):
 func _get_option_line_lengths(story: SimpleStory) -> Array[int]:
 	var game_screen: Node = add_child_autofree(preload("res://ui/game_screen.tscn").instantiate())
 
-	for option in story.options:
-		game_screen.create_option_button(option)
+	# Extract just the option names from the options dictionary
+	var options :Array = story.options.keys()
+	
+	game_screen.show_options(options)
 
 	# Required to let the UI "settle" before checking the line count.
 	await get_tree().process_frame
 
-	var option_buttons := game_screen.get_node("%OptionArea").get_children()
-
-	var result: Array[int] = []
-
-	for button in option_buttons:
-		var label := button.get_node("%Label")
-		var text_lines = label.get_visible_line_count()
-
-		result.append(text_lines)
-
-	return result
+	return game_screen.get_visible_line_counts_in_options()
