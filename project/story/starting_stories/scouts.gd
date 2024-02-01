@@ -17,10 +17,10 @@ var options := {
 			"curiosity": +1,
 		}
 	},
+	"Can I come with you?": {
+		"text": '"I think so. I\'ll ask the scout leader tomorrow."',
+	},
 	"OK Hippie": {
 		"text": '"Don\'t knock it til you tried it. Camping rules."',
-	},
-	"FIRE! FIRE!": {
-		"text": '"Calm down, Beavis."'
 	},
 }
