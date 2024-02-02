@@ -156,8 +156,7 @@ func test_all_story_options_end_story_exists():
 
 
 func test_locations():
-	var game_map := GameMap.new()
-	game_map.load("res://locations/")
+	var game_map :GameMap = autofree(GameMap.new())
 	for story_path in story_paths:
 		var story := _load_simple_story(story_path)
 		if "location" in story:

@@ -1,9 +1,21 @@
 ## Holds all the available locations
 class_name GameMap extends RefCounted
 
+const _RESOURCE_PATHS : Array[String] = [
+	"res://locations/classroom.png",
+	"res://locations/hallway.png",
+]
+
 ## Maps location names to their textures.
 ## The keys are plain location names, like "hallway".
 var _dictionary := {}
+
+func _init():
+	for resource_path in _RESOURCE_PATHS:
+		var file_name := resource_path.substr(resource_path.rfind("/")+1)
+		var key := file_name.substr(0, file_name.rfind("."))
+		_dictionary[key] = load(resource_path)
+
 
 func get_by_name(name:String)->Texture:
 	return _dictionary[name]
@@ -11,16 +23,6 @@ func get_by_name(name:String)->Texture:
 
 func has_location(name:String)->bool:
 	return _dictionary.keys().has(name)
-
-
-## Load all of the png images in the given folder as locations
-func load(path:String)->void:
-	for file_name in DirAccess.get_files_at(path):
-		if file_name.ends_with(".png"):
-			var resource_path := path + file_name
-			var texture := load(resource_path)
-			var key := file_name.substr(0, file_name.find(".png"))
-			_dictionary[key] = texture
 
 
 func pick_random() -> Texture:
