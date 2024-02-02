@@ -12,7 +12,7 @@ var options := {
 	"You should be a teacher aid": {
 		"text": [
 			'"Oh, I guess I could! I\'ll have to ask her about that. I\'d love to help prep labs."',
-			'"And she could probably write me a great recommendation for college or scholarships!"'
+			'"And she could probably write me a [u]great[/u] recommendation for college or scholarships!"'
 		],
 		"effects": {
 			"science": +1,

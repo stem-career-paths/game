@@ -1,10 +1,10 @@
 extends SimpleStory
 
-var text := '"I have enough math to graduate. I think I will just skip taking it next semester."'
+var text := '"I have enough math to graduate. I think I\'ll just skip taking it next semester."'
 
 var options := {
 	"You can\'t know too much!": {
-		"text": '"Yeah, I guess then no matter what I do in college, I will be ready."',
+		"text": '"Yeah, I guess [u]then[/u] no matter what I do in college, I\'ll be ready."',
 		"effects": {
 			"mathematics": +1,
 			"engagement": +1,
@@ -25,8 +25,8 @@ var options := {
 	},
 	"Math is stupid. Don\'t take it.": {
 		"text": [
-			'"Hey! Not taking it doesn\'t mean I don\'t like it!"',
-			'"I think I\'ll take my math class out of spite."'
+			'"[b]Hey[/b]! Not taking it doesn\'t mean I don\'t like it!"',
+			'"I think I\'ll take my math class out of [u]spite[/u]."'
 			]
 	}
 }

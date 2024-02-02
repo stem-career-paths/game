@@ -9,7 +9,7 @@ var npc_name := "Aubrey"
 
 var options := {
 	"Do whatever you want": {
-		"text": '"Sure, but I am not sure what that is."',
+		"text": '"Sure, but I\'m not sure what that is."',
 	},
 	"Engineers make good money": {
 		"text": '"Yeah, I guess I should think about what I want to do, and what\'ll be a good career path."',

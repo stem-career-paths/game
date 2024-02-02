@@ -5,18 +5,18 @@ var text := '"Can I tell you something? I feel like I have a hard time making fr
 var options := {
 	"Try being more engaged!":
 	{
-		"text": '"You mean, like, join a club or a team or something. I bet that\'s a good way to meet people."',
+		"text": '"You mean, like, join a club or a team or something? Yeah, that\'s probably a good way to meet people."',
 		"effects": {
 			"engagement": +1,
 		}
 	},
 	"Don\'t feel bad.":
 	{
-		"text": '"It\'s hard not to feel bad when I don\'t feel good."',
+		"text": '"It\'s hard not to feel [u]bad[/u] when I don\'t feel [u]good[/u]."',
 	},
 	"Talk to your classmates!":
 	{
-		"text": '"Talking to people can be so hard! But I guess I can\'t be friends if I can\'t say hello..."'
+		"text": '"Talking to people can be [b]so[/b] hard! But I guess I can\'t be friends if I can\'t say hello..."'
 	},
 	"Whatever.":
 	{

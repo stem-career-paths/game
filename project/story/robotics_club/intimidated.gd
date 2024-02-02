@@ -9,7 +9,7 @@ var options := {
 		"text": '"I already know I\'m good at soccer. Maybe another club is too much."',
 	},
 	"Let's WELD something!": {
-		"text": '"Wait wait wait- I get to WELD in robotics? Pass me the fire stick!!"',
+		"text": '"Wait wait wait- I get to [b]WELD[/b] in robotics? Pass me the fire stick!!"',
 		"end_story": "robotics",
 		"effects": {
 			"resilience": +1,

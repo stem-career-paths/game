@@ -1,6 +1,6 @@
 extends SimpleStory
 
-var text := '"I\'ve been thinking about college. Do you think it\'s better for me to go a big school or small school?"'
+var text := '"I\'ve been thinking about college. Do you think it\'s better for me to go a [u]big[/u] school or [u]small[/u] school?"'
 
 var options := {
 	"Bigger is better": {

@@ -1,6 +1,6 @@
 extends SimpleStory
 
-var text := '"I love Drama Club! Do you want to be in the cast or help me with the tech side of things?"'
+var text := '"I love Drama Club! Do you want to be in the [u]cast[/u] or help me with the [u]tech[/u] side of things?"'
 
 var npc_name := "Aubrey"
 

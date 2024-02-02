@@ -21,14 +21,14 @@ var options := {
 		},
 	},
 	POSITIVE["DM"]: {
-		"text": '"Great! You look a little nervous, but I think you will do great."',
+		"text": '"Great! You look a little nervous, but I think you\'ll do [u]great[/u]!"',
 		"effects": {
 			"engineering": 1,
 			"curiosity": 1,
 		},
 	},
 	POSITIVE["Curious"]: {
-		"text": '"That\'s okay! I can teach you! It\'s so fun, I promise!"',
+		"text": '"That\'s okay! I can teach you! It\'s [u]so[/u] fun, I promise!"',
 		"effects": {
 			"curiosity": 1,
 		}

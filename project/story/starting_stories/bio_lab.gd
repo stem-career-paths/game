@@ -11,7 +11,7 @@ var options := {
 	{	
 		"text": [
 			"Cutting open the frog is a lot harder than you thought! Some parts are squishy and some are solid. There are organs everywhere!",
-			"All of it smells bad though."
+			"[b]All[/b] of it smells bad though."
 		],
 		"effects": {
 			"science": +1,
