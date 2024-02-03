@@ -155,6 +155,24 @@ func test_all_story_options_end_story_exists():
 				assert_not_null(end_story_resource, "Story %s option %s end_story exists" % [story_path, option])
 
 
+func test_all_story_year_constraints_are_arrays():
+	for story_path in story_paths:
+		var story := _load_simple_story(story_path)
+
+		if "years" in story:
+			assert_true(story.years is Array, "Story %s years is an array" % story_path)
+
+
+func test_all_story_year_constraints_are_valid():
+	for story_path in story_paths:
+		var story := _load_simple_story(story_path)
+
+		if "years" in story:
+			for year in story.years:
+				assert_true(year is int, "Story %s year %s is an integer" % [story_path, year])
+				assert_true(Year.keys().has(year), "Story %s year %s is a valid year" % [story_path, year])
+
+
 func test_locations():
 	var game_map :GameMap = autofree(GameMap.new())
 	for story_path in story_paths:

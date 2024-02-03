@@ -17,16 +17,16 @@ var world: World:
 func _lookup_year_name(percent_complete: float) -> String:
 	if percent_complete < 0.25:
 		_year_circles[0].year_passed = true
-		return "Freshman"
+		return Year.keys()[0]
 	elif percent_complete < 0.5:
 		_year_circles[1].year_passed = true
-		return "Sophomore"
+		return Year.keys()[1]
 	elif percent_complete < 0.75:
 		_year_circles[2].year_passed = true
-		return "Junior"
+		return Year.keys()[2]
 	else:
 		_year_circles[3].year_passed = true
-		return "Senior"
+		return Year.keys()[3]
 
 
 func _update_display(turns: int) -> void:
