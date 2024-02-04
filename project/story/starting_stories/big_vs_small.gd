@@ -2,6 +2,8 @@ extends SimpleStory
 
 var text := '"I\'ve been thinking about college. Do you think it\'s better for me to go a [u]big[/u] school or [u]small[/u] school?"'
 
+var years := Year.not_in([ Year.Freshman ])
+
 var options := {
 	"Bigger is better": {
 		"text": '"Yeah, more people, more clubs, more opportunities. Thanks!"',

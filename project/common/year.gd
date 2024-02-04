@@ -1,10 +1,10 @@
 class_name Year
 
 enum {
-	Freshman = 0,
-	Sophomore = 1,
-	Junior = 2,
-	Senior = 3,
+	Freshman,
+	Sophomore,
+	Junior,
+	Senior,
 }
 
 

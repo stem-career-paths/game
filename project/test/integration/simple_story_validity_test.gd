@@ -170,7 +170,7 @@ func test_all_story_year_constraints_are_valid():
 		if "years" in story:
 			for year in story.years:
 				assert_true(year is int, "Story %s year %s is an integer" % [story_path, year])
-				assert_true(Year.keys().has(year), "Story %s year %s is a valid year" % [story_path, year])
+				assert_true(Year.values().has(year), "Story %s year %s is a valid year" % [story_path, year])
 
 
 func test_locations():

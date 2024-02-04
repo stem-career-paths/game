@@ -7,6 +7,8 @@ var text := [
 	'"I liked some of the smaller liberal arts schools I visited, but I also liked the engineering program at the big state university."'
 ]
 
+var years := [ Year.Junior, Year.Senior ]
+
 var options := {
 	"Study liberal arts!": {
 		"text": [

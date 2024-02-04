@@ -83,7 +83,7 @@ func _run_next_story() -> void:
 
 
 func _draw_random_story() -> String:
-	var story_path : String = world.available_stories.pick_random()
+	var story_path : String = world.get_active_stories().pick_random()
 	world.available_stories.erase(story_path)
 	return story_path
 

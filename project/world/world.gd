@@ -1,10 +1,11 @@
 ## The state of the game world
 class_name World extends RefCounted
 
-signal turns_changed(new_turn : int)
+signal turns_changed(new_turn: int)
+signal years_changed(new_year: int)
 
 ## The maximum number of turns that can be taken in a year
-const MAX_TURNS_PER_YEAR = 3
+const MAX_TURNS_PER_YEAR := 3
 
 ## The current character whose story is being played
 var character := Character.new()
@@ -12,10 +13,10 @@ var character := Character.new()
 ## The stories that are available to draw from when a new one is needed
 ##
 ## The values are resource paths.
-var available_stories : Array[String] = []
+var available_stories: Array[String] = []
 
 ## The end stories that have been added to the world
-var end_stories : Array[String] = []
+var end_stories: Array[String] = []
 
 ## The cast of characters as a map from name to npc object
 var cast := Cast.new()
@@ -32,7 +33,19 @@ var turns_per_year := MAX_TURNS_PER_YEAR
 var turns := 0:
 	set(value):
 		turns = value
+
+		if turns >= turns_per_year:
+			turns = 0
+			years += 1
+
 		turns_changed.emit(turns)
+
+var years := 0:
+	set(value):
+		years = value
+
+		if years < 4:
+			years_changed.emit(years)
 
 
 ## Add all the stories in the given directory to the list
@@ -65,3 +78,14 @@ func remove_stories(dir:DirAccess) -> Array[String]:
 		else:
 			push_error("Tried to remove non-existing story path: %s" % file_path)
 	return results
+
+
+func get_active_stories() -> Array[String]:
+	return available_stories.filter(func(story_path: String) -> bool:
+		var story = (load(story_path) as RefCounted).new()
+
+		if not "is_active" in story:
+			return true
+
+		return story.is_active(self)
+	)

@@ -76,6 +76,13 @@ func run(presenter) -> void:
 		presenter.world.end_stories.append(new_ending_possibility)
 
 
+func is_active(world: World) -> bool:
+	if "years" in self and not get("years").has(world.years):
+		return false
+
+	return true
+
+
 func _apply_effects(effects:Dictionary, world:World) -> void:
 	for attribute_name in effects.keys():
 		world.character[attribute_name].value += effects[attribute_name]
