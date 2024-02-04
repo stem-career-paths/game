@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn7vhi2yphyq2"]
+[gd_scene load_steps=6 format=3 uid="uid://cn7vhi2yphyq2"]
 
 [ext_resource type="Script" path="res://ui/year_indicator.gd" id="1_u77pd"]
 [ext_resource type="PackedScene" uid="uid://c114f4p83ky61" path="res://ui/year_progress_circle.tscn" id="2_mloxu"]
+[ext_resource type="Texture2D" uid="uid://ewcgcadv26sj" path="res://ui/confetti.png" id="3_obfaj"]
+
+[sub_resource type="Gradient" id="Gradient_sn0fg"]
+offsets = PackedFloat32Array(0, 0.844444, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_jv6hi"]
+min_value = -1.0
+bake_resolution = 1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="YearIndicator" type="HBoxContainer"]
 anchors_preset = 15
@@ -17,7 +28,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.5
 theme_override_colors/font_color = Color(0.133333, 0.305882, 0.65098, 1)
-text = "Freshman"
+text = "[YEAR]"
 
 [node name="YearProgressContainer" type="HBoxContainer" parent="."]
 layout_direction = 2
@@ -52,3 +63,31 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.0
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = 10
+position = Vector2(380, 1)
+emitting = false
+amount = 48
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+randomness = 0.1
+lifetime_randomness = 0.1
+texture = ExtResource("3_obfaj")
+emission_shape = 3
+emission_rect_extents = Vector2(360, 1)
+direction = Vector2(0, 1)
+gravity = Vector2(0, 32)
+initial_velocity_min = 20.0
+initial_velocity_max = 240.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_max = 320.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_sn0fg")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_jv6hi")
