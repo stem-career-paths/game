@@ -1,2 +1,6 @@
 # Emacs backup files
 *~
+
+# Godot builds
+build/
+!build/web/serve.py
