@@ -5,7 +5,7 @@
 
 [sub_resource type="FontVariation" id="FontVariation_uylus"]
 base_font = ExtResource("1_k2hka")
-variation_embolden = 0.5
+variation_embolden = 0.7
 
 [sub_resource type="FontVariation" id="FontVariation_a0j2d"]
 base_font = ExtResource("1_k2hka")
