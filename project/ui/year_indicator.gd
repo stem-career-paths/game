@@ -17,12 +17,11 @@ var world: World:
 	Year.Name.JUNIOR: %Year3,
 	Year.Name.SENIOR: %Year4,
 }
-@onready var _particles: CPUParticles2D = %Particles
 
 
 func _year_progressed(years: int) -> void:
-	_particles.emitting = true
 	_update_display(years)
+
 
 func _update_display(new_year: Year.Name) -> void:
 	_year_circles[new_year].year_passed = true
