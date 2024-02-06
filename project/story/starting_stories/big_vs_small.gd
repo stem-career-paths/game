@@ -2,7 +2,7 @@ extends SimpleStory
 
 var text := '"I\'ve been thinking about college. Do you think it\'s better for me to go a [u]big[/u] school or [u]small[/u] school?"'
 
-var years := Year.not_in([ Year.Freshman ])
+var years := Year.not_year(Year.Name.FRESHMAN)
 
 var options := {
 	"Bigger is better": {

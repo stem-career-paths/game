@@ -36,16 +36,15 @@ var turns := 0:
 
 		if turns >= turns_per_year:
 			turns = 0
-			years += 1
+			if Year.has_next(year):
+				year = Year.next(year)
 
 		turns_changed.emit(turns)
 
-var years := 0:
+var year := Year.Name.FRESHMAN:
 	set(value):
-		years = value
-
-		if years < 4:
-			years_changed.emit(years)
+		year = value
+		years_changed.emit(year)
 
 
 ## Add all the stories in the given directory to the list

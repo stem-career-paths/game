@@ -2,7 +2,7 @@ extends SimpleStory
 
 var text := "This story will not be shown during the player's freshman year."
 
-var years := Year.not_in([ Year.Freshman ])
+var years := Year.not_year(Year.Name.FRESHMAN)
 
 var options := {
 	"This is not my freshman year": {

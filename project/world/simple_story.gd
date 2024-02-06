@@ -76,8 +76,10 @@ func run(presenter) -> void:
 		presenter.world.end_stories.append(new_ending_possibility)
 
 
+## Determine if this story is able to be selected now,
+## given the world state.
 func is_active(world: World) -> bool:
-	if "years" in self and not get("years").has(world.years):
+	if "years" in self and not get("years").has(world.year):
 		return false
 
 	return true

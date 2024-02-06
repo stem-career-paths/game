@@ -1,20 +1,60 @@
 class_name Year
 
-enum {
-	Freshman,
-	Sophomore,
-	Junior,
-	Senior,
+enum Name {
+	FRESHMAN,
+	SOPHOMORE,
+	JUNIOR,
+	SENIOR
 }
 
+## Get the common English name of the academic year.
+static func as_string(year:Name) -> String:
+	match year:
+		Name.FRESHMAN:
+			return "Freshman"
+		Name.SOPHOMORE:
+			return "Sophomore"
+		Name.JUNIOR:
+			return "Junior"
+		Name.SENIOR:
+			return "Senior"
+	push_error("Unmatched year: %s" % str(year))
+	return "Splunge"
 
-static func values() -> Array[int]:
-	return [Freshman, Sophomore, Junior, Senior]
+
+## Determine if the given year has a next year or if it is terminal.
+static func has_next(year:Name) -> bool:
+	return year!=Name.SENIOR
 
 
-static func keys() -> Array[String]:
-	return ["Freshman", "Sophomore", "Junior", "Senior"]
+## Get the year that comes after the given year.
+## If the year doesn't have a next year, this will push an error.
+static func next(year:Name) -> Name:
+	match year:
+		Name.FRESHMAN: return Name.SOPHOMORE
+		Name.SOPHOMORE: return Name.JUNIOR
+		Name.JUNIOR: return Name.SENIOR
+	push_error("Year does not have a next: %s" % str(year))
+	# This is a meaningless return but is required for the interpreter
+	# to see that all code paths return a value.
+	return Name.FRESHMAN
 
 
-static func not_in(years: Array[int]) -> Array[int]:
-	return Year.values().filter(func(year: int): return not years.has(year))
+## Return the array of all the years except the given one.
+static func not_year(year:Name) -> Array[Name]:
+	return values().filter(func(y): return y != year)
+
+
+## Return all the years except the given ones.
+static func not_years(years: Array[Name]) -> Array[Name]:
+	return values().filter(func(y): return not years.has(y))
+
+
+## Get all the possible Year values.
+static func values() -> Array[Name]:
+	return [
+		Name.FRESHMAN,
+		Name.SOPHOMORE,
+		Name.JUNIOR,
+		Name.SENIOR,
+	]
