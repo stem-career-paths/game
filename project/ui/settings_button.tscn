@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkyrbpxgqqngv"]
+
+[ext_resource type="Texture2D" uid="uid://8ej6rfgqwaw5" path="res://ui/gear.png" id="1_udid0"]
+[ext_resource type="Script" path="res://ui/settings_button.gd" id="2_h52gk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsp3o"]
+bg_color = Color(0.670588, 0.745098, 0.886275, 1)
+
+[node name="SettingsButton" type="TextureButton"]
+modulate = Color(0.133333, 0.305882, 0.65098, 1)
+texture_normal = ExtResource("1_udid0")
+script = ExtResource("2_h52gk")
+
+[node name="SettingsPopup" type="PopupMenu" parent="."]
+unique_name_in_owner = true
+size = Vector2i(203, 100)
+theme_override_colors/font_color = Color(0.133333, 0.305882, 0.65098, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_fsp3o")
+item_count = 1
+item_0/text = "Fullscreen"
+item_0/checkable = 1
+item_0/id = 0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="id_pressed" from="SettingsPopup" to="." method="_on_settings_popup_id_pressed"]

@@ -1,12 +1,9 @@
 extends Control
 
-const _FULLSCREEN_MODES := [DisplayServer.WINDOW_MODE_FULLSCREEN, DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN]
-const _FULLSCREEN_ID := 0
-
 @export var scroll_speed: float = 300.0
 
 @onready var _main_scene := preload("res://ui/main_scene.tscn")
-@onready var _settings_popup := %SettingsPopup
+
 
 func _ready() -> void:
 	# Add debug options if running from the editor
@@ -38,23 +35,3 @@ func _on_start_button_pressed() -> void:
 	owner.change_scene(new_scene)
 
 
-func _on_settings_button_pressed():
-	var button : TextureButton = %SettingsButton
-	var offset := Vector2(0, button.size.y)
-	_settings_popup.position = button.get_screen_position() + offset
-	
-	_settings_popup.set_item_checked(_FULLSCREEN_ID, _is_fullscreen())
-	
-	_settings_popup.popup()
-
-
-func _is_fullscreen() -> bool:
-	var mode := DisplayServer.window_get_mode()
-	return mode in _FULLSCREEN_MODES
-
-
-func _on_settings_popup_id_pressed(id):
-	if id == _FULLSCREEN_ID:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED \
-			if _is_fullscreen() \
-			else DisplayServer.WINDOW_MODE_FULLSCREEN)

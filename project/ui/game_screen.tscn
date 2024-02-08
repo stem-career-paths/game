@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cu8dk0qnr77qs"]
+[gd_scene load_steps=21 format=3 uid="uid://cu8dk0qnr77qs"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_iwqch"]
 [ext_resource type="StyleBox" uid="uid://0lv825v0nskc" path="res://ui/blue_style_box.tres" id="2_gvmnj"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="4_b7pij"]
 [ext_resource type="PackedScene" uid="uid://cqsvt2ysd353x" path="res://ui/animated_label.tscn" id="5_mqyhs"]
 [ext_resource type="Script" path="res://ui/hide_on_run.gd" id="5_vhgyq"]
+[ext_resource type="PackedScene" uid="uid://dkyrbpxgqqngv" path="res://ui/settings_button.tscn" id="6_d02if"]
 [ext_resource type="Script" path="res://ui/option_area.gd" id="6_hfcqp"]
 [ext_resource type="FontFile" uid="uid://1pig17qkchw" path="res://common/ShantellSans-Regular.ttf" id="10_51lxb"]
 
@@ -135,10 +136,17 @@ theme_override_styles/panel = ExtResource("4_b7pij")
 [node name="MainUI" type="VBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground"]
 layout_mode = 2
 
-[node name="YearIndicator" parent="SingularChild/MarginContainer/WhiteBackground/MainUI" instance=ExtResource("2_qr7fv")]
+[node name="HBoxContainer" type="HBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI"]
+layout_mode = 2
+
+[node name="YearIndicator" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/HBoxContainer" instance=ExtResource("2_qr7fv")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SettingsButton" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/HBoxContainer" instance=ExtResource("6_d02if")]
+layout_mode = 2
 
 [node name="InnerBluePanel" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI"]
 layout_mode = 2
