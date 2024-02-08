@@ -1,8 +1,7 @@
 ## The state of the game world
 class_name World extends RefCounted
 
-## The maximum number of turns that can be taken in a year
-const MAX_TURNS_PER_YEAR := 3
+const DEFAULT_TURNS_PER_YEAR := 3
 
 ## The current character whose story is being played
 var character := Character.new()
@@ -21,7 +20,7 @@ var cast := Cast.new()
 ## All the locations
 var game_map := GameMap.new()
 
-var turns_per_year := MAX_TURNS_PER_YEAR
+var turns_per_year := DEFAULT_TURNS_PER_YEAR
 
 var year := Year.Name.FRESHMAN
 

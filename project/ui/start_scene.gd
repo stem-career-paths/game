@@ -54,7 +54,7 @@ func _add_debug_start_options() -> void:
 
 
 func _add_turns_per_year_buttons() -> void:
-	for i in range(1, World.MAX_TURNS_PER_YEAR + 1):
+	for i in range(1, World.DEFAULT_TURNS_PER_YEAR + 1):
 		var button: Control = preload("res://ui/audible_button.tscn").instantiate()
 		button.text = str(i)
 		button.pressed.connect(_on_turns_per_year_button_pressed.bind(i))
