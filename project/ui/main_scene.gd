@@ -79,7 +79,9 @@ func _run_next_story() -> void:
 	## Load the story and start it
 	var story = load(story_path).new()
 	await story.run(_game_screen)
-	world.turns += 1
+	var year_changed := world.end_turn()
+	if year_changed:
+		await _game_screen.show_year_advancement(world.year)
 
 
 func _draw_random_story() -> String:

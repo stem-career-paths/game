@@ -5,7 +5,7 @@ extends Control
 @export var inner_border := 2
 
 
-var year_passed : bool:
+@export var year_passed : bool:
 	set(value):
 		year_passed = value
 		queue_redraw()

@@ -1,9 +1,6 @@
 ## The state of the game world
 class_name World extends RefCounted
 
-signal turns_changed(new_turn: int)
-signal years_changed(new_year: int)
-
 ## The maximum number of turns that can be taken in a year
 const MAX_TURNS_PER_YEAR := 3
 
@@ -26,25 +23,10 @@ var game_map := GameMap.new()
 
 var turns_per_year := MAX_TURNS_PER_YEAR
 
-## The number of turns the player has taken.
-##
-## A turn is a complete story, from beginning to end, that consists of one
-## logical unit of time.
-var turns := 0:
-	set(value):
-		turns = value
+var year := Year.Name.FRESHMAN
 
-		if turns >= turns_per_year:
-			turns = 0
-			if Year.has_next(year):
-				year = Year.next(year)
-
-		turns_changed.emit(turns)
-
-var year := Year.Name.FRESHMAN:
-	set(value):
-		year = value
-		years_changed.emit(year)
+## The number of turns the player has taken this year.
+var _turns_this_year := 0
 
 
 ## Add all the stories in the given directory to the list
@@ -61,6 +43,21 @@ func add_stories(dir:DirAccess) -> Array[String]:
 		else:
 			push_error("Tried to append non-existing story path: %s" % file_path)
 	return results
+
+
+## Mark the end of the current turn.
+##
+## The result is true if the year changed and false otherwise.
+## Finishing senior year does not count as the year changing.
+func end_turn() -> bool:
+	_turns_this_year += 1
+
+	if _turns_this_year >= turns_per_year:
+		_turns_this_year = 0
+		if Year.has_next(year):
+			year = Year.next(year)
+			return true
+	return false
 
 
 ## Remove all the stories in the given directory from the list

@@ -10,7 +10,8 @@ var world : World:
 	set(value):
 		world = value
 		%CharacterDisplay.character = world.character
-		%YearIndicator.world = world
+		%YearIndicator.set_year(world.year)
+		%YearIndicator.presenter = weakref(self)
 
 ## This box holds the whole top interaction area. It is the container
 ## whose content is swapped out by the ending screen at the end of
@@ -170,6 +171,13 @@ func show_text(story) -> void:
 
 	else:
 		push_error("Unexpected parameter type: " + story.get_class())
+
+
+## Advance the year to the given value.
+##
+## This is a coroutine that completes when the animation is done.
+func show_year_advancement(new_year:Year.Name) -> void:
+	await %YearIndicator.show_advancement(new_year)
 
 
 ## Remove all the children from the given container.
