@@ -5,6 +5,12 @@ const _FULLSCREEN_ID := 0
 
 @onready var _settings_popup := %SettingsPopup
 
+func _ready():
+	# Make sure the popup is always starting invisible, even if someone forgets
+	# to set that in the editor
+	_settings_popup.visible = false
+
+
 func _on_settings_popup_id_pressed(id):
 	if id == _FULLSCREEN_ID:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED \
