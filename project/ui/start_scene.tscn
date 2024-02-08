@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2m2pbepn6rip"]
+[gd_scene load_steps=10 format=3 uid="uid://d2m2pbepn6rip"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_gluso"]
 [ext_resource type="Script" path="res://ui/start_scene.gd" id="2_27iv5"]
-[ext_resource type="Texture2D" uid="uid://b7srskjmxkvei" path="res://cast/steven.png" id="3_xvfeo"]
-[ext_resource type="Texture2D" uid="uid://8feisb4hegcw" path="res://cast/mary.png" id="4_3jef5"]
+[ext_resource type="StyleBox" uid="uid://0lv825v0nskc" path="res://ui/blue_style_box.tres" id="3_yrlow"]
+[ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="4_esrti"]
+[ext_resource type="Texture2D" uid="uid://8ej6rfgqwaw5" path="res://ui/gear.png" id="5_cne1d"]
+[ext_resource type="PackedScene" uid="uid://dcuhgkvouhkiq" path="res://ui/cast_carousel.tscn" id="5_rvet4"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="5_sj70n"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_rthby"]
-font_size = 64
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsp3o"]
+bg_color = Color(0.670588, 0.745098, 0.886275, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfmk5"]
-bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_nx01s"]
+font_size = 56
 
 [node name="StartScene" type="Control"]
 layout_mode = 3
@@ -22,114 +24,102 @@ grow_vertical = 2
 theme = ExtResource("1_gluso")
 script = ExtResource("2_27iv5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="BlueBackground" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -640.0
-offset_right = 360.0
-offset_bottom = 640.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer"]
-layout_mode = 2
-text = "Stem Careers Game"
-label_settings = SubResource("LabelSettings_rthby")
-horizontal_alignment = 1
-
-[node name="ImagePanel" type="PanelContainer" parent="VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_lfmk5")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ImagePanel"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ImagePanel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer/ImagePanel/VBoxContainer/CenterContainer"]
-layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="VBoxContainer/ImagePanel/VBoxContainer/CenterContainer/SubViewportContainer"]
-disable_3d = true
-transparent_bg = true
-handle_input_locally = false
-gui_disable_input = true
-size = Vector2i(720, 720)
-render_target_update_mode = 4
-
-[node name="ImageScrollContainer" type="ScrollContainer" parent="VBoxContainer/ImagePanel/VBoxContainer/CenterContainer/SubViewportContainer/SubViewport"]
-unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 3
+theme_override_styles/panel = ExtResource("3_yrlow")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ImagePanel/VBoxContainer/CenterContainer/SubViewportContainer/SubViewport/ImageScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BlueBackground"]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="WhiteBackground" type="PanelContainer" parent="BlueBackground/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_esrti")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="SettingsButton" type="TextureButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.133333, 0.305882, 0.65098, 1)
+layout_mode = 2
+texture_normal = ExtResource("5_cne1d")
+
+[node name="SettingsPopup" type="PopupMenu" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/HBoxContainer/SettingsButton"]
+unique_name_in_owner = true
+size = Vector2i(203, 100)
+visible = true
+theme_override_colors/font_color = Color(0.133333, 0.305882, 0.65098, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_fsp3o")
+item_count = 1
+item_0/text = "Fullscreen"
+item_0/checkable = 1
+item_0/id = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MainPanel" type="PanelContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_yrlow")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel"]
+layout_mode = 2
 alignment = 1
 
-[node name="MainImage1" type="TextureRect" parent="VBoxContainer/ImagePanel/VBoxContainer/CenterContainer/SubViewportContainer/SubViewport/ImageScrollContainer/HBoxContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
+custom_minimum_size = Vector2(640, 640)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("3_xvfeo")
-stretch_mode = 5
+stretch = true
 
-[node name="MainImage2" type="TextureRect" parent="VBoxContainer/ImagePanel/VBoxContainer/CenterContainer/SubViewportContainer/SubViewport/ImageScrollContainer/HBoxContainer"]
+[node name="SubViewport" type="SubViewport" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(660, 640)
+render_target_update_mode = 4
+
+[node name="ParallaxBackground" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("5_rvet4")]
+
+[node name="GameTitle" type="Label" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("4_3jef5")
-stretch_mode = 5
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -132.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "Pre-Alpha Build"
+text = "STEM CAREER
+PATHWAYS 
+GAME"
+label_settings = SubResource("LabelSettings_nx01s")
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="DebugOptions" type="HBoxContainer" parent="VBoxContainer/ColorRect/VBoxContainer"]
+[node name="StartButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer" instance=ExtResource("5_sj70n")]
+layout_mode = 2
+text = "START"
+
+[node name="DebugOptions" type="HBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="AudibleButton" parent="VBoxContainer/ColorRect/VBoxContainer" instance=ExtResource("5_sj70n")]
-custom_minimum_size = Vector2(0, 80)
+[node name="Control" type="Control" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-text = "Begin"
 
-[connection signal="pressed" from="VBoxContainer/ColorRect/VBoxContainer/AudibleButton" to="." method="_on_start_button_pressed"]
+[node name="Label" type="Label" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
+layout_mode = 2
+text = "Pre-Release Build"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="id_pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/HBoxContainer/SettingsButton/SettingsPopup" to="." method="_on_settings_popup_id_pressed"]
+[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

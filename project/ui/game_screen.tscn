@@ -1,33 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://cu8dk0qnr77qs"]
+[gd_scene load_steps=20 format=3 uid="uid://cu8dk0qnr77qs"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_iwqch"]
+[ext_resource type="StyleBox" uid="uid://0lv825v0nskc" path="res://ui/blue_style_box.tres" id="2_gvmnj"]
 [ext_resource type="Script" path="res://ui/game_screen.gd" id="2_kqcir"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="2_qajtq"]
 [ext_resource type="PackedScene" uid="uid://cn7vhi2yphyq2" path="res://ui/year_indicator.tscn" id="2_qr7fv"]
 [ext_resource type="PackedScene" uid="uid://c878div1yocyl" path="res://ui/scenario_container.tscn" id="3_ieeti"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="3_ueeqd"]
+[ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="4_b7pij"]
 [ext_resource type="PackedScene" uid="uid://cqsvt2ysd353x" path="res://ui/animated_label.tscn" id="5_mqyhs"]
 [ext_resource type="Script" path="res://ui/hide_on_run.gd" id="5_vhgyq"]
 [ext_resource type="Script" path="res://ui/option_area.gd" id="6_hfcqp"]
 [ext_resource type="FontFile" uid="uid://1pig17qkchw" path="res://common/ShantellSans-Regular.ttf" id="10_51lxb"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsh8h"]
-bg_color = Color(0.133333, 0.305882, 0.65098, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqxn1"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7llhc"]
-bg_color = Color(0.133333, 0.305882, 0.65098, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmiha"]
 bg_color = Color(0.133333, 0.305882, 0.65098, 1)
@@ -129,7 +113,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_iwqch")
-theme_override_styles/panel = SubResource("StyleBoxFlat_vsh8h")
+theme_override_styles/panel = ExtResource("2_gvmnj")
 script = ExtResource("2_kqcir")
 
 [node name="SingularChild" type="Control" parent="."]
@@ -146,7 +130,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="WhiteBackground" type="PanelContainer" parent="SingularChild/MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rqxn1")
+theme_override_styles/panel = ExtResource("4_b7pij")
 
 [node name="MainUI" type="VBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground"]
 layout_mode = 2
@@ -159,7 +143,7 @@ size_flags_vertical = 0
 [node name="InnerBluePanel" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_7llhc")
+theme_override_styles/panel = ExtResource("2_gvmnj")
 
 [node name="MarginContainer" type="MarginContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel"]
 layout_mode = 2
