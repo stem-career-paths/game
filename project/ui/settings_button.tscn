@@ -4,7 +4,16 @@
 [ext_resource type="Script" path="res://ui/settings_button.gd" id="2_h52gk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsp3o"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 bg_color = Color(0.670588, 0.745098, 0.886275, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 
 [node name="SettingsButton" type="TextureButton"]
 modulate = Color(0.133333, 0.305882, 0.65098, 1)
@@ -13,7 +22,8 @@ script = ExtResource("2_h52gk")
 
 [node name="SettingsPopup" type="PopupMenu" parent="."]
 unique_name_in_owner = true
-size = Vector2i(203, 100)
+size = Vector2i(139, 47)
+visible = true
 theme_override_colors/font_color = Color(0.133333, 0.305882, 0.65098, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_fsp3o")
 item_count = 1
