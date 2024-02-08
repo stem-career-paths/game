@@ -1,7 +1,7 @@
 extends Control
 
 
-@export var _scroll_speed: float = 300.0
+@export var scroll_speed: float = 300.0
 
 var _index = 0
 
@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 func _process(delta) -> void:
-	_image_scroll_container.scroll_horizontal += delta * _scroll_speed
+	_image_scroll_container.scroll_horizontal += delta * scroll_speed
 
 	if _image_scroll_container.scroll_horizontal >= 720:
 		_swap_children_images()
