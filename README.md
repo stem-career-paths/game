@@ -54,6 +54,8 @@ display/window/size/window_height_override=640
 
 - [Shantell Sans font](https://fonts.google.com/specimen/Shantell+Sans) licensed under [OFL](project/common/ShantellSans-Regular_license.txt)
 
+- [Rounds Black font](https://www.1001fonts.com/rounds-black-font.html) licensed under [OFL](project/common/RoundsBlack_license.txt)
+
 - Button click sound is a modification of [Mouse Button Clicks](https://freesound.org/people/aphom000/sounds/687105/) licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 - [Gear image](https://commons.wikimedia.org/wiki/File:Gear-icon.png) is 

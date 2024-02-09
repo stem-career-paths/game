@@ -1,14 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2m2pbepn6rip"]
+[gd_scene load_steps=10 format=3 uid="uid://d2m2pbepn6rip"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_gluso"]
 [ext_resource type="Script" path="res://ui/start_scene.gd" id="2_27iv5"]
-[ext_resource type="StyleBox" uid="uid://0lv825v0nskc" path="res://ui/blue_style_box.tres" id="3_yrlow"]
-[ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="4_esrti"]
-[ext_resource type="PackedScene" uid="uid://dkyrbpxgqqngv" path="res://ui/settings_button.tscn" id="5_2onti"]
-[ext_resource type="PackedScene" uid="uid://dcuhgkvouhkiq" path="res://ui/cast_carousel.tscn" id="5_rvet4"]
+[ext_resource type="StyleBox" path="res://ui/blue_style_box.tres" id="3_yrlow"]
+[ext_resource type="StyleBox" path="res://ui/white_rounded_style_box.tres" id="4_esrti"]
+[ext_resource type="PackedScene" path="res://ui/settings_button.tscn" id="5_2onti"]
+[ext_resource type="PackedScene" path="res://ui/cast_carousel.tscn" id="5_rvet4"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="5_sj70n"]
+[ext_resource type="FontFile" uid="uid://c57ulb1d8v5ug" path="res://common/Rounds Black.otf" id="7_v2dbv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nx01s"]
+font = ExtResource("7_v2dbv")
 font_size = 56
 
 [node name="StartScene" type="Control"]
