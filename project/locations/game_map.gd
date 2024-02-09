@@ -5,6 +5,7 @@ const _RESOURCE_PATHS : Array[String] = [
 	"res://locations/classroom.png",
 	"res://locations/hallway.png",
 	"res://locations/lunchroom.png",
+	"res://locations/courtyard.png",
 ]
 
 ## Maps location names to their textures.

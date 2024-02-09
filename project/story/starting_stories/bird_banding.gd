@@ -4,6 +4,8 @@ var text := '"Do you want to go bird banding with me, or should we play some vid
 
 var npc_name := "Hilda"
 
+var location := "courtyard"
+
 var options := {
 	"...Bird what?": {
 		"text": [
