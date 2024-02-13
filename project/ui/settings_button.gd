@@ -22,6 +22,8 @@ func _on_settings_popup_id_pressed(id):
 		_MUTE_SFX_ID:
 			var is_muted := AudioServer.is_bus_mute(_sfx_bus_index)
 			AudioServer.set_bus_mute(_sfx_bus_index, not is_muted)
+	
+	Sfx.play_click_sound()
 
 
 func _is_fullscreen() -> bool:
@@ -30,6 +32,8 @@ func _is_fullscreen() -> bool:
 
 
 func _on_pressed():
+	Sfx.play_click_sound()
+	
 	# Place the popup in the right location
 	var offset := Vector2(0, size.y)
 	_settings_popup.position = get_screen_position() + offset
