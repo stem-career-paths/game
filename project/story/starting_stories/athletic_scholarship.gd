@@ -15,6 +15,6 @@ var options := {
 		"text": '"Yeah! I am hoping to get a scholarship so I can afford college. It\'s expensive."',
 	},
 	"Do you want to be a professional athlete?": {
-		"text": '"Nah, I love sports and want to keep playing, though. I [u]think[/u] I\'d like to be a coach."'
+		"text": '"Nah, I love sports and want to keep playing, though. I [i]think[/i] I\'d like to be a coach."'
 	}
 }

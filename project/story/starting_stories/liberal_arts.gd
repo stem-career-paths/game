@@ -28,8 +28,8 @@ var options := {
 	},
 	"Liberal what now?": {
 		"text": [
-			'"Liberal arts! Like [u]English[/u], [u]Philosophy[/u], [u]History[/u], and [u]Languages[/u]."',
-			'"They aren\'t for specific jobs, but they help you learn to think for yourself."'
+			'"Liberal arts! Like [b]English[/b], [b]Philosophy[/b], [b]History[/b], and [b]Languages[/b]."',
+			'"They aren\'t [i]for[/i] any specific job, but they help you learn to think for yourself."'
 		],
 		"effects": {
 			"curiosity": +1

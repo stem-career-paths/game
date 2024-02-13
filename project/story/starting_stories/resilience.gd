@@ -4,7 +4,7 @@ var text := '"Were you at the soccer game last night? Did you see how the goalie
 
 var options := {
 	"That shows resilience!": {
-		"text": '"That\'s the word for it, right."',
+		"text": '"[i]That\'s[/i] the word for it, right!"',
 		"effects": {
 			"resilience": +1
 		},
@@ -13,6 +13,6 @@ var options := {
 		"text": '"But the cool thing is how the goalie didn\'t! I think it\'s worth it to see how it\'ll all end."',
 	},
 	"I missed it. I had to walk my dog.": {
-		"text": '"Ha, whatever dude. You don\'t even [u]have[/u] a dog."',
+		"text": '"Ha, whatever dude. You don\'t even [i]have[/i] a dog."',
 	}
 }

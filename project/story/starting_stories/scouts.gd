@@ -1,6 +1,6 @@
 extends SimpleStory
 
-var text := '"Sometimes I feel so cooped up in here. I can\'t [u]wait[/u] to go camping this weekend with the scouts."'
+var text := '"Sometimes I feel so cooped up in here. I can\'t [i]wait[/i] to go camping this weekend with the scouts."'
 
 var location := "classroom"
 
@@ -18,9 +18,9 @@ var options := {
 		}
 	},
 	"Can I come with you?": {
-		"text": '"I think so. I\'ll ask the scout leader tomorrow."',
+		"text": '"I think so? I\'ll ask the scout leader tomorrow."',
 	},
 	"OK Hippie": {
-		"text": '"Don\'t knock it til you tried it. Camping [b]RULES[/b]."',
+		"text": '"Don\'t knock it til you\'ve tried it. Camping [b]RULES[/b]."',
 	},
 }

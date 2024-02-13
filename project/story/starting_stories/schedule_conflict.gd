@@ -7,7 +7,7 @@ const _ROBOTICS_DIR := "res://story/robotics_club/"
 
 var npc_name := "Aubrey"
 
-var text := '"Oh no, the drama club meets the same time as robotics club! What do [u]you[/u] want to do?"'
+var text := '"Oh no, the drama club meets the same time as robotics club! What do [i]you[/i] want to do?"'
 
 var options := {
 	_DRAMA_CLUB: {

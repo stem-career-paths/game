@@ -22,7 +22,7 @@ var options := {
 		}
 	},
 	"No, try something new.": {
-		"text": "I guess this is my chance, right? Maybe I will try using the 3D printer or CNC machine.",
+		"text": '"I guess this is my chance, right? Maybe I will try using the 3D printer or CNC machine."',
 		"effects": {
 			"curiosity": +1,
 			"engineering": +1

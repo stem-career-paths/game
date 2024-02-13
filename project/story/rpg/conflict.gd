@@ -12,9 +12,6 @@ var npc_name := "Steven"
 var location := "hallway"
 
 var options := {
-#	"Forget about it": {
-#		"text": '"Um... You are sure this won\'t happen again? I don\'t know."',
-#	},
 	"I will apologize": {
 		"text": '"Thanks! I\'m sure Alex will be happy to clear it up."',
 		"effects": {

@@ -5,7 +5,7 @@ var npc_name := "Aubrey"
 var text := [
 	'"Have you thought about engineering?"',
 	'"It\'s a great field to get into and there are so many different types of engineering!"',
-	'"What do [u]you[/u] like to do?"',
+	'"What do [i]you[/i] like to do?"',
 ]
 
 var options := {

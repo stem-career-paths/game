@@ -52,7 +52,7 @@ display/window/size/window_height_override=640
 
 ## Third-Party Assets
 
-- [Shantell Sans font](https://fonts.google.com/specimen/Shantell+Sans) licensed under [OFL](project/common/ShantellSans-Regular_license.txt)
+- [Shantell Sans font](https://fonts.google.com/specimen/Shantell+Sans) licensed under [OFL](project/common/ShantellSans_license.txt)
 
 - [Rounds Black font](https://www.1001fonts.com/rounds-black-font.html) licensed under [OFL](project/common/RoundsBlack_license.txt)
 

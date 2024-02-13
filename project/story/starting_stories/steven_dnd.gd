@@ -21,20 +21,20 @@ var options := {
 		},
 	},
 	POSITIVE["DM"]: {
-		"text": '"Great! You look a little nervous, but I think you\'ll do [u]great[/u]!"',
+		"text": '"Great! You look a little nervous, but I think you\'ll do [i]great[/i]!"',
 		"effects": {
 			"engineering": 1,
 			"curiosity": 1,
 		},
 	},
 	POSITIVE["Curious"]: {
-		"text": '"That\'s okay! I can teach you! It\'s [u]so[/u] fun, I promise!"',
+		"text": '"That\'s okay! I can teach you! It\'s [i]so[/i] fun, I promise!"',
 		"effects": {
 			"curiosity": 1,
 		}
 	},
 	"Er... No thanks. ": {
-		"text": "\"Oh, Okay.\" \nSteven walks away dejectedly.",
+		"text": '"Oh, Okay." \nSteven walks away dejectedly.',
 	},
 }
 

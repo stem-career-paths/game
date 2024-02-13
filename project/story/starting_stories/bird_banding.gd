@@ -18,7 +18,7 @@ var options := {
 	},
 	"Bird Banding":
 	{
-		"text": '"I can\'t believe we found a [u]cardinal[/u]! They\'re so much bigger than I thought!"',
+		"text": '"I can\'t believe we found a [i]cardinal[/i]! They\'re so much bigger than I thought!"',
 		"effects": {
 			"engagement": +1,
 			"science": +1
@@ -26,7 +26,7 @@ var options := {
 	},
 	"Video Games": {
 		"text": [
-			'You both play the best fighting game known to man: [u]Hit People With Sticks 3: [b]Steel Thunder[/b][/u].',
+			"You both play the best fighting game known to man: [i]Hit People With Sticks 3: [b]Steel Thunder[/b][/i].",
 			'"That was fun. I\'d love to be able to make my own video games someday."',
 			],
 		"effects": {

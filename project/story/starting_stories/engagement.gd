@@ -12,7 +12,7 @@ var options := {
 	},
 	"Don\'t feel bad.":
 	{
-		"text": '"It\'s hard not to feel [u]bad[/u] when I don\'t feel [u]good[/u]."',
+		"text": '"It\'s hard not to feel [i]bad[/i] when I don\'t feel [i]good[/i]."',
 	},
 	"Talk to your classmates!":
 	{
