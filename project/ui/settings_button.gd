@@ -4,7 +4,7 @@ const _FULLSCREEN_MODES := [DisplayServer.WINDOW_MODE_FULLSCREEN, DisplayServer.
 const _FULLSCREEN_ID := 0
 const _MUTE_SFX_ID := 1
 
-@onready var _settings_popup := %SettingsPopup
+@onready var _settings_popup :PopupMenu = %SettingsPopup
 @onready var _sfx_bus_index := AudioServer.get_bus_index('Sfx')
 
 func _ready():
@@ -38,9 +38,15 @@ func _on_pressed():
 	var offset := Vector2(0, size.y)
 	_settings_popup.position = get_screen_position() + offset
 	
-	# Configure the checkboxes based on the current game state
-	_settings_popup.set_item_checked(_FULLSCREEN_ID, _is_fullscreen())
-	_settings_popup.set_item_checked(_MUTE_SFX_ID, 
+	# Configure the checkboxes based on the current game state.
+	# Note that set_item_checked works on *index*, not *id*, so a 
+	# conversion is necessary. 
+	var fullscreen_index := _settings_popup.get_item_index(_FULLSCREEN_ID)
+	_settings_popup.set_item_checked(\
+		fullscreen_index, _is_fullscreen())
+	var mute_sfx_index := _settings_popup.get_item_index(_MUTE_SFX_ID)
+	_settings_popup.set_item_checked(
+		mute_sfx_index, 
 		AudioServer.is_bus_mute(_sfx_bus_index))
 	
 	_settings_popup.popup()
