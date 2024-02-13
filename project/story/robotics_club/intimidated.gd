@@ -12,7 +12,6 @@ var options := {
 		"text": '"Wait wait wait- I get to [b]WELD[/b] in robotics? Pass me the fire stick!!"',
 		"end_story": "robotics",
 		"effects": {
-			"resilience": +1,
 			"engineering": +1,
 			"engagement": +1,
 		},
