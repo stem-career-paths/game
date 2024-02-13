@@ -8,6 +8,7 @@ const END_STORY_PATH := "res://end/"
 const MAX_OPTIONS_PER_STORY := 4
 const MAX_LINES_PER_STORY := 7
 const MAX_LINES_PER_OPTION := 3
+const MAX_EFFECTS := 2
 
 var story_paths: Array[String] = []
 
@@ -171,6 +172,19 @@ func test_all_story_year_constraints_are_valid():
 			for year in story.years:
 				assert_true(year is int, "Story %s year %s is an integer" % [story_path, year])
 				assert_true(Year.values().has(year), "Story %s year %s is a valid year" % [story_path, year])
+
+
+# The UI is not robust to supporting three outcomes on a story,
+# so we will make sure none have that many.
+func test_stories_have_no_more_than_two_outcomes():
+	for story_path in story_paths:
+		var story := _load_simple_story(story_path)
+		for option in story.options.keys():
+			if "effects" in story.options[option]:
+				var count :int = story.options[option].effects.size()
+				assert_lt(count, MAX_EFFECTS+1,
+					"Option %s has %d but should have %d or less" %
+						[option, count, MAX_EFFECTS])
 
 
 func test_locations():
