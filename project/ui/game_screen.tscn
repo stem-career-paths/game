@@ -138,6 +138,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI"]
 layout_mode = 2
+alignment = 2
 
 [node name="YearIndicator" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/HBoxContainer" instance=ExtResource("2_qr7fv")]
 unique_name_in_owner = true
@@ -147,6 +148,7 @@ size_flags_vertical = 4
 
 [node name="SettingsButton" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/HBoxContainer" instance=ExtResource("6_d02if")]
 layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="InnerBluePanel" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI"]
 layout_mode = 2
