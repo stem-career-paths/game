@@ -22,14 +22,23 @@ script = ExtResource("2_h52gk")
 
 [node name="SettingsPopup" type="PopupMenu" parent="."]
 unique_name_in_owner = true
-size = Vector2i(139, 47)
+size = Vector2i(139, 128)
 visible = true
 theme_override_colors/font_color = Color(0.133333, 0.305882, 0.65098, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_fsp3o")
-item_count = 1
-item_0/text = "Fullscreen"
-item_0/checkable = 1
-item_0/id = 0
+item_count = 4
+item_0/text = "Display"
+item_0/id = 3
+item_0/separator = true
+item_1/text = "Fullscreen"
+item_1/checkable = 1
+item_1/id = 0
+item_2/text = "Audio"
+item_2/id = 2
+item_2/separator = true
+item_3/text = "Mute Sfx"
+item_3/checkable = 1
+item_3/id = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="id_pressed" from="SettingsPopup" to="." method="_on_settings_popup_id_pressed"]
