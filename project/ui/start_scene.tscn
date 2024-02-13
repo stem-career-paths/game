@@ -91,12 +91,17 @@ label_settings = SubResource("LabelSettings_nx01s")
 horizontal_alignment = 1
 
 [node name="StartButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer" instance=ExtResource("5_sj70n")]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "START"
 
 [node name="DebugOptions" type="HBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
 
 [node name="Control" type="Control" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
 layout_mode = 2

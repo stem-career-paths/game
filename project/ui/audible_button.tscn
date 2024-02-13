@@ -4,12 +4,24 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_for0d"]
 bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7of2p"]
 bg_color = Color(0.670588, 0.745098, 0.886275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bftog"]
 bg_color = Color(0.403106, 0.512134, 0.725106, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="AudibleButton" type="MarginContainer"]
 anchors_preset = 15
