@@ -23,6 +23,6 @@ var options := {
 		"text": '"I\'ve [b]been[/b] trying! It feels like I\'m banging my head up against a wall..."'
 	},
 	"Give up": {
-		"text": "I don't need help. I’ll just fail, it doesn't matter.",
+		"text": '"I don\'t need help. I\'ll just fail, it doesn\'t matter."',
 	}
 }
