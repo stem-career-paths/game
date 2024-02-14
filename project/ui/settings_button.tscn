@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkyrbpxgqqngv"]
+[gd_scene load_steps=5 format=3 uid="uid://dkyrbpxgqqngv"]
 
 [ext_resource type="Texture2D" uid="uid://8ej6rfgqwaw5" path="res://ui/gear.png" id="1_udid0"]
 [ext_resource type="Script" path="res://ui/settings_button.gd" id="2_h52gk"]
+[ext_resource type="Script" path="res://ui/settings_popup.gd" id="3_6ers7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsp3o"]
 content_margin_left = 10.0
@@ -38,6 +39,8 @@ item_2/separator = true
 item_3/text = "Mute Sfx"
 item_3/checkable = 1
 item_3/id = 1
+script = ExtResource("3_6ers7")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="id_pressed" from="SettingsPopup" to="." method="_on_settings_popup_id_pressed"]
+[connection signal="visibility_changed" from="SettingsPopup" to="SettingsPopup" method="_on_visibility_changed"]
