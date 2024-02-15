@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcuhgkvouhkiq"]
+[gd_scene load_steps=11 format=3 uid="uid://dcuhgkvouhkiq"]
 
 [ext_resource type="Script" path="res://ui/cast_carousel.gd" id="1_k5iq2"]
 [ext_resource type="Texture2D" uid="uid://nnsvltgmeigg" path="res://cast/aubrey.png" id="2_6q8b8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://8feisb4hegcw" path="res://cast/mary.png" id="4_qwxpl"]
 [ext_resource type="Texture2D" uid="uid://cbcvn5aqnt5ps" path="res://locations/courtyard.png" id="5_gdxba"]
 [ext_resource type="Texture2D" uid="uid://b7srskjmxkvei" path="res://cast/steven.png" id="5_gwtqp"]
+[ext_resource type="Texture2D" uid="uid://xfhpo2oe5ry7" path="res://ui/rounded_frame.png" id="5_udgfa"]
 [ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://locations/hallway.png" id="7_7ejyh"]
 [ext_resource type="Texture2D" uid="uid://bmkysfcdftaiw" path="res://locations/lunchroom.png" id="9_q1wsy"]
 
@@ -36,6 +37,14 @@ offset_right = 720.0
 offset_bottom = 720.0
 texture = ExtResource("2_6q8b8")
 
+[node name="RoundedWhiteFrame" type="NinePatchRect" parent="ParallaxLayer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("5_udgfa")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
 [node name="PanelContainer2" type="PanelContainer" parent="ParallaxLayer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_o28lb")
@@ -50,6 +59,14 @@ layout_mode = 0
 offset_right = 720.0
 offset_bottom = 720.0
 texture = ExtResource("3_pxqv0")
+
+[node name="RoundedWhiteFrame" type="NinePatchRect" parent="ParallaxLayer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+texture = ExtResource("5_udgfa")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
 
 [node name="PanelContainer3" type="PanelContainer" parent="ParallaxLayer/HBoxContainer"]
 layout_mode = 2
@@ -66,6 +83,14 @@ offset_right = 720.0
 offset_bottom = 720.0
 texture = ExtResource("4_qwxpl")
 
+[node name="RoundedWhiteFrame" type="NinePatchRect" parent="ParallaxLayer/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("5_udgfa")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
 [node name="PanelContainer4" type="PanelContainer" parent="ParallaxLayer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_o28lb")
@@ -80,3 +105,11 @@ layout_mode = 2
 offset_right = 720.0
 offset_bottom = 720.0
 texture = ExtResource("5_gwtqp")
+
+[node name="RoundedWhiteFrame" type="NinePatchRect" parent="ParallaxLayer/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+texture = ExtResource("5_udgfa")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
