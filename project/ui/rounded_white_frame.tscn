@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu5esoalimtnl"]
+
+[ext_resource type="Texture2D" uid="uid://xfhpo2oe5ry7" path="res://ui/rounded_frame.png" id="1_0mc2p"]
+
+[node name="RoundedWhiteFrame" type="NinePatchRect"]
+texture = ExtResource("1_0mc2p")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
