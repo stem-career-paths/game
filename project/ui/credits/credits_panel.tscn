@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://ebrhp55oc1to"]
+
+[ext_resource type="Script" path="res://ui/credits/credits_panel.gd" id="1_6qchm"]
+[ext_resource type="StyleBox" uid="uid://cmums7em450n" path="res://ui/overlay_panel_style.tres" id="1_eppal"]
+[ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="1_ftdhd"]
+[ext_resource type="FontFile" uid="uid://dwaxej03kcxd5" path="res://ui/credits/OpenSans.ttf" id="3_llkcx"]
+
+[sub_resource type="Theme" id="Theme_2hkwo"]
+default_font = ExtResource("3_llkcx")
+default_font_size = 24
+
+[sub_resource type="FontVariation" id="FontVariation_e0xp2"]
+base_font = ExtResource("3_llkcx")
+variation_opentype = {
+2003265652: 700
+}
+
+[node name="CreditsPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2hkwo")
+theme_override_styles/panel = ExtResource("1_eppal")
+script = ExtResource("1_6qchm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/bold_font = SubResource("FontVariation_e0xp2")
+bbcode_enabled = true
+text = "[center][b][font_size=28]STEM Career Paths Game[/font_size][/b]
+
+Director
+[b]Paul Gestwicki, Ph.D.[/b]
+
+Research Assistants
+[b]Jeffrey Harmon
+Samantha Shively
+Brooke Wright[/b]
+
+Additional Design and Development
+[b]Liam Grube
+Lilly Waterman[/b]
+
+Special Thanks
+[b]Indiana Space Grant Consortium
+
+Ball State University
+Department of Computer Science
+
+Ball State University 
+Sponsored Projects Administration
+[/b]
+
+STEM Career Paths Game
+©2024 Paul Gestwicki
+
+This program is released under
+the GNU General Public License v3.0.
+[url]https://github.com/STEM-Careers-Game/stem_career_paths[/url]
+
+[b]Open Source License Information[/b]
+
+Godot Engine
+[url]https://godotengine.org/license/[/url]
+
+Shantell Sans Font
+Copyright 2022 The Shantell Sans Project Authors 
+[url]https://github.com/arrowtype/shantell-sans[/url]
+
+Rounds Black Font
+Copyright (c) 2014, Ivan Gladkikh
+[url]www.jovanny.ru[/url]
+
+Open Sans Font
+Copyright 2020 The Open Sans Project Authors 
+[url]https://github.com/googlefonts/opensans[/url]
+[/center]"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 12
+
+[node name="Button" parent="VBoxContainer/MarginContainer" instance=ExtResource("1_ftdhd")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "OK"
+
+[connection signal="meta_clicked" from="VBoxContainer/ScrollContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

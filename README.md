@@ -50,11 +50,20 @@ display/window/size/window_width_override=360
 display/window/size/window_height_override=640
 ```
 
+## Legal
+
+&copy;2024 Paul Gestwicki
+
+This software is licensed under [the GNU General Public License v3.0](LICENSE).
+
+
 ## Third-Party Assets
 
 - [Shantell Sans font](https://fonts.google.com/specimen/Shantell+Sans) licensed under [OFL](project/common/ShantellSans_license.txt)
 
 - [Rounds Black font](https://www.1001fonts.com/rounds-black-font.html) licensed under [OFL](project/common/RoundsBlack_license.txt)
+
+- [OpenSans](https://fonts.google.com/specimen/Open+Sans) licensed under [OFL](project/ui/credits/OpenSans_license.txt)
 
 - Button click sound is a modification of [Mouse Button Clicks](https://freesound.org/people/aphom000/sounds/687105/) licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 

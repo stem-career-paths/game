@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2m2pbepn6rip"]
+[gd_scene load_steps=12 format=3 uid="uid://d2m2pbepn6rip"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_gluso"]
 [ext_resource type="Script" path="res://ui/start_scene.gd" id="2_27iv5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcuhgkvouhkiq" path="res://ui/cast_carousel.tscn" id="5_rvet4"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="5_sj70n"]
 [ext_resource type="FontFile" uid="uid://c57ulb1d8v5ug" path="res://common/Rounds Black.otf" id="7_v2dbv"]
+[ext_resource type="PackedScene" uid="uid://ebrhp55oc1to" path="res://ui/credits/credits_panel.tscn" id="9_7hjmj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2s8j"]
 bg_color = Color(0.133333, 0.305882, 0.65098, 1)
@@ -97,6 +98,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "START"
 
+[node name="CreditsButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer" instance=ExtResource("5_sj70n")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits"
+
 [node name="DebugOptions" type="HBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
@@ -112,4 +119,33 @@ layout_mode = 2
 text = "Pre-Release Build"
 horizontal_alignment = 1
 
+[node name="CreditsOverlay" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreditsOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="CreditsPanel" parent="CreditsOverlay" instance=ExtResource("9_7hjmj")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.15
+anchor_right = 0.95
+anchor_bottom = 0.85
+
 [connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="dismissed" from="CreditsOverlay/CreditsPanel" to="." method="_on_credits_panel_dismissed"]

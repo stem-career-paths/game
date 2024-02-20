@@ -35,3 +35,9 @@ func _on_start_button_pressed() -> void:
 	owner.change_scene(new_scene)
 
 
+func _on_credits_button_pressed() -> void:
+	%CreditsOverlay.visible = true
+
+
+func _on_credits_panel_dismissed() -> void:
+	%CreditsOverlay.visible = false
