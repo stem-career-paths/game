@@ -4,6 +4,8 @@ var text := '"I didn\'t know that you liked robotics! I\'m so glad you are here.
 
 var npc_name := "Mary"
 
+var location := "robotics"
+
 var options := {
 	"If that\'s what you want." : {
 		"text": '"I already know I\'m good at soccer. Maybe another club is too much."',

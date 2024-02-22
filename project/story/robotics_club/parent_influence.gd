@@ -7,6 +7,8 @@ var text := [
 
 var npc_name := "Aubrey"
 
+var location := "robotics"
+
 var options := {
 	"Do whatever you want": {
 		"text": '"Sure, but I\'m not sure what that is."',

@@ -2,6 +2,8 @@ extends SimpleStory
 
 var npc_name := "Hilda"
 
+var location := "drama"
+
 var text := [
 	'"Oh man oh man oh man. There\'s a show this weekend, and I have math [i]and[/i] English tests coming up."',
 	'"I\'m [b]ROYALLY[/b] stressed."'

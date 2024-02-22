@@ -8,7 +8,7 @@ var text := [
 
 var npc_name := "Steven"
 
-var location :="classroom"
+var location :="dnd"
 
 var options := {
 	"Door-melting potion" :{

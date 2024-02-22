@@ -2,10 +2,13 @@
 class_name GameMap extends RefCounted
 
 const _RESOURCE_PATHS : Array[String] = [
-	"res://locations/classroom.png",
-	"res://locations/hallway.png",
-	"res://locations/lunchroom.png",
-	"res://locations/courtyard.png",
+	"res://locations/classroom.tres",
+	"res://locations/hallway.tres",
+	"res://locations/lunchroom.tres",
+	"res://locations/courtyard.tres",
+	"res://locations/dnd.tres",
+	"res://locations/drama.tres",
+	"res://locations/robotics.tres",
 ]
 
 ## Maps location names to their textures.
@@ -19,16 +22,19 @@ func _init():
 		_dictionary[key] = load(resource_path)
 
 
-func get_by_name(name:String)->Texture:
-	return _dictionary[name]
+func get_by_name(name:String) -> Texture:
+	return _dictionary[name].image
 
 
-func has_location(name:String)->bool:
+func has_location(name:String) -> bool:
 	return _dictionary.keys().has(name)
 
 
 func pick_random() -> Texture:
-	return _dictionary.values().pick_random()
+	var chosen_location : LocationDefinition = _dictionary.values().pick_random()
+	while !chosen_location.randomly_pickable:
+		chosen_location = _dictionary.values().pick_random()
+	return chosen_location.image
 
 
 ## Count the number of locations in the map

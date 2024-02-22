@@ -3,6 +3,8 @@ extends SimpleStory
 const _SWITCH := "It\'s fun, but I am switching to robotics club"
 const _DRAMA_DIR := "res://story/drama_club/"
 
+var location := "drama"
+
 var text := [
 	"You find Hilda hip-deep in a mess of lights, wires, cables, and stands.",
 	'"I [b]love[/b] working on the tech side of theater! Every show gives me new challenges!"',

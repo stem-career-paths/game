@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LocationDefinition" load_steps=3 format=3 uid="uid://crny3rqvf5aia"]
+
+[ext_resource type="Texture2D" uid="uid://c55k7mgc7bafj" path="res://locations/dnd.png" id="1_8o73e"]
+[ext_resource type="Script" path="res://locations/location_definition.gd" id="2_x6dri"]
+
+[resource]
+script = ExtResource("2_x6dri")
+image = ExtResource("1_8o73e")
+randomly_pickable = false

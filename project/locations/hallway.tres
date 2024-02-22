@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LocationDefinition" load_steps=3 format=3 uid="uid://gl8a3riijc4b"]
+
+[ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://locations/hallway.png" id="1_la2c8"]
+[ext_resource type="Script" path="res://locations/location_definition.gd" id="2_ssu8a"]
+
+[resource]
+script = ExtResource("2_ssu8a")
+image = ExtResource("1_la2c8")
+randomly_pickable = true

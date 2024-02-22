@@ -4,6 +4,8 @@ var text := '"I love Drama Club! Do you want to be in the [i]cast[/i] or help me
 
 var npc_name := "Aubrey"
 
+var location := "drama"
+
 var options := {
 	"I was born for the stage!": {
 		"text": '"You sure were, my friend! Break a leg! Or several!"',

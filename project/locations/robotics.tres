@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LocationDefinition" load_steps=3 format=3 uid="uid://ciok4fh7fcgm7"]
+
+[ext_resource type="Texture2D" uid="uid://g5x5hiygdw6y" path="res://locations/robotics.png" id="1_38jfn"]
+[ext_resource type="Script" path="res://locations/location_definition.gd" id="2_sh4vy"]
+
+[resource]
+script = ExtResource("2_sh4vy")
+image = ExtResource("1_38jfn")
+randomly_pickable = false
