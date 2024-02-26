@@ -4,6 +4,11 @@ class_name Cast extends RefCounted
 var _dictionary := {}
 
 
+## Check if the cast contains an NPC with the given name
+func contains(npc_name:String) -> bool:
+	return _dictionary.keys().has(npc_name)
+
+
 func get_by_name(npc_name:String) -> Npc:
 	return _dictionary[npc_name]
 

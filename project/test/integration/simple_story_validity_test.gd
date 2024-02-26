@@ -12,13 +12,25 @@ const MAX_EFFECTS := 2
 
 var story_paths: Array[String] = []
 
-
 func before_all():
 	story_paths = _get_story_paths_in_directory(STORY_PATH)
 
 
 func test_stories_exist():
 	assert_true(story_paths.size() > 0, "No stories found in %s" % STORY_PATH)
+
+
+func test_npc_is_in_cast():
+	var cast := Cast.new()
+	cast.load_cast("res://cast/")
+	for story_path in story_paths:
+		var story := _load_simple_story(story_path)
+		
+		# Only check those stories that have npcs specified
+		if "npc_name" in story:
+			var npc_name : String = story.npc_name
+			assert_true(cast.contains(npc_name), 
+				"Cast does not contain an NPC named '%s' as specified in %s" % [npc_name, story_path])
 
 
 func test_story_has_text():
