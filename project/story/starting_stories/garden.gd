@@ -5,7 +5,7 @@ var text := [
 	'"...Now the problem is, there\'s so many options I don\'t know where to start! Do you have any ideas for the garden?"'
 ]
 
-var npc_name := "Aubrey"
+var npc_name := "Ethan"
 
 var location := "courtyard"
 

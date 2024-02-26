@@ -5,7 +5,7 @@ var text := [
 	'"I always thought that sounded good, but I also like creative writing. What should I look for in a major?"',
 ]
 
-var npc_name := "Aubrey"
+var npc_name := "Ethan"
 
 var location := "robotics"
 

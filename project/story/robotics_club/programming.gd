@@ -5,7 +5,7 @@ var text := [
 	'"I\'ve been programming since I was a kid. I guess I could do it."'
 ]
 
-var npc_name := "Aubrey"
+var npc_name := "Ethan"
 
 var location := "robotics"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dcuhgkvouhkiq"]
 
 [ext_resource type="Script" path="res://ui/cast_carousel.gd" id="1_k5iq2"]
-[ext_resource type="Texture2D" uid="uid://nnsvltgmeigg" path="res://cast/aubrey.png" id="2_6q8b8"]
+[ext_resource type="Texture2D" uid="uid://nnsvltgmeigg" path="res://cast/ethan.png" id="2_6q8b8"]
 [ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="2_o28lb"]
 [ext_resource type="Texture2D" uid="uid://bfeif5iosw0gv" path="res://cast/hilda.png" id="3_pxqv0"]
 [ext_resource type="Texture2D" uid="uid://8feisb4hegcw" path="res://cast/mary.png" id="4_qwxpl"]

@@ -1,6 +1,6 @@
 extends SimpleStory
 
-var npc_name := "Aubrey"
+var npc_name := "Ethan"
 
 var text := [
 	'"Have you thought about engineering?"',
