@@ -2,6 +2,8 @@ extends SimpleStory
 
 var text := '"I have enough math to graduate. I think I\'ll just skip taking it next semester."'
 
+var npc_name := "Ethan"
+
 var options := {
 	"You can\'t know too much!": {
 		"text": '"Yeah, I guess [i]then[/i] no matter what I do in college, I\'ll be ready."',

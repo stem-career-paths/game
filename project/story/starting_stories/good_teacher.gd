@@ -2,6 +2,8 @@ extends SimpleStory
 
 var text := '"I love my science teacher. She\'s so smart! And fun!"'
 
+var npc_name := "Hilda"
+
 var options := {
 	"You should eventually be a teacher": {
 		"text": '"I was thinking the same thing! I could focus on both science AND teaching in college."',

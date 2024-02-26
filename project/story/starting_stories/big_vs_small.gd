@@ -2,6 +2,8 @@ extends SimpleStory
 
 var text := '"I\'ve been thinking about college. Do you think it\'s better for me to go a [i]big[/i] school or [i]small[/i] school?"'
 
+var npc_name := "Mary"
+
 var years := Year.not_year(Year.Name.FRESHMAN)
 
 var options := {

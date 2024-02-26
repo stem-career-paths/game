@@ -2,6 +2,8 @@ extends SimpleStory
 
 var text := '"Can I tell you something? I feel like I have a hard time making friends."'
 
+var npc_name := "Steven"
+
 var options := {
 	"Try being more engaged!":
 	{

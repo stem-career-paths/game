@@ -4,6 +4,8 @@ var text := '"Sometimes I feel so cooped up in here. I can\'t [i]wait[/i] to go 
 
 var location := "classroom"
 
+var npc_name := "Hilda"
+
 var options := {
 	"I love being outside": {
 		"text": '"[b]Yes![/b] There is so much to see and do."',
