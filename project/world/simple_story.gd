@@ -8,17 +8,15 @@ const _ON_OPTION_SELECTED_NAME := "on_option_selected"
 func run(presenter) -> void:
 	assert("text" in self, "This story must have 'text'")
 	assert(get("text") is String or get("text") is Array, "The 'text' must be a string or an array")
+	assert("npc_name" in self, "This story must have 'npc_name'")
 	assert("options" in self, "This story must have 'options'")
 
 	# Clear any old text from the screen first
 	presenter.show_text("")
 
-	# If the npc is specified, load it, and if not, pick one at random.
-	var npc : Npc
-	if "npc_name" in self:
-		npc = presenter.world.cast.get_by_name(get("npc_name"))
-	else:
-		npc = presenter.world.cast.pick_random()
+	var npc : Npc = presenter.world.cast.get_by_name(get("npc_name"))
+
+	# If the location is specified, load it, and if not, pick one at random.
 	var location : Texture
 	if "location" in self:
 		location = presenter.world.game_map.get_by_name(get("location"))

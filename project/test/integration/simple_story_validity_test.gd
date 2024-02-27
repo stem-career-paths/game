@@ -22,15 +22,20 @@ func test_stories_exist():
 	assert_true(story_paths.size() > 0, "No stories found in %s" % STORY_PATH)
 
 
+func test_story_has_npc():
+	_for_each_story(func(story,path):
+		assert_true("npc_name" in story, "Story %s has an npc" % path)
+	)
+
+
 func test_npc_is_in_cast():
 	var cast := Cast.new()
 	cast.load_cast(CAST_PATH)
-	
+
 	_for_each_story(func(story, path):
-		if "npc_name" in story:
-			var npc_name : String = story.npc_name
-			assert_true(cast.contains(npc_name), 
-				"Cast does not contain an NPC named '%s' in %s" % [story,path])
+		var npc_name : String = story.npc_name
+		assert_true(cast.contains(npc_name), 
+			"Cast does not contain an NPC named '%s' in %s" % [story,path])
 	)
 
 
