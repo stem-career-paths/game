@@ -42,6 +42,9 @@ func _ready():
 	for file_path in file_paths:
 		world.available_stories.append(_STARTING_STORY_PATH + file_path)
 	
+	# Start by telling the player this is the start of freshman year
+	await _game_screen.show_year_advancement(Year.Name.FRESHMAN)
+	
 	while _stories_complete < world.turns_per_year * 4:
 		if world.available_stories.is_empty():
 			# This would happen if there are no available stories to run.

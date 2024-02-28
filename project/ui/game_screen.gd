@@ -178,7 +178,12 @@ func show_text(story) -> void:
 func show_year_advancement(new_year:Year.Name) -> void:
 	%YearIndicator.show_advancement(new_year)
 	
-	await %ScenarioContainer.clear()
+	# If there are children, clear them out.
+	# There may not be children on the first call, for the
+	# announcement of "Freshman Year."
+	if %ScenarioContainer.get_child_count() > 0:
+		await %ScenarioContainer.clear()
+	
 	var label := preload("res://ui/year_change_label.tscn").instantiate()
 	label.year = new_year
 	await %ScenarioContainer.show_control(label)
