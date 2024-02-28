@@ -11,7 +11,6 @@ var world : World:
 		world = value
 		%CharacterDisplay.character = world.character
 		%YearIndicator.set_year(world.year)
-		%YearIndicator.presenter = weakref(self)
 
 ## This box holds the whole top interaction area. It is the container
 ## whose content is swapped out by the ending screen at the end of
@@ -177,7 +176,15 @@ func show_text(story) -> void:
 ##
 ## This is a coroutine that completes when the animation is done.
 func show_year_advancement(new_year:Year.Name) -> void:
-	await %YearIndicator.show_advancement(new_year)
+	%YearIndicator.show_advancement(new_year)
+	
+	await %ScenarioContainer.clear()
+	var label := preload("res://ui/year_change_label.tscn").instantiate()
+	label.year = new_year
+	await %ScenarioContainer.show_control(label)
+	await show_continue()
+	await %ScenarioContainer.clear()
+	label.queue_free()
 
 
 ## Remove all the children from the given container.
