@@ -1,10 +1,9 @@
 extends Control
 
-const _STARTING_STORY_PATH := "res://story/starting_stories/"
+signal _option_selected(option: String)
+
 const _CAST_PATH := "res://cast/"
 const _LOCATIONS_PATH := "res://locations/"
-
-signal _option_selected(option: String)
 
 @export_category("Animation")
 
@@ -37,10 +36,8 @@ func _ready():
 	world.cast.load_cast(_CAST_PATH)
 	_game_screen.world = world
 	
-	## Load all the stories in _STARTING_STORY_PATH
-	var file_paths := DirAccess.get_files_at(_STARTING_STORY_PATH)
-	for file_path in file_paths:
-		world.available_stories.append(_STARTING_STORY_PATH + file_path)
+	## Load all of the starting stories
+	world.add_stories(StoryLoader.STARTING_STORIES_PATH)
 	
 	# Start by telling the player this is the start of freshman year
 	await _game_screen.show_year_advancement(Year.Name.FRESHMAN)

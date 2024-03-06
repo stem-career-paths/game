@@ -32,8 +32,6 @@ var options := {
 func on_option_selected(option: String, world : World) -> void:
 	match option:
 		_DRAMA_CLUB:
-			var dir := DirAccess.open(_DRAMA_DIR)
-			world.add_stories(dir)
+			world.add_stories(_DRAMA_DIR)
 		_ROBOTICS_CLUB:
-			var dir := DirAccess.open(_ROBOTICS_DIR)
-			world.add_stories(dir)
+			world.add_stories(_ROBOTICS_DIR)

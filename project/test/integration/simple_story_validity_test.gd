@@ -2,7 +2,6 @@
 ## that can be found in the story directories.
 extends GutTest
 
-const STORY_PATH := "res://story/"
 const END_STORY_PATH := "res://end/"
 
 const CAST_PATH := "res://cast/"
@@ -12,14 +11,16 @@ const MAX_LINES_PER_STORY := 7
 const MAX_LINES_PER_OPTION := 3
 const MAX_EFFECTS := 2
 
+var story_loader: StoryLoader
 var story_paths: Array[String] = []
 
 func before_all():
-	story_paths = _get_story_paths_in_directory(STORY_PATH)
+	story_loader = StoryLoader.new()
+	story_paths = story_loader.get_story_paths_in_directory(StoryLoader.STORY_PATH)
 
 
 func test_stories_exist():
-	assert_true(story_paths.size() > 0, "No stories found in %s" % STORY_PATH)
+	assert_true(story_paths.size() > 0, "No stories found in %s" % StoryLoader.STORY_PATH)
 
 
 func test_story_has_npc():
@@ -41,7 +42,12 @@ func test_npc_is_in_cast():
 
 func _for_each_story(callable:Callable) -> void:
 	for story_path in story_paths:
-		var story := _load_simple_story(story_path)
+		var story := story_loader.load_simple_story(story_path)
+
+		# Skip the story if not a SimpleStory
+		if not story:
+			continue
+
 		await callable.call(story, story_path)
 
 
@@ -220,37 +226,3 @@ func test_location_validity():
 		else:
 			assert_true(true)
 	)
-
-
-func _get_story_paths_in_directory(path: String) -> Array[String]:
-	var paths: Array[String] = []
-
-	var dir := DirAccess.open(path)
-	assert_not_null(dir, "Could not open directory " + path)
-
-	dir.list_dir_begin()
-	var file_name := dir.get_next()
-
-	while file_name != "":
-		var file_path := path + file_name
-		if dir.current_is_dir():
-			paths.append_array(_get_story_paths_in_directory(file_path + "/"))
-		elif file_name.ends_with(".gd") and _is_path_simple_story(file_path):
-			paths.append(file_path)
-
-		file_name = dir.get_next()
-
-	return paths
-
-
-func _load_simple_story(file_path: String) -> SimpleStory:
-	var resource := load(file_path)
-	var story: Object = autofree(resource.new())
-
-	return story
-
-
-func _is_path_simple_story(file_path: String) -> bool:
-	return _load_simple_story(file_path) is SimpleStory
-
-

@@ -32,6 +32,4 @@ var options := {
 
 func on_option_selected(option:String, world: World) -> void:
 	if option == QUIT:
-		var dir := DirAccess.open("res://story/rpg")
-
-		world.remove_stories(dir)
+		world.remove_stories("res://story/rpg")

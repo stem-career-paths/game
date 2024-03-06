@@ -28,5 +28,4 @@ var options := {
 
 func on_option_selected(option: String, world : World) -> void:
 	if option == _SWITCH:
-		var dir := DirAccess.open(_DRAMA_DIR)
-		world.remove_stories(dir)
+		world.remove_stories(_DRAMA_DIR)

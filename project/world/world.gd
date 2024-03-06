@@ -32,15 +32,15 @@ var _turns_this_year := 0
 ## of available stories
 ##
 ## Returns an array of the stories (resource paths) that were added
-func add_stories(dir:DirAccess) -> Array[String]:
-	var results : Array[String] = []
-	for file_name in dir.get_files():
-		var file_path := dir.get_current_dir() + "/" + file_name
-		if FileAccess.file_exists(file_path):
-			results.append(file_path)
-			available_stories.append(file_path)
-		else:
-			push_error("Tried to append non-existing story path: %s" % file_path)
+func add_stories(path: String) -> Array[String]:
+	var story_loader := StoryLoader.new()
+
+	var results: Array[String] = []
+
+	for story_path in story_loader.get_story_paths_in_directory(path):
+		results.append(story_path)
+		available_stories.append(story_path)
+
 	return results
 
 
@@ -63,15 +63,15 @@ func end_turn() -> bool:
 ## of available stories
 ##
 ## Returns an array of the stories (resource paths) that were removed
-func remove_stories(dir:DirAccess) -> Array[String]:
-	var results : Array[String] = []
-	for file_name in dir.get_files():
-		var file_path := dir.get_current_dir() + "/" + file_name
-		if FileAccess.file_exists(file_path):
-			results.append(file_path)
-			available_stories.erase(file_path)
-		else:
-			push_error("Tried to remove non-existing story path: %s" % file_path)
+func remove_stories(path: String) -> Array[String]:
+	var story_loader := StoryLoader.new()
+
+	var results: Array[String] = []
+
+	for story_path in story_loader.get_story_paths_in_directory(path):
+		results.append(story_path)
+		available_stories.erase(story_path)
+
 	return results
 
 

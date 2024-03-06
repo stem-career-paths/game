@@ -28,7 +28,7 @@ func get_story_paths_in_directory(path: String) -> Array[String]:
 
 	while file_name != "":
 		var file_path := path.path_join(file_name)
-		print("Checking file: " + file_path)
+
 		if dir.current_is_dir():
 			paths.append_array(get_story_paths_in_directory(file_path))
 		elif _is_valid_story_path(file_path):
