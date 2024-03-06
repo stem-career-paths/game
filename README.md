@@ -22,6 +22,12 @@ Having set up that hook will ensure that all the automated tests are run prior t
 That executable is now on your default path, so you can now run `godot` from the command line and the automated tests will work.
 You can still create a shortcut to that executable on your Desktop for ease of mouse access, though there's real value to just opening the project you want from the command line.
 
+### Running the balance script
+
+```bash
+./bin/balance
+```
+
 ### Locally testing the HTML build
 
 [The Godot documentation](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html#serving-the-files) describes the approach that we can use
