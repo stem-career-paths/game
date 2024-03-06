@@ -27,6 +27,12 @@ func test_get_story_paths_in_directory_with_no_stories() -> void:
 	assert_eq(story_paths.size(), 0)
 
 
+func test_get_story_paths_in_directory_multi_level() -> void:
+	var path := TEST_STORY_DIR.path_join("multi_level")
+	var story_paths = story_loader.get_story_paths_in_directory(path)
+	assert_eq(story_paths.size(), 8)
+
+
 func test_get_story_paths_in_directory_with_invalid_directory() -> void:
 	var path := TEST_STORY_DIR.path_join("invalid_directory")
 	var story_paths = story_loader.get_story_paths_in_directory(path)
