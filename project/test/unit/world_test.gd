@@ -17,7 +17,7 @@ func test_add_stories() -> void:
 	var expected := initial_story_count + NUMBER_OF_TEST_STORIES
 	assert_eq(world.available_stories.size(), expected)
 	assert_eq(added_paths.size(), NUMBER_OF_TEST_STORIES)
-	assert_eq(added_paths[0], "%s/test_story_1.gd" % TEST_STORY_DIR)
+	assert_has(added_paths, TEST_STORY_DIR.path_join("test_story_1.gd"))
 
 
 func test_remove_stories() -> void:
@@ -26,4 +26,4 @@ func test_remove_stories() -> void:
 	var removed_paths := world.remove_stories(TEST_STORY_DIR)
 	assert_eq(world.available_stories.size(), initial_story_count)
 	assert_eq(removed_paths.size(), NUMBER_OF_TEST_STORIES)
-	assert_eq(removed_paths[0], "%s/test_story_1.gd" % TEST_STORY_DIR)
+	assert_has(removed_paths, TEST_STORY_DIR.path_join("test_story_1.gd"))
