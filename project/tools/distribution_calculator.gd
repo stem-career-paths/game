@@ -1,3 +1,4 @@
+class_name DistributionCalculator
 extends RefCounted
 
 var story_loader := StoryLoader.new()
@@ -19,7 +20,7 @@ func calculate_stories(path: String) -> Array[Distribution]:
 
 	var result: Array[Distribution] = []
 
-	# Needed to include type hint for the map function
+	# This is needed to allow the type hint for the array.
 	# https://github.com/godotengine/godot/issues/72566#issuecomment-1413229460
 	result.assign(story_paths.map(calculate_story))
 
@@ -52,8 +53,10 @@ class Distribution:
 		for attribute in Character.ATTRIBUTE_NAMES:
 			attributes[attribute] = 0
 
+
 	static func combine(distributions: Array[Distribution]) -> Distribution:
 		return Distribution.new().merge_all(distributions)
+
 
 	func merge(other: Distribution) -> Distribution:
 		for attribute in Character.ATTRIBUTE_NAMES:
@@ -61,11 +64,13 @@ class Distribution:
 
 		return self
 
+
 	func merge_all(distributions: Array[Distribution]) -> Distribution:
 		for distribution in distributions:
 			merge(distribution)
 
 		return self
+
 
 	func _to_string():
 		var result: Array[String] = []

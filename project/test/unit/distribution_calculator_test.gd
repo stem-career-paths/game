@@ -1,7 +1,6 @@
 extends GutTest
 
 const TEST_STORY_DIR := "res://test/unit/distribution_calculator_test_stories/"
-const DistributionCalculator := preload("res://tools/balance/distribution_calculator.gd")
 
 var distribution_calculator: DistributionCalculator
 
