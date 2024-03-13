@@ -113,14 +113,21 @@ func _generate_college_text() -> String:
 
 
 func _generate_gap_year_text() -> String:
-	return "You take a gap year after high school, working %s." % [
+	return "You take a gap year after high school, working %s to %s." % [[
 		"retail",
 		"as a barista",
 		"construction",
 		"at a big box store",
 		"at a warehouse",
 		"in a factory",
-	].pick_random()
+	].pick_random(), [
+		"save money",
+		"figure out what you want to do",
+		"help your family",
+		"get some work experience",
+		"buy a car",
+		"establish credit",
+	].pick_random()]
 
 
 func _pick_major(character: Character) -> String:
