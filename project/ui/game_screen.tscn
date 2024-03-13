@@ -179,11 +179,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="ScenarioCliipBoundsPlaceholder" type="HBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
+[node name="ScenarioClipBoundsPlaceholder" type="HBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="ScenarioPlaceholder" type="ColorRect" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/ScenarioCliipBoundsPlaceholder"]
+[node name="ScenarioPlaceholder" type="ColorRect" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/ScenarioClipBoundsPlaceholder"]
 editor_description = "This placeholder is the size and shape of the scenario view. It holds a place for those, which are on a separate canvas layer. This node makes itself invisible at runtime."
 custom_minimum_size = Vector2(603, 457)
 layout_mode = 2

@@ -178,6 +178,9 @@ func show_text(story) -> void:
 func show_year_advancement(new_year:Year.Name) -> void:
 	%YearIndicator.show_advancement(new_year)
 	
+	# Clear any remaining text
+	_story_label.text = ""
+	
 	# If there are children, clear them out.
 	# There may not be children on the first call, for the
 	# announcement of "Freshman Year."
