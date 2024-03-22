@@ -19,7 +19,22 @@ static func as_string(year:Name) -> String:
 		Name.SENIOR:
 			return "Senior"
 	push_error("Unmatched year: %s" % str(year))
-	return "Splunge"
+	return "Impossible condition"
+
+
+## Get the USA grade number of the academic year (e.g. "9th")
+static func as_ordinal(year:Name) -> String:
+	match year:
+		Name.FRESHMAN:
+			return "9th"
+		Name.SOPHOMORE:
+			return "10th"
+		Name.JUNIOR:
+			return "11th"
+		Name.SENIOR:
+			return "12th"
+	push_error("Unmatched year: %s" % str(year))
+	return "Impossible condition"
 
 
 ## Determine if the given year has a next year or if it is terminal.
