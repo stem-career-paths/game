@@ -97,8 +97,10 @@ func show_effects(_effects: Dictionary) -> AnimationHandle:
 	var handle := AnimationHandle.new(_animation_player)
 	# If someone stops the animation, make sure the character display is still updated.
 	handle.stopped.connect(func():
-		%CharacterDisplay.update_instantly()
+		#%CharacterDisplay.update_instantly()
+		%CharacterDisplay.update_smoothly()
 	)
+	
 	return handle
 
 
