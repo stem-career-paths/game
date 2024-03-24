@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://y3ajrfqn4afr"]
 
-[ext_resource type="Script" path="res://tools/stemerc_balance_report.gd" id="1_ff2je"]
+[ext_resource type="Script" path="res://tools/balance_report.gd" id="1_p3px4"]
 
-[node name="StemercBalanceReport" type="Control"]
+[node name="BalanceReport" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ff2je")
+script = ExtResource("1_p3px4")

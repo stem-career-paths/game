@@ -9,7 +9,7 @@ func before_each() -> void:
 	distribution_calculator = DistributionCalculator.new()
 
 
-func test_single_story() -> void:
+func test_single_story_attribute() -> void:
 	var file_path := TEST_STORY_DIR.path_join("test_story.gd")
 	var distribution := distribution_calculator.calculate_story(file_path)
 
@@ -46,7 +46,7 @@ func test_single_story_with_multiple_options_with_same_attribute() -> void:
 	assert_eq(distribution.attributes.science, 2)
 
 
-func test_multiple_stories() -> void:
+func test_multiple_stories_attributes() -> void:
 	var path := TEST_STORY_DIR
 	var distributions := distribution_calculator.calculate_stories(path)
 
@@ -54,3 +54,20 @@ func test_multiple_stories() -> void:
 
 	assert_eq(distribution.attributes.science, 7)
 	assert_eq(distribution.attributes.technology, 2)
+
+
+func test_single_story_npc() -> void:
+	var file_path := TEST_STORY_DIR.path_join("test_story.gd")
+	var distribution := distribution_calculator.calculate_story(file_path)
+
+	assert_eq(distribution.npcs["Steven"], 1)
+
+
+func test_multiple_stories_npcs() -> void:
+	var path := TEST_STORY_DIR
+	var distributions := distribution_calculator.calculate_stories(path)
+
+	var distribution := DistributionCalculator.Distribution.combine(distributions)
+
+	assert_eq(distribution.npcs["Steven"], 2)
+	assert_eq(distribution.npcs["Hilda"], 1)

@@ -1,5 +1,7 @@
 extends SimpleStory
 
+var npc_name := "Mary"
+
 var options := {
 	"option a": {
 		"effects":{

@@ -36,6 +36,11 @@ func calculate_story(file_path: String) -> Distribution:
 	if not story:
 		return distribution
 
+	if not story.npc_name in distribution.npcs:
+		distribution.npcs[story.npc_name] = 0
+
+	distribution.npcs[story.npc_name] += 1
+
 	for option in story.options.values():
 		if not "effects" in option:
 			continue
@@ -47,6 +52,7 @@ func calculate_story(file_path: String) -> Distribution:
 
 
 class Distribution:
+	var npcs := {}
 	var attributes := {}
 
 	func _init():
@@ -59,6 +65,12 @@ class Distribution:
 
 
 	func merge(other: Distribution) -> Distribution:
+		for npc in other.npcs.keys():
+			if not npc in npcs:
+				npcs[npc] = 0
+
+			npcs[npc] += other.npcs[npc]
+
 		for attribute in Character.ATTRIBUTE_NAMES:
 			attributes[attribute] += other.attributes[attribute]
 
@@ -75,7 +87,12 @@ class Distribution:
 	func _to_string():
 		var result: Array[String] = []
 
+		result.append("NPCs:")
+		for npc in npcs.keys():
+			result.append("    %s: %d" % [npc, npcs[npc]])
+
+		result.append("\nAttributes:")
 		for attribute in Character.ATTRIBUTE_NAMES:
-			result.append(attribute + ": " + str(attributes[attribute]))
+			result.append("    %s: %d" % [attribute, attributes[attribute]])
 
 		return "\n".join(result)
