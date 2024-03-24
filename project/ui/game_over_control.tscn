@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlmfnrpaq3eo1"]
+[gd_scene load_steps=7 format=3 uid="uid://dlmfnrpaq3eo1"]
 
 [ext_resource type="Script" path="res://ui/game_over_control.gd" id="1_alb5l"]
 [ext_resource type="Texture2D" uid="uid://0np2j7grfox2" path="res://ui/cap_and_diploma.png" id="2_ifhab"]
@@ -10,6 +10,14 @@ bg_color = Color(0.415686, 0.470588, 0.964706, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_82vqt"]
 font_size = 64
+
+[sub_resource type="Animation" id="Animation_5b544"]
+resource_name = "play"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crask"]
+_data = {
+"play": SubResource("Animation_5b544")
+}
 
 [node name="GameOverControl" type="VBoxContainer"]
 anchors_preset = 15
@@ -55,3 +63,11 @@ layout_mode = 2
 text = "[STORY]"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_crask")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -71,7 +71,11 @@ func finish_game() -> void:
 	# have a clear design for how it should go away.
 	_year_indicator.visible = false
 	_top_container.add_child(ending_control)
-	
+
+	# Wait for the animation to finish before showing the options.
+	ending_control.play()
+	await ending_control.animation_finished
+
 	# Right now, there's only one option, so when it's chosen, move on.
 	# This will have to be more robust later.
 	await show_options(["Play Again"])
