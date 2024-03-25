@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://0lv825v0nskc" path="res://ui/blue_style_box.tres" id="3_yrlow"]
 [ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="4_esrti"]
 [ext_resource type="PackedScene" uid="uid://dkyrbpxgqqngv" path="res://ui/settings_button.tscn" id="5_2onti"]
-[ext_resource type="PackedScene" uid="uid://dcuhgkvouhkiq" path="res://ui/cast_carousel.tscn" id="5_rvet4"]
+[ext_resource type="PackedScene" uid="uid://dcuhgkvouhkiq" path="res://ui/start_scene/cast_carousel.tscn" id="5_rvet4"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="5_sj70n"]
 [ext_resource type="FontFile" uid="uid://c57ulb1d8v5ug" path="res://common/Rounds Black.otf" id="7_v2dbv"]
 [ext_resource type="PackedScene" uid="uid://ebrhp55oc1to" path="res://ui/credits/credits_panel.tscn" id="9_7hjmj"]
@@ -79,7 +79,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(680, 720)
+size = Vector2i(640, 720)
 render_target_update_mode = 4
 
 [node name="ParallaxBackground" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("5_rvet4")]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcuhgkvouhkiq"]
+
+[ext_resource type="Script" path="res://ui/start_scene/cast_carousel.gd" id="1_k5iq2"]
+[ext_resource type="PackedScene" uid="uid://dmbe6mlt6wbgr" path="res://ui/start_scene/character_preview.tscn" id="2_efetd"]
+[ext_resource type="Texture2D" uid="uid://nnsvltgmeigg" path="res://cast/ethan.png" id="3_26k61"]
+[ext_resource type="Texture2D" uid="uid://bfeif5iosw0gv" path="res://cast/hilda.png" id="3_pxqv0"]
+[ext_resource type="Texture2D" uid="uid://cbcvn5aqnt5ps" path="res://locations/courtyard.png" id="3_sdk07"]
+[ext_resource type="Texture2D" uid="uid://8feisb4hegcw" path="res://cast/mary.png" id="4_qwxpl"]
+[ext_resource type="Texture2D" uid="uid://b7srskjmxkvei" path="res://cast/steven.png" id="5_gwtqp"]
+[ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://locations/hallway.png" id="7_7ejyh"]
+[ext_resource type="Texture2D" uid="uid://c860cnqmcornx" path="res://locations/classroom.png" id="8_cbre5"]
+[ext_resource type="Texture2D" uid="uid://bmkysfcdftaiw" path="res://locations/lunchroom.png" id="9_q1wsy"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = 0
+script = ExtResource("1_k5iq2")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ParallaxLayer"]
+unique_name_in_owner = true
+offset_right = 2760.0
+offset_bottom = 716.0
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="CharacterPreview" parent="ParallaxLayer/HBoxContainer" instance=ExtResource("2_efetd")]
+layout_mode = 2
+npc_image = ExtResource("3_26k61")
+location_image = ExtResource("3_sdk07")
+
+[node name="CharacterPreview2" parent="ParallaxLayer/HBoxContainer" instance=ExtResource("2_efetd")]
+layout_mode = 2
+npc_image = ExtResource("3_pxqv0")
+location_image = ExtResource("9_q1wsy")
+
+[node name="CharacterPreview3" parent="ParallaxLayer/HBoxContainer" instance=ExtResource("2_efetd")]
+layout_mode = 2
+npc_image = ExtResource("4_qwxpl")
+location_image = ExtResource("7_7ejyh")
+
+[node name="CharacterPreview4" parent="ParallaxLayer/HBoxContainer" instance=ExtResource("2_efetd")]
+layout_mode = 2
+npc_image = ExtResource("5_gwtqp")
+location_image = ExtResource("8_cbre5")

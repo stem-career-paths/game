@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bcnb6hvc84ucm"]
 
 [ext_resource type="Script" path="res://ui/scenario_view.gd" id="1_c4g8r"]
-[ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://locations/hallway.png" id="2_a10rs"]
+[ext_resource type="PackedScene" uid="uid://ctpger8oqxh5u" path="res://ui/location_view.tscn" id="2_3gcur"]
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="3_wwt1m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flln6"]
@@ -27,12 +27,9 @@ size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_flln6")
 script = ExtResource("1_c4g8r")
 
-[node name="Location" type="TextureRect" parent="."]
+[node name="Location" parent="." instance=ExtResource("2_3gcur")]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("2_a10rs")
-expand_mode = 1
-stretch_mode = 6
 
 [node name="Npc" type="TextureRect" parent="."]
 unique_name_in_owner = true

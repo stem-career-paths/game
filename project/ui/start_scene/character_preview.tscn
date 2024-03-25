@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmbe6mlt6wbgr"]
+
+[ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="1_dooqg"]
+[ext_resource type="Script" path="res://ui/start_scene/character_preview.gd" id="2_dexm5"]
+[ext_resource type="PackedScene" uid="uid://ctpger8oqxh5u" path="res://ui/location_view.tscn" id="2_gdob0"]
+[ext_resource type="PackedScene" uid="uid://bu5esoalimtnl" path="res://ui/rounded_white_frame.tscn" id="5_bl4kh"]
+
+[node name="CharacterPreview" type="PanelContainer"]
+offset_right = 670.0
+offset_bottom = 716.0
+theme_override_styles/panel = ExtResource("1_dooqg")
+script = ExtResource("2_dexm5")
+
+[node name="Location" parent="." instance=ExtResource("2_gdob0")]
+unique_name_in_owner = true
+clip_children = 2
+layout_mode = 2
+texture = null
+expand_mode = 0
+stretch_mode = 0
+
+[node name="Npc" type="TextureRect" parent="Location"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 720.0
+
+[node name="RoundedWhiteFrame" parent="." instance=ExtResource("5_bl4kh")]
+layout_mode = 2
