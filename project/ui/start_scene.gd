@@ -1,5 +1,7 @@
 extends Control
 
+const INFO_SITE_URL := "https://stem-careers-game.github.io/"
+
 @export var scroll_speed: float = 300.0
 
 @onready var _main_scene := preload("res://ui/main_scene.tscn")
@@ -49,3 +51,7 @@ func _on_credits_button_pressed() -> void:
 
 func _on_credits_panel_dismissed() -> void:
 	%CreditsOverlay.visible = false
+
+
+func _on_info_page_button_pressed() -> void:
+	OS.shell_open(INFO_SITE_URL)
