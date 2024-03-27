@@ -57,6 +57,14 @@ func finish() -> void:
 
 ## Finish the entire game
 func finish_game() -> void:
+	# Track the completion of a game on Google Analytics
+	if OS.get_name() == "Web":
+		JavaScriptBridge.eval("""
+		  gtag("event", "level_end", {
+				"level_name": "Regular Game"
+			});
+		""")
+	
 	var ending_control := preload("res://ui/game_over_control.tscn").instantiate()
 	var ending_factory := preload("res://end/ending_factory.gd").new()
 	var ending := ending_factory.make_ending_story(world)

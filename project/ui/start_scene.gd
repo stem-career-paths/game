@@ -31,6 +31,14 @@ func _on_turns_per_year_button_pressed(turns_per_year: int) -> void:
 
 
 func _on_start_button_pressed() -> void:
+	# Track game start to Google Analytics
+	if OS.get_name() == "Web":
+		JavaScriptBridge.eval("""
+		  gtag("event", "level_start", {
+				"level_name": "Regular Game"
+			});
+		""")
+	
 	var new_scene: Control = _main_scene.instantiate()
 	owner.change_scene(new_scene)
 
