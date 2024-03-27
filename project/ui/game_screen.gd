@@ -145,9 +145,9 @@ func _create_option_button(option: String) -> Node:
 ## Show the "continue" message to the player and wait for them to press it.
 ##
 ## This is a coroutine that waits until the button has been pressed.
-func show_continue() -> void:
+func show_continue(prompt := "Continue") -> void:
 	_clear(_option_area)
-	await show_options(["Continue"])
+	await show_options([prompt])
 	_clear(_option_area)
 
 
@@ -195,7 +195,7 @@ func show_year_advancement(new_year:Year.Name) -> void:
 	var label := preload("res://ui/year_change_label.tscn").instantiate()
 	label.year = new_year
 	await %ScenarioContainer.show_control(label)
-	await show_continue()
+	await show_continue("I'm ready!")
 	await %ScenarioContainer.clear()
 	label.queue_free()
 
