@@ -8,6 +8,10 @@ extends HBoxContainer
 	Year.Name.SENIOR: %Year4,
 }
 
+func switch_to_text(text:String) -> void:
+	%YearName.text = text
+	$YearProgressContainer.visible = false
+
 
 ## Set the year programatically and instantly
 func set_year(year:Year.Name) -> void:

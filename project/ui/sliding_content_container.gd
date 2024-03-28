@@ -1,4 +1,4 @@
-extends Control
+class_name SlidingContentContainer extends Control
 
 @export var duration := 0.5
 

@@ -5,13 +5,13 @@
 [ext_resource type="Script" path="res://ui/game_screen.gd" id="2_kqcir"]
 [ext_resource type="PackedScene" uid="uid://scwnvnkr08fy" path="res://ui/character_display.tscn" id="2_qajtq"]
 [ext_resource type="PackedScene" uid="uid://cn7vhi2yphyq2" path="res://ui/year_indicator.tscn" id="2_qr7fv"]
-[ext_resource type="PackedScene" uid="uid://c878div1yocyl" path="res://ui/scenario_container.tscn" id="3_ieeti"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="3_ueeqd"]
 [ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="4_b7pij"]
 [ext_resource type="PackedScene" uid="uid://cqsvt2ysd353x" path="res://ui/animated_label.tscn" id="5_mqyhs"]
 [ext_resource type="Script" path="res://ui/hide_on_run.gd" id="5_vhgyq"]
 [ext_resource type="PackedScene" uid="uid://dkyrbpxgqqngv" path="res://ui/settings_button.tscn" id="6_d02if"]
 [ext_resource type="Script" path="res://ui/option_area.gd" id="6_hfcqp"]
+[ext_resource type="PackedScene" uid="uid://bkci5dcg01at3" path="res://ui/sliding_content_container.tscn" id="7_2catb"]
 [ext_resource type="FontFile" uid="uid://1pig17qkchw" path="res://common/ShantellSans-Regular.ttf" id="10_51lxb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t41mg"]
@@ -173,17 +173,23 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="TopContainer" type="VBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer"]
+[node name="SlidingContentContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer" instance=ExtResource("7_2catb")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="ScenarioVBox" type="VBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/SlidingContentContainer"]
+layout_mode = 2
+offset_right = 655.0
+offset_bottom = 763.0
+size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="ScenarioClipBoundsPlaceholder" type="HBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
+[node name="ScenarioClipBoundsPlaceholder" type="HBoxContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/SlidingContentContainer/ScenarioVBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="ScenarioPlaceholder" type="ColorRect" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/ScenarioClipBoundsPlaceholder"]
+[node name="ScenarioPlaceholder" type="ColorRect" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/SlidingContentContainer/ScenarioVBox/ScenarioClipBoundsPlaceholder"]
 editor_description = "This placeholder is the size and shape of the scenario view. It holds a place for those, which are on a separate canvas layer. This node makes itself invisible at runtime."
 custom_minimum_size = Vector2(603, 457)
 layout_mode = 2
@@ -192,12 +198,12 @@ size_flags_vertical = 0
 color = Color(0.670588, 0.745098, 0.886275, 1)
 script = ExtResource("5_vhgyq")
 
-[node name="StoryContainer" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer"]
+[node name="StoryContainer" type="PanelContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/SlidingContentContainer/ScenarioVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_gmiha")
 
-[node name="StoryLabel" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/StoryContainer" instance=ExtResource("5_mqyhs")]
+[node name="StoryLabel" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/SlidingContentContainer/ScenarioVBox/StoryContainer" instance=ExtResource("5_mqyhs")]
 unique_name_in_owner = true
 layout_mode = 2
 fit_content = true
@@ -247,17 +253,21 @@ text = "consectetur adipiscing elit"
 layout_mode = 2
 text = "sed do eiusmod tempor"
 
-[node name="ScenarioContainer" parent="SingularChild" instance=ExtResource("3_ieeti")]
+[node name="ScenarioContainer" parent="SingularChild" instance=ExtResource("7_2catb")]
 unique_name_in_owner = true
 editor_description = "This is an \"overlay\" so that its children can be animated around."
+clip_contents = true
 custom_minimum_size = Vector2(603, 457)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 59.0
 offset_top = 79.0
 offset_right = 662.0
 offset_bottom = 536.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="AnimationOverlay" type="Control" parent="."]
 layout_mode = 2
@@ -285,4 +295,4 @@ libraries = {
 "": SubResource("AnimationLibrary_icxf3")
 }
 
-[connection signal="tapped_anywhere" from="." to="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/TopContainer/StoryContainer/StoryLabel" method="_on_game_screen_tapped_anywhere"]
+[connection signal="tapped_anywhere" from="." to="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer/SlidingContentContainer/ScenarioVBox/StoryContainer/StoryLabel" method="_on_game_screen_tapped_anywhere"]

@@ -6,16 +6,14 @@ extends Control
 signal _option_selected(option: String)
 signal tapped_anywhere
 
+const EPILOGUE_CONTROL := preload("res://ui/epilogue/epilogue_phase_control.tscn")
+
 var world : World:
 	set(value):
 		world = value
 		%CharacterDisplay.character = world.character
 		%YearIndicator.set_year(world.year)
 
-## This box holds the whole top interaction area. It is the container
-## whose content is swapped out by the ending screen at the end of
-## the game, which allows the bottom to stay in place.
-@onready var _top_container := %TopContainer
 @onready var _option_area := %OptionArea
 @onready var _story_label : AnimatedLabel = %StoryLabel
 @onready var _year_indicator := %YearIndicator
@@ -65,28 +63,41 @@ func finish_game() -> void:
 			});
 		""")
 	
-	var ending_control := preload("res://ui/game_over_control.tscn").instantiate()
-	var ending_factory := preload("res://end/ending_factory.gd").new()
-	var ending := ending_factory.make_ending_story(world)
-	ending_control.major = ending.major
-	ending_control.text = ending.text
-	
 	await _scenario_container.clear()
 	
-	_clear(_top_container)
-	# Simply hiding the year indicator is not a great UI. Animating
-	# between states might be better, but as of this writing, we don't
-	# have a clear design for how it should go away.
-	_year_indicator.visible = false
-	_top_container.add_child(ending_control)
+	
+	
+	_year_indicator.switch_to_text("After high school...")
+	
+	var generator := preload("res://end/epilogue_text_generator.gd").new()
+	var epilogue := Epilogue.create_for(world.character)
+	
+	if epilogue.gap_year:
+		var gap_year := EPILOGUE_CONTROL.instantiate()
+		var gap_year_text := generator.generate_gap_year_text(epilogue)
+		_show_epilogue_phase(gap_year)
+		await gap_year.play(self, gap_year_text)
+	
+	if epilogue.community_college:
+		var community_college := EPILOGUE_CONTROL.instantiate()
+		var community_college_text := generator.generate_community_college_text(epilogue)
+		_show_epilogue_phase(community_college)
+		await community_college.play(self, community_college_text)
+		
+	var university := EPILOGUE_CONTROL.instantiate()
+	var university_text := generator.generate_university_text(epilogue)
+	_show_epilogue_phase(university)
+	await university.play(self, university_text)
+	
+	var summary := preload("res://ui/epilogue/epilogue_summary.tscn").instantiate()
+	summary.epilogue = epilogue
+	_show_epilogue_phase(summary)
 
-	# Wait for the animation to finish before showing the options.
-	ending_control.play()
-	await ending_control.animation_finished
+	await show_options(["I'm Done!"])
 
-	# Right now, there's only one option, so when it's chosen, move on.
-	# This will have to be more robust later.
-	await show_options(["Play Again"])
+
+func _show_epilogue_phase(control:Control) -> void:
+	%SlidingContentContainer.show_control(control)
 
 
 ## Show the player the effects of their decision.
