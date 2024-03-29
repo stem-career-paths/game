@@ -40,6 +40,12 @@ const MAJORS_BY_ATTRIBUTE := {
 	],
 }
 
+const FLAVOR_BY_ATTRIBUTE := {
+	"engagement": "You make lots of friends!",
+	"resilience": "It was tough, and sometimes you wanted to give up, but you alway stuck it out to the end!",
+	"curiosity": "You took a wide variety of class and learned many cool things, like Greek mythology and sign language!",
+}
+
 enum InstitutionType {
 	PRIVATE_LIBERAL_ARTS,
 	PRIVATE_ENGINEERING,
@@ -64,6 +70,9 @@ var major_causes : Array[String] = []
 
 var minors : Array[String] = []
 
+## Flavor experience relative to ERC stats
+var experience := ""
+
 
 func _init(character_p:Character) -> void:
 	assert(character_p!=null, "Character must be specified")
@@ -86,11 +95,18 @@ static func create_for(character:Character) -> Epilogue:
 	# Determine major by highest attribute
 	var keys: Array[String] = []
 	keys.assign(MAJORS_BY_ATTRIBUTE.keys())
-	var highest_attribute_name: String = \
+	var highest_STEM_attribute_name: String = \
 		character.get_highest_attribute_names(keys).pick_random()
-	var major := MAJORS_BY_ATTRIBUTE[highest_attribute_name].pick_random() as String
+	var major := MAJORS_BY_ATTRIBUTE[highest_STEM_attribute_name].pick_random() as String
 	epilogue.majors.append(major)
-	epilogue.major_causes.append(highest_attribute_name)
+	epilogue.major_causes.append(highest_STEM_attribute_name)
+	
+	# Determine flavor text by highest attribute. Ties get both
+	var flavor_keys: Array[String] = []
+	flavor_keys.assign(FLAVOR_BY_ATTRIBUTE.keys())
+	var highest_ERC_attributes := character.get_highest_attribute_names(flavor_keys)
+	for name in highest_ERC_attributes:
+		epilogue.experience += FLAVOR_BY_ATTRIBUTE[name] + " "
 	
 	return epilogue
 

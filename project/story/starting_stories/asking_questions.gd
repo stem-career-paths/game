@@ -13,7 +13,7 @@ var options := {
 	"What do engineers do?": {
 		"text": [
 			'You and Mary go in together and ask the teacher "What do engineers do?"',
-			"The teacher tells you that they can do many things, but they all invent and design solutions to problems."
+			"The teacher tells you that they can do many things, but they all invent and design answers to problems."
 		],
 		"effects": {
 			"engineering": +1,
@@ -23,7 +23,7 @@ var options := {
 	"What kinds of engineers are there?": {
 		"text": [
 			'You and Mary go in together and ask the teacher "What kind of engineers are there?"',
-			"The teacher tells you there are all kinds, ones that work with chemicals, electricity, infrastructure, machines, and many more."
+			"The teacher tells you there are all kinds, ones that work with chemicals, electricity, buildings, machines, and many more."
 		],
 		"effects": {
 			"engineering": +1,

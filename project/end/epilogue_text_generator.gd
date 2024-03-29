@@ -44,7 +44,9 @@ func generate_university_text(epilogue:Epilogue) -> Array[EpilogueText]:
 		_h(Epilogue.as_string(epilogue.college_type)),
 		_p("and major in"),
 		_h(epilogue.majors[0].capitalize()),
-		_p("because of your interest in %s" % epilogue.major_causes[0].capitalize())
+		_p("because of your interest in %s." % epilogue.major_causes[0].capitalize()),
+		_p(""),
+		_p(epilogue.experience)
 	]
 	
 
