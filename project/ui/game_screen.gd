@@ -8,6 +8,11 @@ signal tapped_anywhere
 
 const EPILOGUE_CONTROL := preload("res://ui/epilogue/epilogue_phase_control.tscn")
 
+## Seconds until the summary button becomes active
+##
+## Putting in a delay here prevents a player from accidentally clicking past it
+const SUMMARY_DELAY := 3
+
 var world : World:
 	set(value):
 		world = value
@@ -100,7 +105,7 @@ func finish_game() -> void:
 	summary.epilogue = epilogue
 	await _show_epilogue_phase(summary)
 
-	await show_options(["I'm Done!"])
+	await show_confirmation("I'm Done!", SUMMARY_DELAY)
 
 
 func _show_epilogue_phase(control:Control) -> void:
@@ -158,6 +163,21 @@ func show_options(options: Array) -> String:
 
 	return selection
 
+
+func show_confirmation(message : String, delay := 0):
+	assert(delay >= 0)
+	var button := _create_option_button(message)
+	
+	while delay > 0:
+		button.disabled = true
+		button.text = str(delay)
+		await get_tree().create_timer(1).timeout
+		delay -= 1
+	
+	button.text = message
+	button.disabled = false
+	await button.pressed
+	
 
 func _create_option_button(option: String) -> Node:
 	var button := preload("res://ui/audible_button.tscn").instantiate()
