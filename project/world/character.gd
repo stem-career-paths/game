@@ -22,6 +22,8 @@ var engagement := Attribute.new()
 var resilience := Attribute.new()
 var curiosity := Attribute.new()
 
+var _tags : Array[Tags.Tag] = []
+
 
 ## Get the names of the highest attributes
 ##
@@ -34,3 +36,11 @@ func get_highest_attribute_names(filter : Array[String] = ATTRIBUTE_NAMES) -> Ar
 	var typed_returnable : Array[String] = []
 	typed_returnable.assign(result)
 	return typed_returnable
+
+
+func add_tag(tag : Tags.Tag) -> void:
+	_tags.append(tag)
+
+
+func has_tag(tag : Tags.Tag) -> bool:
+	return _tags.has(tag)

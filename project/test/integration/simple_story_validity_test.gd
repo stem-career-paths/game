@@ -2,8 +2,6 @@
 ## that can be found in the story directories.
 extends GutTest
 
-const END_STORY_PATH := "res://end/"
-
 const CAST_PATH := "res://cast/"
 
 const MAX_OPTIONS_PER_STORY := 4
@@ -169,18 +167,6 @@ func test_story_option_effect_validity():
 				for effect in story.options[option].effects.keys():
 					assert_true(effect in Character.ATTRIBUTE_NAMES, 
 						"Story %s option %s effect %s is a valid attribute" % [path, option, effect])
-	)
-
-
-func test_all_story_options_end_story_exists():
-	_for_each_story(func(story,path):
-		for option in story.options.keys():
-			if "end_story" in story.options[option]:
-				var end_story_path := "%send_%s.gd" % [END_STORY_PATH, story.options[option].end_story]
-				var end_story_resource := load(end_story_path)
-
-				assert_not_null(end_story_resource, 
-					"Story %s option %s end_story exists" % [path, option])
 	)
 
 

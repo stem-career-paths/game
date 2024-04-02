@@ -68,12 +68,6 @@ func run(presenter) -> void:
 		handle.stop_animation()
 
 
-	# If this interaction resulted in a new end story, track it in the world.
-	if "end_story" in result:
-		var new_ending_possibility :String = result.end_story
-		presenter.world.end_stories.append(new_ending_possibility)
-
-
 ## Determine if this story is able to be selected now,
 ## given the world state.
 func is_active(world: World) -> bool:

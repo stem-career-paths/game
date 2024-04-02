@@ -1,5 +1,7 @@
 extends GutTest
 
+const TEST_TAG := Tags.Tag.JOINED_ROBOTICS_TEAM
+
 var character : Character
 
 
@@ -50,3 +52,14 @@ func test_get_highest_attribute_names__using_filter_parameter() -> void:
 	var highest := character.get_highest_attribute_names(["science"])
 	
 	assert_eq(highest, ["science"])
+
+
+func test_has_tag__start_without_tags() -> void:
+	for tag in Tags.Tag.values():
+		assert_false(character.has_tag(tag))
+
+
+func test_add_tag_has_tag() -> void:
+	var tag := TEST_TAG
+	character.add_tag(tag)
+	assert_true(character.has_tag(tag))

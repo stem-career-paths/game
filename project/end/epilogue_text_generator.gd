@@ -48,6 +48,23 @@ func generate_university_text(epilogue:Epilogue) -> Array[EpilogueText]:
 		_p(""),
 		_p(epilogue.experience)
 	]
+
+
+## Generate the text for the postlude, which is between the university info
+## and the summary.
+##
+## This can return an empty array if there is no postlude for this epilogue.
+func generate_postlude_text(epilogue:Epilogue) -> Array[EpilogueText]:
+	if epilogue.character.has_tag(Tags.Tag.JOINED_ROBOTICS_TEAM):
+		return [
+			_p("""
+				Your time on the robotics club helped you learn to work on 
+				a team and deal with stress. You joined an undergraduate 
+				research team, working closely with a professor and students
+				from many different majors
+			"""),
+		]
+	return []
 	
 
 # "p" as in "paragraph" from HTML.

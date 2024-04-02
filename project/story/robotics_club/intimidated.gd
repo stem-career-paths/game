@@ -12,7 +12,6 @@ var options := {
 	},
 	"Let's WELD something!": {
 		"text": '"Wait wait wait- I get to [b]WELD[/b] in robotics? Pass me the fire stick!!"',
-		"end_story": "robotics",
 		"effects": {
 			"engineering": +1,
 			"engagement": +1,

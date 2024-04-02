@@ -75,29 +75,36 @@ func finish_game() -> void:
 	if epilogue.gap_year:
 		var gap_year := EPILOGUE_CONTROL.instantiate()
 		var gap_year_text := generator.generate_gap_year_text(epilogue)
-		_show_epilogue_phase(gap_year)
+		await _show_epilogue_phase(gap_year)
 		await gap_year.play(self, gap_year_text)
 	
 	if epilogue.community_college:
 		var community_college := EPILOGUE_CONTROL.instantiate()
 		var community_college_text := generator.generate_community_college_text(epilogue)
-		_show_epilogue_phase(community_college)
+		await _show_epilogue_phase(community_college)
 		await community_college.play(self, community_college_text)
 		
 	var university := EPILOGUE_CONTROL.instantiate()
 	var university_text := generator.generate_university_text(epilogue)
-	_show_epilogue_phase(university)
+	await _show_epilogue_phase(university)
 	await university.play(self, university_text)
+	
+	# Only show the postlude if the generator says it has text.
+	var postlude_text := generator.generate_postlude_text(epilogue)
+	if not postlude_text.is_empty():
+		var postlude := EPILOGUE_CONTROL.instantiate()
+		await _show_epilogue_phase(postlude)
+		await postlude.play(self, postlude_text)
 	
 	var summary := preload("res://ui/epilogue/epilogue_summary.tscn").instantiate()
 	summary.epilogue = epilogue
-	_show_epilogue_phase(summary)
+	await _show_epilogue_phase(summary)
 
 	await show_options(["I'm Done!"])
 
 
 func _show_epilogue_phase(control:Control) -> void:
-	%SlidingContentContainer.show_control(control)
+	await %SlidingContentContainer.show_control(control)
 
 
 ## Show the player the effects of their decision.

@@ -35,3 +35,4 @@ func on_option_selected(option: String, world : World) -> void:
 			world.add_stories(_DRAMA_DIR)
 		_ROBOTICS_CLUB:
 			world.add_stories(_ROBOTICS_DIR)
+			world.character.add_tag(Tags.Tag.JOINED_ROBOTICS_TEAM)
