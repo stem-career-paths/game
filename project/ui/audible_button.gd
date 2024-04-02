@@ -12,10 +12,12 @@ signal pressed
 @export var disabled := false:
 	set(value):
 		disabled = value
-		%Button.disabled = disabled
+		%Button.disabled = value
 		if disabled:
 			var text_color :Color = %Button.get_theme_color("font_disabled_color")
 			%Label.add_theme_color_override("font_color", text_color)
+		else:
+			%Label.add_theme_color_override("font_color", Palette.BLUE)
 
 
 func get_visible_line_count() -> int:
