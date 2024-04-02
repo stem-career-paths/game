@@ -64,6 +64,13 @@ func generate_postlude_text(epilogue:Epilogue) -> Array[EpilogueText]:
 				from many different majors
 			"""),
 		]
+	if epilogue.character.has_tag(Tags.Tag.MEAN_TO_STEVEN) and \
+		epilogue.character.has_tag(Tags.Tag.MEAN_TO_ETHAN) and \
+		epilogue.character.has_tag(Tags.Tag.MEAN_TO_HILDA) and \
+		epilogue.character.has_tag(Tags.Tag.MEAN_TO_MARY):
+		return [
+			_p("No one liked you because you were mean.")
+		]
 	return []
 	
 

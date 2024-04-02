@@ -1,5 +1,7 @@
 extends SimpleStory
 
+const MEAN_OPTION := "Whatever."
+
 var text := '"Can I tell you something? I feel like I have a hard time making friends."'
 
 var npc_name := "Steven"
@@ -20,8 +22,13 @@ var options := {
 	{
 		"text": '"Talking to people can be [b]so[/b] hard! But I guess I can\'t be friends if I can\'t say hello..."'
 	},
-	"Whatever.":
+	MEAN_OPTION:
 	{
-		"text": '"Ha, yeah. I guess. Whatever. ..."'
+		"text": '"Ha, yeah. I guess. Whatever. ..."',
 	}
 }
+
+func on_option_selected(option: String, world : World) -> void:
+	match option:
+		MEAN_OPTION:
+			world.character.add_tag(Tags.Tag.MEAN_TO_STEVEN)

@@ -13,7 +13,7 @@ var options := {
 	"Ask what's wrong": {
 		"text": [
 			'"Mr. Squeakers, my hamster, passed away last night. I\'m still a little sad over it."',
-			'She smiles. "Thank you for asking. I feel a little better. Now, who want\'s to learn about blood cells?"'
+			'She smiles. "Thank you for asking. I feel a little better. Now, who wants to learn about blood cells?"'
 		],
 		"effects": {
 			"engagement": +1

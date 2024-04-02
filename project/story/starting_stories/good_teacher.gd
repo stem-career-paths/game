@@ -1,5 +1,7 @@
 extends SimpleStory
 
+const MEAN_OPTION := "Okay? And?"
+
 var text := '"I love my science teacher. She\'s so smart! And fun!"'
 
 var npc_name := "Hilda"
@@ -21,7 +23,12 @@ var options := {
 			"engagement": +1
 		},
 	},
-	"Okay? And?": {
+	MEAN_OPTION: {
 		"text": '"She really cares about me and how I\'m doing. Maybe more than some of my friends..."',
 	},
 }
+
+func on_option_selected(option: String, world : World) -> void:
+	match option:
+		MEAN_OPTION:
+			world.character.add_tag(Tags.Tag.MEAN_TO_HILDA)
