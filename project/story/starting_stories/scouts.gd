@@ -1,7 +1,5 @@
 extends SimpleStory
 
-const MEAN_OPTION := "OK hippie"
-
 var text := '"Sometimes I feel so cooped up in here. I can\'t [i]wait[/i] to go camping this weekend with the scouts."'
 
 var location := "classroom"
@@ -24,13 +22,8 @@ var options := {
 	"Can I come with you?": {
 		"text": '"I think so? I\'ll ask the scout leader tomorrow."',
 	},
-	MEAN_OPTION: {
+	"OK hippie": {
 		"text": '"Don\'t knock it til you\'ve tried it. Camping [b]RULES[/b]."',
 	},
 }
 
-
-func on_option_selected(option: String, world : World) -> void:
-	match option:
-		MEAN_OPTION:
-			world.character.add_tag(Tags.Tag.MEAN_TO_HILDA)

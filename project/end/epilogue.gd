@@ -41,7 +41,7 @@ const MAJORS_BY_ATTRIBUTE := {
 }
 
 const FLAVOR_BY_ATTRIBUTE := {
-	"engagement": "You make lots of friends!",
+	"engagement": "During school, you listened to others and teachers well.",
 	"resilience": "It was tough, and sometimes you wanted to give up, but you alway stuck it out to the end!",
 	"curiosity": "You took a wide variety of class and learned many cool things, like Greek mythology and sign language!",
 }

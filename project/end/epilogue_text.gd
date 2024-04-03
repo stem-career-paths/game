@@ -19,5 +19,6 @@ static func create_paragraph(paragraph:String) -> EpilogueText:
 static func create_main_point(string:String) -> EpilogueText:
 	var result := EpilogueText.new()
 	result.text = string
+
 	result.type = Type.MAIN_POINT
 	return result

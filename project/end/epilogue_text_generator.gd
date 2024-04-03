@@ -69,7 +69,14 @@ func generate_postlude_text(epilogue:Epilogue) -> Array[EpilogueText]:
 		epilogue.character.has_tag(Tags.Tag.MEAN_TO_HILDA) and \
 		epilogue.character.has_tag(Tags.Tag.MEAN_TO_MARY):
 		return [
-			_p("No one liked you because you were mean.")
+			_p("""
+				Despite how well you did in high school, it was hard to 
+				make friends. People thought you were too mean. Every day
+				you ate lunch alone. Every time someone tried to be nice
+				you, you yelled at them and said harsh things. 
+			"""),
+			_p("Why would you do that?")
+			
 		]
 	return []
 	
