@@ -1,7 +1,5 @@
 extends SimpleStory
 
-const MEAN_OPTION := "Math is stupid."
-
 var text := '"I have enough math to graduate. I think I\'ll just skip taking it next semester."'
 
 var npc_name := "Ethan"
@@ -27,15 +25,11 @@ var options := {
 			"science": +1,
 		}
 	},
-	MEAN_OPTION: {
+	"Math is stupid.": {
 		"text": [
 			'"[b]Hey[/b]! Not taking it doesn\'t mean I don\'t like it!"',
 			'"I think I\'ll take my math class out of [i]spite[/i]."'
-			]
+			],
+		"tags": Tags.Tag.MEAN_TO_ETHAN
 	}
 }
-
-func on_option_selected(option: String, world : World) -> void:
-	match option:
-		MEAN_OPTION:
-			world.character.add_tag(Tags.Tag.MEAN_TO_ETHAN)

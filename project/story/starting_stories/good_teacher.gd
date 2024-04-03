@@ -23,12 +23,9 @@ var options := {
 			"engagement": +1
 		},
 	},
-	MEAN_OPTION: {
+	"Okay? And?": {
 		"text": '"She really cares about me and how I\'m doing. Maybe more than some of my friends..."',
+		"tags": Tags.Tag.MEAN_TO_HILDA
 	},
 }
 
-func on_option_selected(option: String, world : World) -> void:
-	match option:
-		MEAN_OPTION:
-			world.character.add_tag(Tags.Tag.MEAN_TO_HILDA)

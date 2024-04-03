@@ -22,13 +22,11 @@ var options := {
 	{
 		"text": '"Talking to people can be [b]so[/b] hard! But I guess I can\'t be friends if I can\'t say hello..."'
 	},
-	MEAN_OPTION:
+	"Whatever.":
 	{
 		"text": '"Ha, yeah. I guess. Whatever. ..."',
+		"tags": Tags.Tag.MEAN_TO_STEVEN
 	}
 }
 
-func on_option_selected(option: String, world : World) -> void:
-	match option:
-		MEAN_OPTION:
-			world.character.add_tag(Tags.Tag.MEAN_TO_STEVEN)
+

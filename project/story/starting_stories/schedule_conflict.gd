@@ -21,7 +21,8 @@ var options := {
 		"effects": {
 			"technology": +1,
 			"engagement": +1,
-		}
+		},
+		"tags": Tags.Tag.JOINED_ROBOTICS_TEAM
 	},
 	"Neither one sounds interesting": {
 		"text": '"Oh, yeah, I guess I was thinking the same thing."'
@@ -35,4 +36,4 @@ func on_option_selected(option: String, world : World) -> void:
 			world.add_stories(_DRAMA_DIR)
 		_ROBOTICS_CLUB:
 			world.add_stories(_ROBOTICS_DIR)
-			world.character.add_tag(Tags.Tag.JOINED_ROBOTICS_TEAM)
+			

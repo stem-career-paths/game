@@ -19,11 +19,9 @@ var options := {
 	"Do you want to be a professional athlete?": {
 		"text": '"Nah, I love sports and want to keep playing, though. I [i]think[/i] I\'d like to be a coach."'
 	},
-	MEAN_OPTION: {
-		"text": "What? No, I totally could! ....Right?"
+	"Not really": {
+		"text": "What? No, I totally could! ....Right?",
+		"tags": Tags.Tag.MEAN_TO_MARY
 	}
 }
-func on_option_selected(option: String, world : World) -> void:
-	match option:
-		MEAN_OPTION:
-			world.character.add_tag(Tags.Tag.MEAN_TO_MARY)
+

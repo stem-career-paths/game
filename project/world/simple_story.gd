@@ -41,6 +41,7 @@ func run(presenter) -> void:
 	var result = options_dict[selected]
 	var conclusion = result.text
 	var effects = result.effects if "effects" in result else null
+	var tag = result.tags if "tags" in result else null
 
 	# Show the conclusion of this vignette
 	await presenter.show_text(conclusion)
@@ -48,6 +49,11 @@ func run(presenter) -> void:
 	# Make the change to the model
 	if effects != null:
 		_apply_effects(effects, presenter.world)
+	
+	# Apply Tag 
+	if tag != null:
+		presenter.world.character.add_tag(tag)
+		
 
 	# If there are attribute changes, visualize them
 	var handle : AnimationHandle
@@ -80,4 +86,3 @@ func is_active(world: World) -> bool:
 func _apply_effects(effects:Dictionary, world:World) -> void:
 	for attribute_name in effects.keys():
 		world.character[attribute_name].value += effects[attribute_name]
-
