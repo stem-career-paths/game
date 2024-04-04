@@ -87,23 +87,29 @@ the GNU General Public License v3.0.
 [b]Open Source License Information[/b]
 
 Godot Engine
+©2014-Present Godot Engine contributors
+©2007-2014 Juan Linietsky, Ariel Manzur
 [url]https://godotengine.org/license/[/url]
-
-Sprite Shaders
-Copyright © 2023 Thomas ten Cate
-[url]https://github.com/ttencate/blur_godot4/tree/main[/url]
-
-Shantell Sans Font
-Copyright 2022 The Shantell Sans Project Authors 
-[url]https://github.com/arrowtype/shantell-sans[/url]
-
-Rounds Black Font
-Copyright (c) 2014, Ivan Gladkikh
-[url]www.jovanny.ru[/url]
+License: Expat
 
 Open Sans Font
-Copyright 2020 The Open Sans Project Authors 
+©2020 The Open Sans Project Authors 
 [url]https://github.com/googlefonts/opensans[/url]
+License: OFL-1.1
+
+Rounds Black Font
+©2014 Ivan Gladkikh
+License: OFL-1.1
+
+Gaussian Blur Shader
+©2023 Thomas ten Cate
+[url]https://github.com/ttencate/blur_godot4[/url]
+License: Expat
+
+Shantell Sans Font
+©2022 The Shantell Sans Project Authors 
+[url]https://github.com/arrowtype/shantell-sans[/url]
+License: OFL-1.1
 [/center]"
 fit_content = true
 
