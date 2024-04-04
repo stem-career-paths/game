@@ -1,6 +1,6 @@
 extends Control
 
-const INFO_SITE_URL := "https://stem-careers-game.github.io/"
+const INFO_SITE_URL := "https://stemcareerpaths.org"
 
 @export var scroll_speed: float = 300.0
 
