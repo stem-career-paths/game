@@ -46,12 +46,6 @@ jobs:
       - name: Run tests
         run: godot --headless -d -s --path project addons/gut/gut_cmdln.gd -gdir=res://test/ -ginclude_subdirs=true -gprefix="" -gsuffix="_test.gd" -gexit
 
-      - name: Add coi-service-worker
-        run: |
-          git clone https://github.com/gzuidhof/coi-serviceworker.git
-          mv coi-serviceworker/coi-serviceworker.js build/web/coi-serviceworker.js
-          sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
