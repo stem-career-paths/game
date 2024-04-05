@@ -10,7 +10,7 @@ var options := {
 	"You should eventually be a teacher": {
 		"text": '"I was thinking the same thing! I could focus on both science AND teaching in college."',
 		"effects": {
-			"science": +2
+			"science": +1
 		}
 	},
 	"You should be a teacher aid": {

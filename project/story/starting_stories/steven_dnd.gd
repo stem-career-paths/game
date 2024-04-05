@@ -17,7 +17,7 @@ var options := {
 		"text": '"Awesome! Sneaking around the dungeons is gonna be fun."',
 		"effects": {
 			"engagement": 1,
-			"curiosity": 1,
+			"technology": 1,
 		},
 	},
 	POSITIVE["DM"]: {

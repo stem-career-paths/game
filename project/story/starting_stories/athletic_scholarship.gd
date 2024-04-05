@@ -10,6 +10,7 @@ var options := {
 	"Give it 110%": {
 		"text": '"I [b]never[/b] understood that phrase. Isn\'t 100% enough?"',
 		"effects": {
+			"mathematics": +1,
 			"resilience": +1
 		}
 	},

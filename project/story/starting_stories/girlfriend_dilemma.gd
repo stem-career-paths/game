@@ -25,7 +25,7 @@ var options := {
 		}
 	},
 	"Try for a different school": {
-		"text": '"I could, but nothing local has any of the programs I want. This might just have to happen."'
+		"text": '"I [i]could[/i], but nothing local has any of the programs I want. Oh, what am I gonna do??."'
 	},
 	"You have a GIRLFRIEND??": {
 		"text": '"Hm? Yeah? She goes to the private school nearby. Haven\'t I told you about her?"',

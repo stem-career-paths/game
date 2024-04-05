@@ -16,7 +16,7 @@ var options := {
 			'"But it does mean I won\'t be an engineer like my parents are."',
 		],
 		"effects": {
-			"curiosity": +2
+			"curiosity": +1
 		}
 	},
 	"Study engineering!": {

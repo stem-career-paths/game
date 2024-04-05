@@ -14,6 +14,12 @@ var options := {
 	"I would have given up.": {
 		"text": '"But the cool thing is how the goalie didn\'t! I think it\'s worth it to see how it\'ll all end."',
 	},
+	"Remember those crazy goals?": {
+		"text": '"YES!! When they hit the ball and it went [i]P-TING[/i] and bounced off the goal post into the goal? [i]SO COOl![/i]"',
+		"effects":{
+			"mathematics": +1
+		} 
+	},
 	"I missed it. I had to walk my dog.": {
 		"text": '"Ha, whatever dude. You don\'t even [i]have[/i] a dog."',
 	}

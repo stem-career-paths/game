@@ -20,7 +20,10 @@ var options := {
 		}
 	},
 	"Be on your best behavior": {
-		"text": 'You and your classmates act on your best behavior. By the time the bell rings, Ms. Finch is a lot more chipper.'
+		"text": "You and your classmates act on your best behavior. By the time the bell rings, Ms. Finch is a lot more chipper.",
+		"effects": {
+			"resilience": +1
+		}
 	},
 	"Help her set up": {
 		"text": [

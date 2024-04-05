@@ -8,7 +8,9 @@ const STORY_PATH := "res://story/"
 const STARTING_STORIES_PATH := STORY_PATH + "starting_stories/"
 
 ## Paths to ignore when loading stories
-const DEFAULT_IGNORED_PATHS: Array[String] = []
+const DEFAULT_IGNORED_PATHS: Array[String] = [
+	#STORY_PATH + "robotics_club/", STORY_PATH + "drama_club/", STORY_PATH + "rpg/"
+]
 
 
 ## Get all story paths in the starting stories directory

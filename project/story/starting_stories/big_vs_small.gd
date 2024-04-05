@@ -9,9 +9,15 @@ var years := Year.not_year(Year.Name.FRESHMAN)
 var options := {
 	"Bigger is better": {
 		"text": '"Yeah, more people, more clubs, more opportunities. Thanks!"',
+		"effects": {
+			"mathematics": 1
+		}
 	},
 	"Smaller is best": {
 		"text": '"Yeah, smaller class sizes, and I can get to know my professors better."',
+		"effects": {
+			"mathematics": 1
+		}
 	},
 	"Um, what?": {
 		"text": [
