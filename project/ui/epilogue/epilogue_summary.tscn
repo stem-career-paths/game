@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cimsievr00ovi"]
+[gd_scene load_steps=3 format=3 uid="uid://cimsievr00ovi"]
 
 [ext_resource type="Script" path="res://ui/epilogue/epilogue_summary.gd" id="1_n85ry"]
+[ext_resource type="LabelSettings" uid="uid://bvm7q5p6moaui" path="res://ui/big_orange_label_style.tres" id="2_3hpwi"]
 
 [node name="EpilogueSummary" type="VBoxContainer"]
 anchors_preset = 15
@@ -14,4 +15,15 @@ script = ExtResource("1_n85ry")
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "SUMMARY"
+label_settings = ExtResource("2_3hpwi")
 horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+
+[node name="SummaryItemsBox" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
