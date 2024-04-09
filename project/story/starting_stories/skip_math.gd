@@ -30,6 +30,6 @@ var options := {
 			'"[b]Hey[/b]! Not taking it doesn\'t mean I don\'t like it!"',
 			'"I think I\'ll take my math class out of [i]spite[/i]."'
 			],
-		"tags": Tags.Tag.MEAN_TO_ETHAN
+		"tags": Tags.Tag.MEAN_TO_OTHERS
 	}
 }

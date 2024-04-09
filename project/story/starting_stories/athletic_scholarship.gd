@@ -22,7 +22,7 @@ var options := {
 	},
 	"Not really": {
 		"text": "What? No, I totally could! ....Right?",
-		"tags": Tags.Tag.MEAN_TO_MARY
+		"tags": Tags.Tag.MEAN_TO_OTHERS
 	}
 }
 

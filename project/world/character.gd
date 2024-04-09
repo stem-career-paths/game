@@ -44,3 +44,7 @@ func add_tag(tag : Tags.Tag) -> void:
 
 func has_tag(tag : Tags.Tag) -> bool:
 	return _tags.has(tag)
+
+
+func amount_of_tag(tag : Tags.Tag) -> int:
+	return _tags.count(tag)

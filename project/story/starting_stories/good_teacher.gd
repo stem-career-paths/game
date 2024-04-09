@@ -25,7 +25,7 @@ var options := {
 	},
 	"Okay? And?": {
 		"text": '"She really cares about me and how I\'m doing. Maybe more than some of my friends..."',
-		"tags": Tags.Tag.MEAN_TO_HILDA
+		"tags": Tags.Tag.MEAN_TO_OTHERS
 	},
 }
 

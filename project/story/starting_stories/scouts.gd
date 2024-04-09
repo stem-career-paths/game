@@ -21,6 +21,7 @@ var options := {
 	},
 	"Can I come with you?": {
 		"text": '"I think so? I\'ll ask the scout leader tomorrow."',
+		"tags": Tags.Tag.JOINED_SCOUTS
 	},
 	"OK hippie": {
 		"text": '"Don\'t knock it til you\'ve tried it. Camping [b]RULES[/b]."',

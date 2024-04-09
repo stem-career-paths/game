@@ -25,7 +25,7 @@ var options := {
 	"Whatever.":
 	{
 		"text": '"Ha, yeah. I guess. Whatever. ..."',
-		"tags": Tags.Tag.MEAN_TO_STEVEN
+		"tags": Tags.Tag.MEAN_TO_OTHERS
 	}
 }
 
