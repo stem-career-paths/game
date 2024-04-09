@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0np2j7grfox2"
-path="res://.godot/imported/cap_and_diploma.png-76b89fc37f262b507dada937cb290879.ctex"
+uid="uid://08oedmrrvlth"
+path="res://.godot/imported/clock.png-a591f221199be94dde6e8ddd83b2bead.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/cap_and_diploma.png"
-dest_files=["res://.godot/imported/cap_and_diploma.png-76b89fc37f262b507dada937cb290879.ctex"]
+source_file="res://ui/epilogue/clock.png"
+dest_files=["res://.godot/imported/clock.png-a591f221199be94dde6e8ddd83b2bead.ctex"]
 
 [params]
 
