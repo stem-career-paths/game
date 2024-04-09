@@ -70,3 +70,12 @@ This software is licensed under [the GNU General Public License v3.0](LICENSE).
 
 - [Gear image](https://commons.wikimedia.org/wiki/File:Gear-icon.png) is 
 licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+- [Clock](https://github.com/apancik/public-domain-icons/blob/master/dist/object%20clock%20time.svg)
+ is in the public domain
+
+- [Diploma](https://www.svgrepo.com/svg/701/diploma) is 
+licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+- [University](https://www.svgrepo.com/svg/109217/university) is 
+licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
