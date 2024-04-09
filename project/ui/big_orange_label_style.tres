@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bvm7q5p6moaui"]
+
+[ext_resource type="FontFile" uid="uid://c57ulb1d8v5ug" path="res://common/Rounds Black.otf" id="1_288da"]
+
+[resource]
+font = ExtResource("1_288da")
+font_size = 48
+font_color = Color(0.815686, 0.372549, 0.0627451, 1)
+outline_size = 8
