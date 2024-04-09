@@ -7,18 +7,18 @@ func _ready() -> void:
 	
 	if epilogue.gap_year:
 		var label := _make_summary_label()
-		label.text = "Took a gap year"
+		label.text = "Gap year"
 		label.type = SummaryItem.Type.TIME
 		_add_summary_item(label)
 	
 	if epilogue.community_college:
 		var label := _make_summary_label()
-		label.text = "Attended Community College"
+		label.text = "Community College"
 		label.type = SummaryItem.Type.INSTITUTION
 		_add_summary_item(label)
 
 	var college_label := _make_summary_label()
-	college_label.text = "Attended %s" % Epilogue.as_string(epilogue.college_type)
+	college_label.text = "%s" % Epilogue.as_string(epilogue.college_type)
 	college_label.type = SummaryItem.Type.INSTITUTION
 	_add_summary_item(college_label)
 
