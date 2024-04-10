@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/epilogue/epilogue_summary.gd" id="1_n85ry"]
 [ext_resource type="LabelSettings" uid="uid://bvm7q5p6moaui" path="res://ui/big_orange_label_style.tres" id="2_3hpwi"]
-[ext_resource type="Texture2D" uid="uid://0np2j7grfox2" path="res://ui/cap_and_diploma.png" id="3_ed6av"]
+[ext_resource type="Texture2D" uid="uid://0np2j7grfox2" path="res://ui/epilogue/cap_and_diploma.png" id="3_ed6av"]
 
 [node name="EpilogueSummary" type="VBoxContainer"]
 anchors_preset = 15

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dlmfnrpaq3eo1"]
 
 [ext_resource type="Script" path="res://ui/game_over_control.gd" id="1_alb5l"]
-[ext_resource type="Texture2D" uid="uid://0np2j7grfox2" path="res://ui/cap_and_diploma.png" id="2_ifhab"]
+[ext_resource type="Texture2D" uid="uid://0np2j7grfox2" path="res://ui/epilogue/cap_and_diploma.png" id="2_ifhab"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_me4yr"]
 content_margin_top = 32.0
