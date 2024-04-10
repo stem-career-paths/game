@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://octcg0x0c3jf"]
 
 [ext_resource type="Script" path="res://ui/epilogue/summary_item.gd" id="1_5vq2i"]
-[ext_resource type="Texture2D" uid="uid://c7mi6k1fwbcql" path="res://ui/epilogue/clock.svg" id="1_rrvnr"]
+[ext_resource type="Texture2D" uid="uid://08oedmrrvlth" path="res://ui/epilogue/clock.png" id="2_f4ngy"]
 
 [node name="SummaryItem" type="HBoxContainer"]
 anchors_preset = 15
@@ -18,7 +18,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_rrvnr")
+texture = ExtResource("2_f4ngy")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]

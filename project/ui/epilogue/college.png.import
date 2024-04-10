@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7mi6k1fwbcql"
-path="res://.godot/imported/clock.svg-f0826ed421d81949bb98c56269a22bb3.ctex"
+uid="uid://cama8fpyelhes"
+path="res://.godot/imported/college.png-3d261a10677853f43b650096be518ead.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/epilogue/clock.svg"
-dest_files=["res://.godot/imported/clock.svg-f0826ed421d81949bb98c56269a22bb3.ctex"]
+source_file="res://ui/epilogue/college.png"
+dest_files=["res://.godot/imported/college.png-3d261a10677853f43b650096be518ead.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

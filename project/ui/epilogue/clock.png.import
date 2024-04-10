@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsvkrxe4jvc76"
-path="res://.godot/imported/diploma.svg-f065c4ac018167a55dec44b0b19ee6eb.ctex"
+uid="uid://08oedmrrvlth"
+path="res://.godot/imported/clock.png-a591f221199be94dde6e8ddd83b2bead.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/epilogue/diploma.svg"
-dest_files=["res://.godot/imported/diploma.svg-f065c4ac018167a55dec44b0b19ee6eb.ctex"]
+source_file="res://ui/epilogue/clock.png"
+dest_files=["res://.godot/imported/clock.png-a591f221199be94dde6e8ddd83b2bead.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

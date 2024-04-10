@@ -8,9 +8,9 @@ enum Type {
 }
 
 const _ICONS := {
-	Type.TIME: preload("res://ui/epilogue/clock.svg"),
-	Type.INSTITUTION: preload("res://ui/epilogue/university.svg"),
-	Type.DEGREE: preload("res://ui/epilogue/diploma.svg"),
+	Type.TIME: preload("res://ui/epilogue/clock.png"),
+	Type.INSTITUTION: preload("res://ui/epilogue/college.png"),
+	Type.DEGREE: preload("res://ui/epilogue/diploma.png"),
 }
 
 @export var text := "Text goes here":
