@@ -175,6 +175,7 @@ theme_override_constants/separation = 0
 
 [node name="SlidingContentContainer" parent="SingularChild/MarginContainer/WhiteBackground/MainUI/InnerBluePanel/MarginContainer/VBoxContainer" instance=ExtResource("7_2catb")]
 unique_name_in_owner = true
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 
