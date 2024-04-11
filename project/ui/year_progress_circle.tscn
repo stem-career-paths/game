@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c114f4p83ky61"]
+[gd_scene load_steps=2 format=3 uid="uid://c114f4p83ky61"]
 
 [ext_resource type="Script" path="res://ui/year_progress_circle.gd" id="1_unv2d"]
-[ext_resource type="Texture2D" uid="uid://6iw0do64trb4" path="res://icon.svg" id="2_cmssc"]
 
 [node name="YearProgressCircle" type="Control"]
 layout_direction = 2
@@ -15,11 +14,3 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_unv2d")
 inner_border = 4
-
-[node name="PlaceholderIcon" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-texture = ExtResource("2_cmssc")
-expand_mode = 1
