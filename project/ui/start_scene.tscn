@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2m2pbepn6rip"]
+[gd_scene load_steps=14 format=3 uid="uid://d2m2pbepn6rip"]
 
 [ext_resource type="Theme" uid="uid://bqnq26iud8rn3" path="res://common/theme.tres" id="1_gluso"]
 [ext_resource type="Script" path="res://ui/start_scene.gd" id="2_27iv5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkyrbpxgqqngv" path="res://ui/settings_button.tscn" id="5_2onti"]
 [ext_resource type="PackedScene" uid="uid://dcuhgkvouhkiq" path="res://ui/start_scene/cast_carousel.tscn" id="5_rvet4"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="5_sj70n"]
+[ext_resource type="PackedScene" uid="uid://dw7300ycojrp7" path="res://ui/start_scene/letter_tile.tscn" id="7_1ls4o"]
 [ext_resource type="FontFile" uid="uid://c57ulb1d8v5ug" path="res://common/Rounds Black.otf" id="7_v2dbv"]
 [ext_resource type="PackedScene" uid="uid://ebrhp55oc1to" path="res://ui/credits/credits_panel.tscn" id="9_7hjmj"]
 
@@ -15,9 +16,19 @@ bg_color = Color(0.133333, 0.305882, 0.65098, 1)
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="LabelSettings" id="LabelSettings_nx01s"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8qj6"]
+bg_color = Color(0.974321, 0.890568, 0.780752, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.974321, 0.890568, 0.780752, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fq5mx"]
 font = ExtResource("7_v2dbv")
-font_size = 56
+font_size = 48
+outline_size = 12
+outline_color = Color(0.815686, 0.372549, 0.0627451, 1)
 
 [node name="StartScene" type="Control"]
 layout_mode = 3
@@ -84,43 +95,74 @@ render_target_update_mode = 4
 
 [node name="ParallaxBackground" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("5_rvet4")]
 
-[node name="GameTitle" type="Label" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
 layout_mode = 2
-text = "STEM CAREER
-PATHWAYS 
-GAME"
-label_settings = SubResource("LabelSettings_nx01s")
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="LogoContainer" type="VBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/MarginContainer/LogoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_g8qj6")
+
+[node name="GridContainer" type="HBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/MarginContainer/LogoContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="S" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/MarginContainer/LogoContainer/PanelContainer/GridContainer" instance=ExtResource("7_1ls4o")]
+layout_mode = 2
+letter = "S"
+
+[node name="T" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/MarginContainer/LogoContainer/PanelContainer/GridContainer" instance=ExtResource("7_1ls4o")]
+layout_mode = 2
+letter = "T"
+
+[node name="E" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/MarginContainer/LogoContainer/PanelContainer/GridContainer" instance=ExtResource("7_1ls4o")]
+layout_mode = 2
+letter = "E"
+
+[node name="M" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/MarginContainer/LogoContainer/PanelContainer/GridContainer" instance=ExtResource("7_1ls4o")]
+layout_mode = 2
+letter = "M"
+
+[node name="Label" type="Label" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/MarginContainer/LogoContainer"]
+layout_mode = 2
+text = "Career Paths"
+label_settings = SubResource("LabelSettings_fq5mx")
 horizontal_alignment = 1
 
-[node name="StartButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer" instance=ExtResource("5_sj70n")]
+[node name="ButtonBox" type="VBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/ButtonBox" instance=ExtResource("5_sj70n")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "START"
 
-[node name="CreditsButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer" instance=ExtResource("5_sj70n")]
+[node name="CreditsButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/ButtonBox" instance=ExtResource("5_sj70n")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Credits"
 
-[node name="InfoPageButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer" instance=ExtResource("5_sj70n")]
+[node name="InfoPageButton" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/ButtonBox" instance=ExtResource("5_sj70n")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Info Page"
 
-[node name="DebugOptions" type="HBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
+[node name="DebugOptions" type="HBoxContainer" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/ButtonBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 15
 
-[node name="Control" type="Control" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer"]
+[node name="PrereleaseWarningLabel" type="Label" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/ButtonBox"]
 layout_mode = 2
 text = "Pre-Release Build"
 horizontal_alignment = 1
@@ -152,7 +194,7 @@ anchor_top = 0.15
 anchor_right = 0.95
 anchor_bottom = 0.85
 
-[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/InfoPageButton" to="." method="_on_info_page_button_pressed"]
+[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/ButtonBox/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/ButtonBox/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/ButtonBox/InfoPageButton" to="." method="_on_info_page_button_pressed"]
 [connection signal="dismissed" from="CreditsOverlay/CreditsPanel" to="." method="_on_credits_panel_dismissed"]

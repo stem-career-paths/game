@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw7300ycojrp7"]
+
+[ext_resource type="Script" path="res://ui/start_scene/letter_tile.gd" id="1_3sejf"]
+[ext_resource type="FontFile" uid="uid://c57ulb1d8v5ug" path="res://common/Rounds Black.otf" id="1_5op2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk2sg"]
+bg_color = Color(0.886275, 0.662745, 0.403922, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_18ee4"]
+font = ExtResource("1_5op2f")
+font_size = 68
+font_color = Color(0.133333, 0.305882, 0.65098, 1)
+
+[node name="LetterTile" type="PanelContainer"]
+custom_minimum_size = Vector2(72, 72)
+offset_right = 72.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tk2sg")
+script = ExtResource("1_3sejf")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "X"
+label_settings = SubResource("LabelSettings_18ee4")
+horizontal_alignment = 1
+vertical_alignment = 1
