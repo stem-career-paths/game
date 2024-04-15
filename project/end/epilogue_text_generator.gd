@@ -71,7 +71,7 @@ func generate_postlude_text(epilogue:Epilogue) -> Array[EpilogueText]:
 		]
 	if epilogue.character.has_tag(Tags.Tag.JOINED_SCOUTS):
 		return [
-			_p("Between high school and college, you got involved with your local scouts. Since you're too old to remain involved in college, you spend your free time doing many scoutly things, like fishing, hiking, and memorizing obscure nature trivia.")
+			_p("After graduation you continue to stay involved with your local scout group by volunteering when possible. You often decide spend your free time doing scouty things, like fishing, hiking, and memorizing obscure nature trivia.")
 		]
 	return []
 	

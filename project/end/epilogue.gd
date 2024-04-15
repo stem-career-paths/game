@@ -41,10 +41,20 @@ const MAJORS_BY_ATTRIBUTE := {
 }
 
 const FLAVOR_BY_ATTRIBUTE := {
-	"engagement": "During school, you listened to others and teachers well.",
-	"resilience": "It was tough, and sometimes you wanted to give up, but you alway stuck it out to the end!",
-	"curiosity": "You took a wide variety of class and learned many cool things, like Greek mythology and sign language!",
+	"engagement": [
+		"You listened to others and teachers well.",
+		"You made sure to know all your classmates names."
+	],
+	"resilience": [
+		"Sometimes you wanted to give up, but you alway stuck it out to the end!",
+		"No matter how hard it got, you kept working!"
+	],
+	"curiosity": [
+		"You took a wide variety of class, like Greek mythology and sign language!",
+		"You wrote some research papers to answer your burning questions."
+	]
 }
+
 
 enum InstitutionType {
 	PRIVATE_LIBERAL_ARTS,
@@ -106,7 +116,7 @@ static func create_for(character:Character) -> Epilogue:
 	flavor_keys.assign(FLAVOR_BY_ATTRIBUTE.keys())
 	var highest_ERC_attributes := character.get_highest_attribute_names(flavor_keys)
 	for name in highest_ERC_attributes:
-		epilogue.experience += FLAVOR_BY_ATTRIBUTE[name] + " "
+		epilogue.experience += FLAVOR_BY_ATTRIBUTE[name].pick_random() + " "
 	
 	return epilogue
 
