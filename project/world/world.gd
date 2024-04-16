@@ -1,7 +1,7 @@
 ## The state of the game world
 class_name World extends RefCounted
 
-const DEFAULT_TURNS_PER_YEAR := 3
+const DEFAULT_TURNS_PER_YEAR := 2
 
 ## The current character whose story is being played
 var character := Character.new()
