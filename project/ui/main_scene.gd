@@ -4,6 +4,7 @@ signal _option_selected(option: String)
 
 const _CAST_PATH := "res://cast/"
 const _LOCATIONS_PATH := "res://locations/"
+const _MAX_REDRAW_TO_PREVENT_BACK_TO_BACK := 10
 
 @export_category("Animation")
 
@@ -23,6 +24,8 @@ var world : World
 
 ## The number of stories completed so far
 var _stories_complete := 0
+
+var _previous_npc_name := ""
 
 @onready var _game_screen := $GameScreen
 
@@ -63,21 +66,36 @@ func _ready():
 # Draw a random story and run it.
 func _run_next_story() -> void:
 	var story_path : String
+	var story 
 	
 	# Determine the next story based on whether we are forcing one or not.
 	if starting_story == null:
 		story_path = _draw_random_story()
+		story = load(story_path).new()
+		
+		# Prevent back-to-back interactions with the same character,
+		# unless we exceed the redraw limit. This way, if we end
+		# up in a situation where the next one has to be a repeat
+		# interaction, we can still move forward.
+		var count := 0
+		while story.npc_name == _previous_npc_name \
+			and count < _MAX_REDRAW_TO_PREVENT_BACK_TO_BACK:
+			story_path = _draw_random_story()
+			story = load(story_path).new()
+			count += 1
+		
+		_previous_npc_name = story.npc_name
 	
 	# If we are testing a particular story, go get that one, and remove
 	# it from the collection if it had been there to prevent repeats.
 	else:
 		print("Forcing starting story: ", starting_story)
 		story_path = starting_story
+		story = load(story_path).new()
+		
 		world.available_stories.erase(starting_story)
 		starting_story = null
 	
-	## Load the story and start it
-	var story = load(story_path).new()
 	await story.run(_game_screen)
 	var year_changed := world.end_turn()
 	if year_changed:
