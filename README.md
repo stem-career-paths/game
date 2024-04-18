@@ -55,8 +55,9 @@ display/window/size/window_height_override=640
 
 &copy;2024 Paul Gestwicki
 
-This software is licensed under [the GNU General Public License v3.0](LICENSE).
+This software is licensed under [GNU General Public License v3.0](LICENSE).
 
+Assets are licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## Third-Party Assets
 
