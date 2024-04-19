@@ -43,15 +43,24 @@ const MAJORS_BY_ATTRIBUTE := {
 const FLAVOR_BY_ATTRIBUTE := {
 	"engagement": [
 		"You listened to others and teachers well.",
-		"You made sure to know all your classmates names."
+		"You made sure to know all your classmates names.",
+		"You took loads of detailed notes.",
+		"Lots of people invited you to hang out!",
+		"You joined a club and had lots of fun!"
 	],
 	"resilience": [
 		"Sometimes you wanted to give up, but you alway stuck it out to the end!",
-		"No matter how hard it got, you kept working!"
+		"No matter how hard it got, you kept working!",
+		"You helped lead a study session for a hard class.",
+		"Other people often came to you for help.",
+		"You learned the in-and-outs of saving money."
 	],
 	"curiosity": [
 		"You took a wide variety of class, like Greek mythology and sign language!",
-		"You wrote some research papers to answer your burning questions."
+		"You wrote some research papers to answer your burning questions.",
+		"You ended up sending 257 emails.",
+		"You visited every building on campus and rated their elevators.",
+		"You learned the name of all the beautiful plants and animals on campus!"
 	]
 }
 
