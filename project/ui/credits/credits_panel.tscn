@@ -6,12 +6,12 @@
 [ext_resource type="FontFile" uid="uid://dwaxej03kcxd5" path="res://ui/credits/OpenSans.ttf" id="3_llkcx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wiptq"]
-bg_color = Color(0.454524, 0.454524, 0.454524, 1)
+bg_color = Color(0.133333, 0.305882, 0.65098, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.18359, 0.18359, 0.18359, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
