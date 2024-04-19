@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Import assets
-        run: godot --headless -d --path project --import
+        run: godot --headless --path project --import
 
       - name: Run tests
         run: godot --headless -d -s --path project addons/gut/gut_cmdln.gd -gdir=res://test/ -ginclude_subdirs=true -gprefix="" -gsuffix="_test.gd" -gexit
