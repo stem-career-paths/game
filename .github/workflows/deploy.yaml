@@ -5,7 +5,7 @@
 name: "Publish to GitHub Pages"
 
 env:
-  GODOT_VERSION: 4.2.1 # Remember to manually set image to this version below.
+  GODOT_VERSION: 4.2.2 # Remember to manually set image to this version below.
 
 on:
   workflow_dispatch:
@@ -20,11 +20,17 @@ jobs:
       contents: write
 
     container:
-      image: barichello/godot-ci:4.2.1
+      image: barichello/godot-ci:4.2.2
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Import assets
+        run: godot --headless -d --path project --import
+
+      - name: Run tests
+        run: godot --headless -d -s --path project addons/gut/gut_cmdln.gd -gdir=res://test/ -ginclude_subdirs=true -gprefix="" -gsuffix="_test.gd" -gexit
 
       - name: Move HTML5 templates into position
         run: |
@@ -36,15 +42,6 @@ jobs:
 
       - name: Build
         run: godot -v --export-release --headless "Web" ../build/web/index.html project/project.godot
-
-
-      # The tests are run after the build because the build creates the
-      # .godot folder, which is required for the tests to work, but the
-      # tests will not create it themselves.
-      # It's a little backward, but it works, because we don't actually
-      # push the artifacts until the end.
-      - name: Run tests
-        run: godot --headless -d -s --path project addons/gut/gut_cmdln.gd -gdir=res://test/ -ginclude_subdirs=true -gprefix="" -gsuffix="_test.gd" -gexit
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.9.3
