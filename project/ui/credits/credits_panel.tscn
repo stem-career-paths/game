@@ -1,9 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://ebrhp55oc1to"]
+[gd_scene load_steps=8 format=3 uid="uid://ebrhp55oc1to"]
 
 [ext_resource type="Script" path="res://ui/credits/credits_panel.gd" id="1_6qchm"]
-[ext_resource type="StyleBox" uid="uid://cmums7em450n" path="res://ui/overlay_panel_style.tres" id="1_eppal"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="1_ftdhd"]
+[ext_resource type="PackedScene" uid="uid://ccc5cu6saadq3" path="res://ui/credits/open_source_license_control.tscn" id="3_4r0ho"]
 [ext_resource type="FontFile" uid="uid://dwaxej03kcxd5" path="res://ui/credits/OpenSans.ttf" id="3_llkcx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wiptq"]
+bg_color = Color(0.454524, 0.454524, 0.454524, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.18359, 0.18359, 0.18359, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_2hkwo"]
 default_font = ExtResource("3_llkcx")
@@ -21,20 +33,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_2hkwo")
-theme_override_styles/panel = ExtResource("1_eppal")
+theme_override_styles/panel = SubResource("StyleBoxFlat_wiptq")
 script = ExtResource("1_6qchm")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
+theme = SubResource("Theme_2hkwo")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+
+[node name="Game Credits" type="MarginContainer" parent="VBox/TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBox/TabContainer/Game Credits"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBox/TabContainer/Game Credits/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -118,15 +137,20 @@ License: OFL-1.1
 [/center]"
 fit_content = true
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="Engine Legal Info" parent="VBox/TabContainer" instance=ExtResource("3_4r0ho")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox"]
 layout_mode = 2
 theme_override_constants/margin_bottom = 12
 
-[node name="Button" parent="VBoxContainer/MarginContainer" instance=ExtResource("1_ftdhd")]
+[node name="Button" parent="VBox/MarginContainer" instance=ExtResource("1_ftdhd")]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "OK"
 
-[connection signal="meta_clicked" from="VBoxContainer/ScrollContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="meta_clicked" from="VBox/TabContainer/Game Credits/ScrollContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="VBox/MarginContainer/Button" to="." method="_on_button_pressed"]
