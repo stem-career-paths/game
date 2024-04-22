@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="NpcDefinition" load_steps=3 format=3 uid="uid://thu2w6hanjr2"]
+[gd_resource type="Resource" script_class="NpcDefinition" load_steps=4 format=3 uid="uid://thu2w6hanjr2"]
 
 [ext_resource type="Script" path="res://cast/npc_definition.gd" id="1_arx16"]
 [ext_resource type="Texture2D" uid="uid://b7srskjmxkvei" path="res://cast/steven.png" id="1_guuyw"]
+[ext_resource type="Texture2D" uid="uid://b6hthh8nx8job" path="res://cast/steven_young.png" id="2_iuwos"]
 
 [resource]
 script = ExtResource("1_arx16")
 name = "Steven"
-image = ExtResource("1_guuyw")
+student = true
+images = Array[Texture]([ExtResource("2_iuwos"), ExtResource("1_guuyw")])

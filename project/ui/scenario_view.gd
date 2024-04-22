@@ -1,10 +1,12 @@
 extends PanelContainer
 
+var world : World
+
 var npc : Npc:
 	set(value):
 		npc = value
 		if npc!=null:
-			%Npc.texture = npc.image
+			%Npc.texture = npc.get_image(world.year)
 			%NameLabel.text = npc.name + " " # Extra whitespace at the end
 
 

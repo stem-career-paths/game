@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="NpcDefinition" load_steps=3 format=3 uid="uid://cmcfwu84jfprv"]
+[gd_resource type="Resource" script_class="NpcDefinition" load_steps=4 format=3 uid="uid://cmcfwu84jfprv"]
 
 [ext_resource type="Script" path="res://cast/npc_definition.gd" id="1_a6stl"]
 [ext_resource type="Texture2D" uid="uid://bfeif5iosw0gv" path="res://cast/hilda.png" id="1_rsgxv"]
+[ext_resource type="Texture2D" uid="uid://xt5mfohci7hk" path="res://cast/hilda_young.png" id="2_311ig"]
 
 [resource]
 script = ExtResource("1_a6stl")
 name = "Hilda"
-image = ExtResource("1_rsgxv")
+student = true
+images = Array[Texture]([ExtResource("2_311ig"), ExtResource("1_rsgxv")])

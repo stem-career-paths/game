@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("1_t3iar")
 name = "Ms. Finch"
-image = ExtResource("1_78y0o")
+student = false
+images = Array[Texture]([ExtResource("1_78y0o")])

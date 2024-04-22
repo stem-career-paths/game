@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="NpcDefinition" load_steps=3 format=3 uid="uid://da82e2nowucrc"]
+[gd_resource type="Resource" script_class="NpcDefinition" load_steps=4 format=3 uid="uid://da82e2nowucrc"]
 
 [ext_resource type="Texture2D" uid="uid://nnsvltgmeigg" path="res://cast/ethan.png" id="1_o83wk"]
 [ext_resource type="Script" path="res://cast/npc_definition.gd" id="2_2jw81"]
+[ext_resource type="Texture2D" uid="uid://bni38tfafxt6v" path="res://cast/ethan_young.png" id="2_7o6wp"]
 
 [resource]
 script = ExtResource("2_2jw81")
 name = "Ethan"
-image = ExtResource("1_o83wk")
+student = true
+images = Array[Texture]([ExtResource("2_7o6wp"), ExtResource("1_o83wk")])
