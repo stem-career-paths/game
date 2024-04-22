@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("1_a6stl")
 name = "Hilda"
-upperclass_image = ExtResource("1_rsgxv")
-underclass_image = ExtResource("2_311ig")
+student = true
+images = Array[Texture]([ExtResource("2_311ig"), ExtResource("1_rsgxv")])
