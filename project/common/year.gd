@@ -73,3 +73,7 @@ static func values() -> Array[Name]:
 		Name.JUNIOR,
 		Name.SENIOR,
 	]
+
+
+static func is_underclass(year : Name) -> bool:
+	return year == Name.FRESHMAN or year == Name.SOPHOMORE
