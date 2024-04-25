@@ -73,6 +73,14 @@ func generate_postlude_text(epilogue:Epilogue) -> Array[EpilogueText]:
 		return [
 			_p("After graduation you continue to stay involved with your local scout group by volunteering when possible. You often decide spend your free time doing scouty things, like fishing, hiking, and memorizing obscure nature trivia.")
 		]
+	if epilogue.character.has_tag(Tags.Tag.SUCCEEDED_AP_EXAM):
+		return [
+			_p("Thanks to your AP physics class, you got some credits in early for college, meaning you had to take less classes that were for general education. It made your schedule lighter and let you have some more free time!")
+		]
+	if epilogue.character.has_tag(Tags.Tag.FAILED_AP_EXAM):
+		return [
+			_p("Unfortunately, you didn't pass the AP Physics exam, and didn't earn college credit. However, that meant you got to interact with more students outside of your major, and broaden your world view!")
+		]
 	return []
 	
 
