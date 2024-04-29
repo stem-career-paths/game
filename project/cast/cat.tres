@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NpcDefinition" load_steps=3 format=3 uid="uid://dhbbqb7sm6gir"]
+
+[ext_resource type="Texture2D" uid="uid://dodck5whisk6d" path="res://cast/cat.png" id="1_jh2jh"]
+[ext_resource type="Script" path="res://cast/npc_definition.gd" id="3_4q33q"]
+
+[resource]
+script = ExtResource("3_4q33q")
+name = "Cat"
+student = false
+images = Array[Texture]([ExtResource("1_jh2jh")])
