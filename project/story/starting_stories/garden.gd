@@ -21,7 +21,7 @@ var options := {
 	},
 	"Zen garden": {
 		"text": "\"Woah! I didn't think of that one! It's a lot of hard work, but it'll definitely pay off! Grandma will love it!\"",
-		"options": {
+		"effects": {
 			"engineering": +1
 		}
 	},

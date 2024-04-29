@@ -1,5 +1,7 @@
 extends SimpleStory
 
+const _EXAM_DIR := "res://story/ap_physics/exam/"
+
 var text := [
 	'"Good morning everyone! Welcome to AP Physics! Let\'s get started right away!"',
 	'"We have a lot to cover. We\'ll be talking about movement, force, electricity, and waves."'
@@ -38,4 +40,4 @@ var options := {
 
 
 func on_option_selected(_option, world : World) -> void:
-	world.add_stories("res://story/ap_physics/exam/")
+	world.add_stories(_EXAM_DIR)
