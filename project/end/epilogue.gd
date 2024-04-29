@@ -79,7 +79,7 @@ var gap_year := false
 
 var community_college := false
 
-var college_type : InstitutionType = InstitutionType.MEDIUM_PUBLIC
+var college_type : InstitutionType
 
 ## The majors declared
 var majors : Array[String] = []
@@ -109,7 +109,9 @@ static func create_for(character:Character) -> Epilogue:
 		epilogue.community_college = true
 	
 	# Even chance of the institution types. This can be improved later as desired.
-	epilogue.college_type = InstitutionType.keys().pick_random()
+	# In GDScript, enums are just ints, so the random int works here.
+	# (We previously had a defect when trying to get random enums by name.)
+	epilogue.college_type = randi() % InstitutionType.size()
 	
 	# Determine major by highest attribute
 	var keys: Array[String] = []
