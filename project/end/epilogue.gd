@@ -111,7 +111,7 @@ static func create_for(character:Character) -> Epilogue:
 	# Even chance of the institution types. This can be improved later as desired.
 	# In GDScript, enums are just ints, so the random int works here.
 	# (We previously had a defect when trying to get random enums by name.)
-	epilogue.college_type = randi() % InstitutionType.size()
+	epilogue.college_type = randi() % InstitutionType.size() as InstitutionType
 	
 	# Determine major by highest attribute
 	var keys: Array[String] = []
