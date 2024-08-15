@@ -90,7 +90,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(680, 720)
+size = Vector2i(640, 720)
 render_target_update_mode = 4
 
 [node name="ParallaxBackground" parent="BlueBackground/MarginContainer/WhiteBackground/VBoxContainer/MarginContainer/MainPanel/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("5_rvet4")]

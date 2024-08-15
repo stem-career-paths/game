@@ -1,7 +1,5 @@
 extends Control
 
-signal _option_selected(option: String)
-
 const _CAST_PATH := "res://cast/"
 const _LOCATIONS_PATH := "res://locations/"
 const _MAX_REDRAW_TO_PREVENT_BACK_TO_BACK := 10

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ebrhp55oc1to"]
+[gd_scene load_steps=10 format=3 uid="uid://ebrhp55oc1to"]
 
 [ext_resource type="Script" path="res://ui/credits/credits_panel.gd" id="1_6qchm"]
 [ext_resource type="PackedScene" uid="uid://b8q1tdpaxtldy" path="res://ui/audible_button.tscn" id="1_ftdhd"]
 [ext_resource type="PackedScene" uid="uid://ccc5cu6saadq3" path="res://ui/credits/open_source_license_control.tscn" id="3_4r0ho"]
 [ext_resource type="FontFile" uid="uid://dwaxej03kcxd5" path="res://ui/credits/OpenSans.ttf" id="3_llkcx"]
 [ext_resource type="Texture2D" uid="uid://066oymal7fce" path="res://ui/credits/logo.png" id="3_xf3jj"]
+[ext_resource type="Script" path="res://ui/credits/version_label.gd" id="4_lteo6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wiptq"]
 bg_color = Color(0.133333, 0.305882, 0.65098, 1)
@@ -45,10 +46,12 @@ theme = SubResource("Theme_2hkwo")
 layout_mode = 2
 size_flags_vertical = 3
 tab_alignment = 1
+current_tab = 0
 
 [node name="Game Credits" type="MarginContainer" parent="VBox/TabContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 15
+metadata/_tab_index = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBox/TabContainer/Game Credits"]
 layout_mode = 2
@@ -67,6 +70,12 @@ size_flags_vertical = 4
 texture = ExtResource("3_xf3jj")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="VersionLabel" type="Label" parent="VBox/TabContainer/Game Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Version X"
+horizontal_alignment = 1
+script = ExtResource("4_lteo6")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBox/TabContainer/Game Credits/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -125,9 +134,9 @@ Godot Engine
 [url]https://godotengine.org/license/[/url]
 License: Expat
 
-Cross-Origin Isolation Service Worker
-©2021-2023 Guido Zuidhof
-[url]https://github.com/gzuidhof/coi-serviceworker[/url]
+Self-Destroying Service Worker
+©2017 Arthur Stolyar
+[url]https://github.com/NekR/self-destroying-sw[/url]
 License: Expat
 
 Open Sans Font
@@ -155,6 +164,7 @@ fit_content = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBox"]
 layout_mode = 2
