@@ -3,4 +3,3 @@
 
 # Godot builds
 build/
-!build/web/serve.py
