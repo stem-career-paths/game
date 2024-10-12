@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcuhgkvouhkiq"]
+[gd_scene load_steps=11 format=3 uid="uid://c1gf1wxlvp00h"]
 
-[ext_resource type="Script" path="res://ui/start_scene/cast_carousel.gd" id="1_k5iq2"]
 [ext_resource type="PackedScene" uid="uid://dmbe6mlt6wbgr" path="res://ui/start_scene/character_preview.tscn" id="2_efetd"]
 [ext_resource type="Texture2D" uid="uid://nnsvltgmeigg" path="res://cast/ethan.png" id="3_26k61"]
 [ext_resource type="Texture2D" uid="uid://bfeif5iosw0gv" path="res://cast/hilda.png" id="3_pxqv0"]
@@ -11,9 +10,24 @@
 [ext_resource type="Texture2D" uid="uid://c860cnqmcornx" path="res://locations/classroom.png" id="8_cbre5"]
 [ext_resource type="Texture2D" uid="uid://bmkysfcdftaiw" path="res://locations/lunchroom.png" id="9_q1wsy"]
 
+[sub_resource type="GDScript" id="GDScript_0tbvi"]
+script/source = "extends ParallaxBackground
+
+@export var speed := 250.0
+
+func _ready():
+	# Make the layer loop by setting its motion mirror to the width
+	# of the container.
+	$ParallaxLayer.motion_mirroring.x = $ParallaxLayer/HBoxContainer.size.x
+
+
+func _process(delta):
+	scroll_offset.x -= delta * speed
+"
+
 [node name="ParallaxBackground" type="ParallaxBackground"]
 layer = 0
-script = ExtResource("1_k5iq2")
+script = SubResource("GDScript_0tbvi")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 

@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3kw3amfgirv1"]
+
+[ext_resource type="Script" path="res://ui/cast_preview.gd" id="1_tjoh5"]
+[ext_resource type="PackedScene" uid="uid://dmbe6mlt6wbgr" path="res://ui/start_scene/character_preview.tscn" id="2_ch53q"]
+[ext_resource type="Texture2D" uid="uid://nnsvltgmeigg" path="res://cast/ethan.png" id="3_r85gh"]
+[ext_resource type="Texture2D" uid="uid://cbcvn5aqnt5ps" path="res://locations/courtyard.png" id="4_54onl"]
+[ext_resource type="Texture2D" uid="uid://bfeif5iosw0gv" path="res://cast/hilda.png" id="5_fgp5f"]
+[ext_resource type="Texture2D" uid="uid://bmkysfcdftaiw" path="res://locations/lunchroom.png" id="6_qopvr"]
+[ext_resource type="Texture2D" uid="uid://8feisb4hegcw" path="res://cast/mary.png" id="7_u16gr"]
+[ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://locations/hallway.png" id="8_8tya7"]
+[ext_resource type="Texture2D" uid="uid://b7srskjmxkvei" path="res://cast/steven.png" id="9_vowe0"]
+[ext_resource type="Texture2D" uid="uid://c860cnqmcornx" path="res://locations/classroom.png" id="10_o8nvl"]
+
+[node name="CastPreview" type="Control"]
+custom_minimum_size = Vector2(640, 720)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 720.0
+grow_horizontal = 2
+script = ExtResource("1_tjoh5")
+
+[node name="Cast" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterPreview" parent="Cast" instance=ExtResource("2_ch53q")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+npc_image = ExtResource("3_r85gh")
+location_image = ExtResource("4_54onl")
+
+[node name="CharacterPreview2" parent="Cast" instance=ExtResource("2_ch53q")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+npc_image = ExtResource("5_fgp5f")
+location_image = ExtResource("6_qopvr")
+
+[node name="CharacterPreview3" parent="Cast" instance=ExtResource("2_ch53q")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+npc_image = ExtResource("7_u16gr")
+location_image = ExtResource("8_8tya7")
+
+[node name="CharacterPreview4" parent="Cast" instance=ExtResource("2_ch53q")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+npc_image = ExtResource("9_vowe0")
+location_image = ExtResource("10_o8nvl")
+
+[node name="VisibleDuration" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="VisibleDuration" to="." method="_on_visible_duration_timeout"]
