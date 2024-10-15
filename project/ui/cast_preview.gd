@@ -6,7 +6,8 @@ extends Control
 ## The child index that is currently shown
 var _index := 0
 
-@onready var _cast_previews : Array[Node] = %Cast.get_children()
+@onready var _cast: Control = %Cast
+@onready var _cast_previews : Array[Node] = _cast.get_children()
 
 
 func _ready() -> void:
@@ -21,4 +22,5 @@ func _on_visible_duration_timeout() -> void:
 	create_tween().tween_property(current, "modulate:a", 0, crossfade_speed)
 	_index = (_index + 1) % _cast_previews.size()
 	var next := _cast_previews[_index]
-	create_tween().tween_property(next, "modulate:a", 1, crossfade_speed)
+	next.modulate.a = 1
+	_cast.move_child(next, 0)

@@ -1,15 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctpger8oqxh5u"]
+[gd_scene load_steps=2 format=3 uid="uid://ctpger8oqxh5u"]
 
-[ext_resource type="Shader" path="res://ui/gaussian_blur.gdshader" id="1_g6ft6"]
 [ext_resource type="Texture2D" uid="uid://dn3sdi40yoltw" path="res://locations/hallway.png" id="2_6s82d"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5qot"]
-shader = ExtResource("1_g6ft6")
-shader_parameter/step = Vector2(0.5, 0.8)
-shader_parameter/radius = 8.0
-
 [node name="Location" type="TextureRect"]
-material = SubResource("ShaderMaterial_o5qot")
 texture = ExtResource("2_6s82d")
 expand_mode = 1
 stretch_mode = 6

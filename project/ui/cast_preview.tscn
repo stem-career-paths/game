@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3kw3amfgirv1"]
+[gd_scene load_steps=12 format=3 uid="uid://d3kw3amfgirv1"]
 
 [ext_resource type="Script" path="res://ui/cast_preview.gd" id="1_tjoh5"]
 [ext_resource type="PackedScene" uid="uid://dmbe6mlt6wbgr" path="res://ui/start_scene/character_preview.tscn" id="2_ch53q"]
+[ext_resource type="StyleBox" uid="uid://dlbigrenfpyvm" path="res://ui/white_rounded_style_box.tres" id="2_fg3fa"]
 [ext_resource type="Texture2D" uid="uid://nnsvltgmeigg" path="res://cast/ethan.png" id="3_r85gh"]
 [ext_resource type="Texture2D" uid="uid://cbcvn5aqnt5ps" path="res://locations/courtyard.png" id="4_54onl"]
 [ext_resource type="Texture2D" uid="uid://bfeif5iosw0gv" path="res://cast/hilda.png" id="5_fgp5f"]
@@ -23,7 +24,7 @@ offset_bottom = 720.0
 grow_horizontal = 2
 script = ExtResource("1_tjoh5")
 
-[node name="Cast" type="Control" parent="."]
+[node name="Cast" type="Panel" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -31,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_fg3fa")
 
 [node name="CharacterPreview" parent="Cast" instance=ExtResource("2_ch53q")]
 layout_mode = 1

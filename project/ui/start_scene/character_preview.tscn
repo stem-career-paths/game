@@ -13,7 +13,6 @@ script = ExtResource("2_dexm5")
 
 [node name="Location" parent="." instance=ExtResource("2_gdob0")]
 unique_name_in_owner = true
-clip_children = 2
 layout_mode = 2
 texture = null
 expand_mode = 0
@@ -21,9 +20,14 @@ stretch_mode = 0
 
 [node name="Npc" type="TextureRect" parent="Location"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 720.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
 
 [node name="RoundedWhiteFrame" parent="." instance=ExtResource("5_bl4kh")]
 layout_mode = 2
